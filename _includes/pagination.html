@@ -1,0 +1,8 @@
+<div class="pagination">
+	{% if paginator.page_trail %} 
+		{% for trail in paginator.page_trail %}
+		{% assign parsedPageURL = page.url %}
+			<a class="{% if parsedPageURL == trail.path %}active-page{% endif %}" href="{{ trail.path | prepend: site.url }}" title="{{trail.title}}">{{ trail.num }}</a>
+		{% endfor %} 
+	{% endif %}
+</div>
