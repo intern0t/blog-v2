@@ -9,7 +9,7 @@ I am a full-time University Student, majoring in Computer Science and Computer E
 ### Contact
 
 1. via. Email <i class="far fa-envelope"></i>
-   * `contact@prashant.me`
+   * `contact[at]prashant.me`
 2. via. [IRC @Freenode]() <i class="fas fa-network-wired"></i>
    * `Scarecr0w`, `Scarecr0w_`
 3. via. [Twitter]({{ site.social.twitter | prepend: 'https://twitter.com/' }}) <i class="fab fa-twitter"></i>

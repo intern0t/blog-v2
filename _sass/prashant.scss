@@ -20,6 +20,10 @@ $size_: 100% 3px;
 $globalWidth: 720px;
 $linkColor: #116fd8;
 
+* {
+	outline: none;
+}
+
 body {
 	font-family: $Roboto;
 	font-size: 18px;
@@ -155,7 +159,6 @@ body {
 					&-content {
 						flex: 1;
 						margin: 10px 0 30px 0;
-						font-family: $Roboto;
 						font-size: 13px;
 						line-height: 20px;
 						letter-spacing: .2px;
@@ -269,7 +272,8 @@ body {
 							padding: 0 20px;
 							margin: 0 auto;
 							background: rgba(17, 111, 216, 0.03);
-							margin-top: 10px;
+							margin-top: 20px;
+							margin-bottom: 10px;
 						}
 
 						ol,
@@ -419,6 +423,7 @@ body {
 
 		&:hover {
 			background-color: rgba($linkColor, 1);
+			text-decoration: none;
 		}
 
 		i {
