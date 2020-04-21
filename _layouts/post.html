@@ -36,25 +36,14 @@ layout: default
     <div class="post-content e-content" itemprop="articleBody">
         {%- if page.poster -%}
         <div class="post-content-poster">
-            <img
-                src="{{ page.poster }}"
-                alt="{{ page.title }}"
-            />
+            <img src="{{ page.poster }}" alt="{{ page.title }}" />
         </div>
-        {%- endif -%} {{ content }}
+        {%- endif -%}
+        {{ content }}
     </div>
 
     <!-- Next and Previous posts. -->
-    <section class="post-neighbours">
-        <!-- Previous Post -->
-        {% if page.previous.url %}
-        <a href="{{ page.previous.url }}" title="{{ page.previous.title }}" style="text-align: left;"><i class="fas fa-angle-left"></i> Previous Post</a>
-        {% endif %}
-        <!-- Next Post -->
-        {% if page.next.url %}
-        <a href="{{ page.next.url }}" title="{{ page.next.title }}" style="text-align: right;">Next Post <i class="fas fa-angle-right"></i></a>
-        {% endif %}
-    </section>
+    {%- include post_neighbours.html -%}
 
     {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%} {%-
     endif -%}

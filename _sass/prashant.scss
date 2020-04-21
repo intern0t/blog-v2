@@ -7,18 +7,53 @@
 
 @charset "utf-8";
 
-@import "./_includes/reset",
-	"./_includes/fonts",
-	"./_includes/mixins",
-	"./_includes/pygments",
-	"./_includes/responsive";
+@import "./_includes/reset", "./_includes/fonts", "./_includes/mixins", "./_includes/responsive";
 
 $gradient_: 90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%, #3498db 32%, #9b59b6 32%, #9b59b6 35%,
 	#34495e 35%, #34495e 55%, #f1c40f 55%, #f1c40f 59%, #e67e22 59%, #e67e22 63%, #e74c3c 63%, #e74c3c 82%, #ecf0f1 82%,
 	#ecf0f1 92%, #95a5a6 92%;
 $size_: 100% 3px;
 $globalWidth: 720px;
-$linkColor: #116fd8;
+
+:root {
+	--backgroundColor: white;
+	--foregroundColor: rgba(0, 0, 0, 0.7);
+	--linkColor: #116fd8;
+	--codeBackgroundColor: #1b1b1b;
+	--inlineCodeBackground: rgba(128, 128, 128, .18);
+	--inlineCodeBorder: rgba(128, 128, 128, .28);
+	--foregroundCodeColor: rgba(0, 0, 0, .44);
+	--codeColor: rgba(0, 0, 0, 0.44);
+	--fontColorHomeLink: rgba(0, 0, 0, 0.7);
+	--fontColorRegular: rgba(0, 0, 0, 0.6);
+	--fontColorImportant: rgba(0, 0, 0, 0.8);
+	--fontColorMeta: rgb(85, 85, 85);
+	--quoteBackgroundColor: rgba(17, 111, 216, 0.03);
+	--quoteBorderColor: #8080804d;
+	--borderColor: #9a9a9a54;
+	--paginationBorder: var(--quoteBorderColor);
+	--toTop: rgba(0, 0, 0, .2);
+}
+
+[data-theme="dark"] {
+	--backgroundColor: black;
+	--foregroundColor: rgba(255, 255, 255, 0.9);
+	--linkColor: #116fd8;
+	--codeBackgroundColor: #1b1b1b;
+	--inlineCodeBackground: #1f1f1f;
+	--inlineCodeBorder: #292929;
+	--foregroundCodeColor: rgba(255, 255, 255, .55);
+	--codeColor: rgba(255, 255, 255, 0.55);
+	--fontColorHomeLink: rgba(255, 255, 255, 0.5);
+	--fontColorRegular: rgba(255, 255, 255, 0.6);
+	--fontColorImportant: rgba(255, 255, 255, 0.8);
+	--fontColorMeta: rgb(85, 85, 85);
+	--quoteBackgroundColor: rgba(17, 111, 216, 0.03);
+	--quoteBorderColor: #8080804d;
+	--borderColor: #9a9a9a54;
+	--paginationBorder: rgba(#808080, 0.5);
+	--toTop: rgba(255, 255, 255, .2);
+}
 
 * {
 	outline: none;
@@ -41,6 +76,7 @@ body {
 	-moz-background-size: $size_;
 	-o-background-size: $size_;
 	background-size: $size_;
+	background-color: var(--backgroundColor);
 
 	.container {
 		width: $globalWidth;
@@ -54,24 +90,30 @@ body {
 		@include Flex(column);
 
 		.site-header {
-			@include Flex(row);
-			justify-content: flex-start;
-			align-items: center;
-			margin: 90px 0;
-
 			@include breakpoint(xs) {
 				width: 100%;
 				justify-content: center;
 			}
 
-			a,
-			a:visited {
-				font-size: 19px;
-				line-height: 30px;
-				text-decoration: none;
-				font-family: $Playfair_Display;
-				color: rgba(black, .7);
-				letter-spacing: .2px;
+			.wrapper {
+				@include Flex(row);
+				justify-content: space-between;
+				align-items: center;
+				align-content: center;
+				margin: 90px 0;
+
+				.site-title {
+					font-size: 19px;
+					line-height: 30px;
+					text-decoration: none;
+					font-family: $Playfair_Display;
+					color: var(--foregroundColor);
+					letter-spacing: .2px;
+				}
+
+				.site-theme-toggle {
+					color: var(--foregroundColor);
+				}
 			}
 		}
 
@@ -97,7 +139,7 @@ body {
 						font-family: $Roboto;
 						text-align: right;
 						margin: 2px 50px 0 0;
-						color: rgb(85, 85, 85);
+						color: var(--fontColorMeta);
 					}
 
 					.post-link {
@@ -107,11 +149,11 @@ body {
 						font-weight: 400;
 						text-decoration: none;
 						font-family: $Roboto;
-						color: rgba(black, .7);
+						color: var(--fontColorHomeLink);
 						transition: color .3s ease-in-out;
 
 						&:hover {
-							color: rgba($linkColor, .9);
+							color: var(--linkColor);
 						}
 					}
 				}
@@ -140,7 +182,7 @@ body {
 							line-height: 30px;
 							text-decoration: none;
 							font-family: $Playfair_Display;
-							color: rgba(black, .8);
+							color: var(--fontColorImportant);
 							margin: 0 0 10px 0;
 						}
 
@@ -150,7 +192,7 @@ body {
 							line-height: 14px;
 							text-decoration: none;
 							font-family: $Roboto;
-							color: rgba(black, .8);
+							color: var(--fontColorImportant);
 							margin: 10px 0;
 							letter-spacing: .2px;
 						}
@@ -163,7 +205,7 @@ body {
 						line-height: 20px;
 						letter-spacing: .2px;
 						font-family: $Roboto;
-						color: rgba(0, 0, 0, 0.6);
+						color: var(--fontColorRegular);
 						$headingFontSize: 14px;
 
 						&-poster {
@@ -190,7 +232,7 @@ body {
 							letter-spacing: .4px;
 							text-decoration: none;
 							font-family: $Playfair_Display;
-							color: black;
+							color: var(--foregroundColor);
 							margin: 20px 0;
 						}
 						h5 {
@@ -215,14 +257,14 @@ body {
 							line-height: 20px;
 
 							code {
-								background: rgba(gray, .1);
-								border: 1px solid rgba(gray, .2);
+								background: var(--inlineCodeBackground);
+								border: 1px solid var(--inlineCodeBorder);
 								padding: 0 4px;
 								font-family: monospace;
 								font-size: 12px;
 								line-height: 20px;
 								border-radius: 3px;
-								color: rgba(black, .55);
+								color: var(--foregroundCodeColor);
 							}
 
 							img {
@@ -230,7 +272,7 @@ body {
 								transition: box-shadow .3s ease-in-out;
 
 								&:hover {
-									box-shadow: 0px 0px 5px 0.5px rgba(black, .7);
+									box-shadow: 0px 0px 5px 0.5px var(--fontColorHomeLink);
 								}
 							}
 
@@ -268,10 +310,10 @@ body {
 							padding: 0;
 							margin: 0;
 							overflow: hidden;
-							border-left: 4px solid #8080804d;
+							border-left: 4px solid var(--quoteBorderColor);
 							padding: 0 20px;
 							margin: 0 auto;
-							background: rgba(17, 111, 216, 0.03);
+							background: var(--quoteBackgroundColor);
 							margin-top: 20px;
 							margin-bottom: 10px;
 						}
@@ -325,26 +367,26 @@ body {
 						margin: 0 10px;
 						padding: 5px 10px;
 						text-decoration: none;
-						color: rgba(black, .6);
+						color: var(--fontColorRegular);
 						border-radius: 2px;
 						font-size: 13px;
 						border: 1px solid transparent;
 						transition: border .3s ease-in-out;
 
 						&:hover {
-							border: 1px solid rgba(black, .3);
+							border: 1px solid var(--paginationBorder);
 						}
 					}
 
 					.active-page {
-						border: 1px solid rgba(black, .3);
+						border: 1px solid var(--paginationBorder);
 					}
 				}
 			}
 		}
 
 		.site-footer {
-			border-top: 1px solid #9a9a9a54;
+			border-top: 1px solid var(--borderColor);
 			margin: 20px 0;
 			padding: 30px 0;
 
@@ -359,7 +401,7 @@ body {
 				font-weight: 400;
 				text-decoration: none;
 				font-family: $Roboto;
-				color: rgba(black, 0.9);
+				color: var(--fontColorRegular);
 
 				div {
 					flex: 1;
@@ -379,7 +421,7 @@ body {
 
 					a,
 					a:visited {
-						color: rgba(black, 0.9);
+						color: var(--fontColorRegular);
 						margin: 0 10px;
 
 						&:hover {
@@ -412,7 +454,7 @@ body {
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
-		background-color: rgba(gray, .7);
+		background-color: var(--toTop);
 		display: none;
 		@include Flex(row);
 		justify-content: center;
@@ -422,26 +464,26 @@ body {
 		transition: all .3s ease-in-out;
 
 		&:hover {
-			background-color: rgba($linkColor, 1);
+			background-color: var(--linkColor);
 			text-decoration: none;
 		}
 
 		i {
-			color: white;
+			color: var(--backgroundColor);
 		}
 	}
 }
 
 a,
 a:visited {
-	color: $linkColor;
+	color: var(--linkColor);
 	font-family: $Roboto;
 	text-decoration: none;
 	transition: all .3s ease-in-out;
 
 	&:hover {
 		text-decoration: underline;
-		color: rgba($linkColor, .9);
+		color: var(--linkColor);
 	}
 
 	&:first-child > code {
@@ -456,21 +498,21 @@ a:visited {
 }
 
 code {
-	background: rgba(gray, .1);
-	border: 1px solid rgba(gray, .2);
+	background: var(--inlineCodeBackground);
+	border: 1px solid var(--inlineCodeBorder);
 	padding: 0 4px;
 	font-family: monospace;
 	font-size: 12px;
 	line-height: 20px;
 	border-radius: 3px;
-	color: rgba(black, .5);
+	color: var(--foregroundCodeColor);
 }
 
 .highlight {
 	font-family: monospace;
 	font-size: 12px;
-	background-color: rgba(gray, 0.15);
-	color: white;
+	background-color: var(--codeBackgroundColor);
+	color: var(--backgroundColor);
 	padding: 10px;
 
 	pre {
@@ -482,7 +524,7 @@ code {
 			font-size: 12px;
 			line-height: 20px;
 			padding: 0 !important;
-			color: rgba(black, .5);
+			color: var(--codeColor);
 		}
 	}
 }

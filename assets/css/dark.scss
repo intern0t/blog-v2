@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) 2020, Prashant Shrestha
+ * Document: _sass/dark.scss
+ * Developer: Prashant Shrestha (https://prashant.me)
+ * Date: 2020-04-21
+ */
+
+@charset "utf-8";
+
+$backgroundColor: black;
+$foregroundColor: white;
+$linkColor: #116fd8;
+$codeBackgroundColor: gray;
+$inlineCodeBackground: #f36868;
+$inlineCodeBorder: yellow;
+$codeColor: rgba($foregroundColor, 0.55);
+$fontColorHomeLink: rgba($foregroundColor, 0.7);
+$fontColorRegular: rgba($foregroundColor, 0.6);
+$fontColorImportant: rgba($foregroundColor, 0.8);
+$fontColorMeta: rgb(85, 85, 85);
+$quoteBackgroundColor: rgba(17, 111, 216, 0.03);
+$quoteBorderColor: #8080804d;
+$borderColor: #9a9a9a54;
+
+@import "./pygments/monokai.css", "prashant";

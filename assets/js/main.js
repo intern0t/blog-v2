@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	/* Images Lazy Load.
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 	const observer = lozad('.lazy', {
 		loaded: (el) => {
 			el.src = el.dataset.src;
@@ -8,6 +10,24 @@ $(document).ready(function() {
 		}
 	});
 	observer.observe();
+
+	/* Theming - Light & Dark
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	const currentTheme = localStorage.getItem('theme') || 'light';
+
+	if (currentTheme) {
+		document.documentElement.setAttribute('data-theme', currentTheme);
+
+		$('.site-theme-toggle .fa-lightbulb')
+			.removeClass('fas')
+			.removeClass('far')
+			.addClass(currentTheme === 'light' ? 'far' : 'fas');
+
+		$('.site-theme-toggle .fa-lightbulb').prop(
+			'title',
+			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
+		);
+	}
 
 	/* Image Lightbox Initialization
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -67,5 +87,35 @@ $(document).ready(function() {
 		} else {
 			$('.to-top').fadeOut();
 		}
+	});
+
+	/* Toggle theme
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	$('.site-theme-toggle').on('click', function(e) {
+		e.preventDefault();
+		var currentTheme = localStorage.getItem('theme');
+		if (currentTheme && (currentTheme == 'dark' || currentTheme == 'light')) {
+			if (currentTheme == 'dark') {
+				document.documentElement.setAttribute('data-theme', 'light');
+				localStorage.setItem('theme', 'light');
+			} else {
+				document.documentElement.setAttribute('data-theme', 'dark');
+				localStorage.setItem('theme', 'dark');
+			}
+		} else {
+			// Other value for our theme = !dark, !light. Set to default light.
+			document.documentElement.setAttribute('data-theme', 'light');
+			localStorage.setItem('theme', 'light');
+		}
+
+		currentTheme = localStorage.getItem('theme');
+		$('.site-theme-toggle .fa-lightbulb')
+			.removeClass('fas')
+			.removeClass('far')
+			.addClass(currentTheme === 'light' ? 'far' : 'fas');
+		$('.site-theme-toggle .fa-lightbulb').prop(
+			'title',
+			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
+		);
 	});
 });
