@@ -1,6 +1,4 @@
 <footer class="site-footer h-card">
-    <!-- <data class="u-url" href="{{ "/" | relative_url }}"></data> -->
-
     <div class="wrapper">
         <div class="wrapper-copyright">
             Copyright &copy; <a href="/about">{{ site.title | escape }}</a>
@@ -14,6 +12,9 @@
             {%- endif -%}
             {%- if site.social.github -%}
             <a href="{{ site.social.github | prepend: 'https://github.com/' }}"><i class="fab fa-github-alt"></i></a>
+            {%- endif -%}
+            {%- if site.social.uptime -%}
+            <a href="https://uptime.prashant.me"><i class="fas fa-chart-bar"></i></a>
             {%- endif -%}
             <a href={{ "/feed.xml" | relative_url }}><i class="fas fa-rss"></i></a>
         </div>
