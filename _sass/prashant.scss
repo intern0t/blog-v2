@@ -22,13 +22,13 @@ $globalWidth: 720px;
 	--codeBackgroundColor: #1b1b1b;
 	--inlineCodeBackground: rgba(128, 128, 128, .18);
 	--inlineCodeBorder: rgba(128, 128, 128, .28);
-	--foregroundCodeColor: rgba(0, 0, 0, .44);
-	--codeColor: rgba(0, 0, 0, 0.44);
+	--foregroundCodeColor: rgba(0, 0, 0, .55);
+	--codeColor: rgba(255, 255, 255, 0.44);
 	--fontColorHomeLink: rgba(0, 0, 0, 0.7);
 	--fontColorRegular: rgba(0, 0, 0, 0.6);
 	--fontColorImportant: rgba(0, 0, 0, 0.8);
 	--fontColorMeta: rgb(85, 85, 85);
-	--quoteBackgroundColor: rgba(17, 111, 216, 0.03);
+	--quoteBackgroundColor: rgba(17, 111, 216, 0.09);
 	--quoteBorderColor: #8080804d;
 	--borderColor: #9a9a9a54;
 	--paginationBorder: var(--quoteBorderColor);
@@ -48,10 +48,10 @@ $globalWidth: 720px;
 	--fontColorRegular: rgba(255, 255, 255, 0.6);
 	--fontColorImportant: rgba(255, 255, 255, 0.8);
 	--fontColorMeta: rgb(85, 85, 85);
-	--quoteBackgroundColor: rgba(17, 111, 216, 0.03);
+	--quoteBackgroundColor: rgba(255, 255, 255, 0.09);
 	--quoteBorderColor: #8080804d;
 	--borderColor: #9a9a9a54;
-	--paginationBorder: rgba(#808080, 0.5);
+	--paginationBorder: rgba(255, 255, 255, 0.3);
 	--toTop: rgba(255, 255, 255, .2);
 }
 
@@ -107,7 +107,7 @@ body {
 					line-height: 30px;
 					text-decoration: none;
 					font-family: $Playfair_Display;
-					color: var(--foregroundColor);
+					color: var(--fontColorRegular);
 					letter-spacing: .2px;
 				}
 
@@ -310,7 +310,7 @@ body {
 							padding: 0;
 							margin: 0;
 							overflow: hidden;
-							border-left: 4px solid var(--quoteBorderColor);
+							border-left: 4px solid var(--linkColor);
 							padding: 0 20px;
 							margin: 0 auto;
 							background: var(--quoteBackgroundColor);
@@ -370,7 +370,7 @@ body {
 						color: var(--fontColorRegular);
 						border-radius: 2px;
 						font-size: 13px;
-						border: 1px solid transparent;
+						border: 1px solid none;
 						transition: border .3s ease-in-out;
 
 						&:hover {
@@ -401,7 +401,7 @@ body {
 				font-weight: 400;
 				text-decoration: none;
 				font-family: $Roboto;
-				color: var(--fontColorRegular);
+				color: var(--fontColorHomeLink);
 
 				div {
 					flex: 1;
