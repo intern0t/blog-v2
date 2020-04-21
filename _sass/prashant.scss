@@ -75,7 +75,7 @@ body {
 			font-size: 14px;
 
 			.post-list {
-				margin: 0 0 0 0;
+				margin: 0;
 
 				li {
 					@include Flex(row);
@@ -261,7 +261,6 @@ body {
 						}
 
 						blockquote {
-							width: 80%;
 							word-break: break-word;
 							padding: 0;
 							margin: 0;
@@ -275,7 +274,7 @@ body {
 
 						ol,
 						ul {
-							margin: 20px 0;
+							margin: 20px;
 							padding: 0 20px;
 
 							li {
@@ -288,6 +287,23 @@ body {
 						}
 						ul {
 							list-style-type: square;
+						}
+					}
+
+					// Post Neighbours styling
+					&-neighbours {
+						@include Flex(row);
+						align-items: center;
+						align-content: center;
+						justify-content: space-between;
+						flex-wrap: wrap;
+
+						a {
+							flex: 1;
+							font-size: 13px;
+							line-height: 20px;
+							letter-spacing: .1px;
+							text-decoration: none;
 						}
 					}
 				}
@@ -305,13 +321,19 @@ body {
 						margin: 0 10px;
 						padding: 5px 10px;
 						text-decoration: none;
-						color: rgba(black, .7);
+						color: rgba(black, .6);
 						border-radius: 2px;
 						font-size: 13px;
+						border: 1px solid transparent;
+						transition: border .3s ease-in-out;
+
+						&:hover {
+							border: 1px solid rgba(black, .3);
+						}
 					}
 
 					.active-page {
-						background: rgba(black, .2);
+						border: 1px solid rgba(black, .3);
 					}
 				}
 			}
@@ -366,8 +388,11 @@ body {
 							.fa-rss {
 								color: #f5933a;
 							}
-							.fa-github* {
-								color: rgba(black, .7);
+							.fa-github-alt {
+								color: rgba(gray, .7);
+							}
+							.fa-chart-bar {
+								color: rgba(green, .7);
 							}
 						}
 					}
@@ -402,7 +427,8 @@ body {
 	}
 }
 
-a {
+a,
+a:visited {
 	color: $linkColor;
 	font-family: $Roboto;
 	text-decoration: none;
@@ -410,6 +436,7 @@ a {
 
 	&:hover {
 		text-decoration: underline;
+		color: rgba($linkColor, .9);
 	}
 
 	&:first-child > code {

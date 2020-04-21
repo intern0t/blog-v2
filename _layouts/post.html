@@ -44,6 +44,18 @@ layout: default
         {%- endif -%} {{ content }}
     </div>
 
+    <!-- Next and Previous posts. -->
+    <section class="post-neighbours">
+        <!-- Previous Post -->
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url }}" title="{{ page.previous.title }}" style="text-align: left;"><i class="fas fa-angle-left"></i> Previous Post</a>
+        {% endif %}
+        <!-- Next Post -->
+        {% if page.next.url %}
+        <a href="{{ page.next.url }}" title="{{ page.next.title }}" style="text-align: right;">Next Post <i class="fas fa-angle-right"></i></a>
+        {% endif %}
+    </section>
+
     {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%} {%-
     endif -%}
 
