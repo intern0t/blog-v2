@@ -33,12 +33,13 @@ $globalWidth: 720px;
 	--borderColor: #9a9a9a54;
 	--paginationBorder: var(--quoteBorderColor);
 	--toTop: rgba(0, 0, 0, .2);
+	--toggleColor: var(--fontColorHomeLink);
 }
 
 [data-theme="dark"] {
 	--backgroundColor: black;
 	--foregroundColor: rgba(255, 255, 255, 0.9);
-	--linkColor: #116fd8;
+	--linkColor: #3498db;
 	--codeBackgroundColor: #1b1b1b;
 	--inlineCodeBackground: #1f1f1f;
 	--inlineCodeBorder: #292929;
@@ -53,6 +54,7 @@ $globalWidth: 720px;
 	--borderColor: #9a9a9a54;
 	--paginationBorder: rgba(255, 255, 255, 0.3);
 	--toTop: rgba(255, 255, 255, .2);
+	--toggleColor: var(--foregroundColor);
 }
 
 * {
@@ -91,8 +93,10 @@ body {
 
 		.site-header {
 			@include breakpoint(xs) {
-				width: 100%;
+				width: 90%;
 				justify-content: center;
+				text-align: center;
+				margin: 0 auto;
 			}
 
 			.wrapper {
@@ -112,7 +116,7 @@ body {
 				}
 
 				.site-theme-toggle {
-					color: var(--foregroundColor);
+					color: var(--toggleColor);
 				}
 			}
 		}
@@ -175,6 +179,9 @@ body {
 
 					&-header {
 						@include Flex(column);
+						@include breakpoint(xs) {
+							text-align: center;
+						}
 
 						.post-title {
 							flex: 1;
@@ -269,6 +276,8 @@ body {
 
 							img {
 								max-width: $globalWidth;
+								max-width: 100%;
+								overflow: hidden;
 								transition: box-shadow .3s ease-in-out;
 
 								&:hover {
@@ -334,6 +343,62 @@ body {
 						ul {
 							list-style-type: square;
 						}
+
+						/**
+						 * Project page styling.
+						 */
+						.projects {
+							a {
+								.far,
+								.fas,
+								.fab {
+									font-style: normal;
+								}
+							}
+
+							ol,
+							ul {
+								li {
+									margin-bottom: 40px;
+
+									.projects-entry {
+										@include Flex(row);
+										justify-content: space-between;
+										align-items: center;
+										align-content: center;
+
+										&-links {
+											a {
+												margin-left: 10px;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+
+					// Tags
+					&-tags {
+						@include Flex(row);
+						justify-content: flex-start;
+						align-items: center;
+						align-content: center;
+						flex-wrap: wrap;
+						color: var(--fontColorRegular);
+						font-size: 13px;
+						margin: 10px 0;
+
+						i {
+							margin-right: 10px;
+						}
+
+						code {
+							margin-right: 10px;
+							letter-spacing: .7px;
+							font-size: 10px;
+							text-transform: uppercase;
+						}
 					}
 
 					// Post Neighbours styling
@@ -343,6 +408,7 @@ body {
 						align-content: center;
 						justify-content: space-between;
 						flex-wrap: wrap;
+						margin-top: 50px;
 
 						a {
 							flex: 1;
@@ -406,8 +472,18 @@ body {
 				div {
 					flex: 1;
 
+					@include breakpoint(xs) {
+						flex: 1 300px;
+						text-align: center;
+						margin: 10px 0;
+					}
+
 					&:last-child {
 						text-align: right;
+
+						@include breakpoint(xs) {
+							text-align: center;
+						}
 					}
 				}
 
@@ -539,4 +615,10 @@ sup {
 		margin-left: 2px;
 		font-size: 11px;
 	}
+}
+
+.far,
+.fas,
+.fab {
+	font-style: normal;
 }

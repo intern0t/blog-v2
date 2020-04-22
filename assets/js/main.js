@@ -14,15 +14,15 @@ $(document).ready(function() {
 	/* Theming - Light & Dark
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 	const currentTheme = localStorage.getItem('theme') || 'light';
-
+	// Set current theme if the theme data exists in LS.
 	if (currentTheme) {
 		document.documentElement.setAttribute('data-theme', currentTheme);
-
+		// Change lightbulb icon.
 		$('.site-theme-toggle .fa-lightbulb')
 			.removeClass('fas')
 			.removeClass('far')
 			.addClass(currentTheme === 'light' ? 'far' : 'fas');
-
+		// Change lightbulb's trigger title accordingly.
 		$('.site-theme-toggle .fa-lightbulb').prop(
 			'title',
 			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
@@ -93,7 +93,9 @@ $(document).ready(function() {
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 	$('.site-theme-toggle').on('click', function(e) {
 		e.preventDefault();
+		// Try and get current theme (if exists in LS).
 		var currentTheme = localStorage.getItem('theme');
+		// Set data-theme value accordingly.
 		if (currentTheme && (currentTheme == 'dark' || currentTheme == 'light')) {
 			if (currentTheme == 'dark') {
 				document.documentElement.setAttribute('data-theme', 'light');
@@ -108,11 +110,14 @@ $(document).ready(function() {
 			localStorage.setItem('theme', 'light');
 		}
 
+		// Get updated theme value.
 		currentTheme = localStorage.getItem('theme');
+		// Change Icon of our lightbulb.
 		$('.site-theme-toggle .fa-lightbulb')
 			.removeClass('fas')
 			.removeClass('far')
 			.addClass(currentTheme === 'light' ? 'far' : 'fas');
+		// Change title value for our theme trigger.
 		$('.site-theme-toggle .fa-lightbulb').prop(
 			'title',
 			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
