@@ -88,9 +88,9 @@ Share results: http://www.speedtest.net/result/9318056559.png
 I remove the pre-packaged `speedtest-cli` from my server and kept the standalone script version. We can create a symbolic link for the script we downloaded from the `speedtest-cli` repository.
 
 ```bash
-ln -s ~/Documents/speedtest-cli testspeed
+sudo ln -s ~/Documents/speedtest-cli /usr/local/bin/testspeed
 ```
 
-The script should be accessible and executable from anywhere in the system using `./testspeed` command. 
+The script should be accessible and executable from anywhere in the system using `testspeed` command. 
 
 Enjoy! :tada: 

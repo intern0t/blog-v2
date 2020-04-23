@@ -10,7 +10,7 @@ date: 2020-04-20 16:54:14 -400
 
 categories: development
 
-tags: irc bot network freenode socket
+tags: irc bot network freenode socket python
 
 ---
 

@@ -1,0 +1,172 @@
+[
+    {
+        "title": "SVG Weather Icons Library",
+        "description": "A React component library for SVG weather icons. View icons @ https://intern0t.github.io/react-weather-icons/.",
+        "demo": {
+            "images": [
+                "https://github.com/intern0t/react-weather-icons/blob/master/screenshots/icons-black.png?raw=true",
+                "https://github.com/intern0t/react-weather-icons/blob/master/screenshots/icons-blue-dark-bg.png?raw=true",
+                "https://github.com/intern0t/react-weather-icons/blob/master/screenshots/icons-red-dark-bg.png?raw=true",
+                "https://github.com/intern0t/react-weather-icons/blob/master/screenshots/icons-white-dark-bg.png?raw=true"
+            ],
+            "previews": [],
+            "live": "https://www.npmjs.com/package/@intern0t/react-weather-icons",
+            "repository": "https://github.com/intern0t/react-weather-icons"
+        },
+        "used": ["ReactJS", "SVG", "Javascript", "Python", "Prettier"],
+        "date": "Dec, 2019"
+    },
+    {
+        "title": "Curated",
+        "description": "Curated is an Open Source news curation & bookmarking project written in ReactJS, utilizes Redux to store and consume NewsAPI.org's API endpoints. Any user who wishes to use their own NewsAPI's API key can set and save their API key in local storage to prevent exhaustion to my API key's daily limit.",
+        "demo": {
+            "images": [
+                "https://i.imgur.com/TbqJGR8.png",
+                "https://i.imgur.com/oquHKVm.png",
+                "https://i.imgur.com/QZxvdTu.png",
+                "https://i.imgur.com/cknqP2X.png"
+            ],
+            "previews": [],
+            "live": "https://news.prashant.me",
+            "repository": "https://github.com/intern0t/curated"
+        },
+        "used": [
+            "ReactJS",
+            "Redux",
+            "React-Lazyload",
+            "NewsAPI",
+            "Unsplash",
+            "Icomoon",
+            "localStorage"
+        ],
+        "date": "Oct, 2018"
+    },
+    {
+        "title": "Track Movies",
+        "description": "Track Movies is a private project developed using ReactJS by me and Nischal Shrestha which reflects our learning phase and accomplishment of working with The Movie Database's API Endpoints which allows users to search and discover movies, add them to their favorites or watch list which the user can later export and import them accordingly, and create a personal backup in the location they desire.",
+        "demo": {
+            "images": [
+                "https://i.imgur.com/mUkeacR.png",
+                "https://i.imgur.com/MyKuTcz.png",
+                "https://i.imgur.com/LY5Vb6a.png",
+                "https://i.imgur.com/pQ9vurY.png"
+            ],
+            "previews": [],
+            "live": "https://trackmovies.prashant.me/",
+            "repository": ""
+        },
+        "used": [
+            "ReactJS",
+            "TMDB API",
+            "Movie Quotes API",
+            "localStorage",
+            "ClipboardJS",
+            "Icomoon",
+            "Icons8"
+        ],
+        "date": "Jun-Jul, 2018"
+    },
+    {
+        "title": "Trail",
+        "description": "Trail is a personal, open-source project developed using ReactJS which is intended to track your task completion at a given time, creating a collection of logs by the end of the day for you to be proud of. It was designed using Ant Design's ReactJS framework. No puppies were harmed while building this tiny project, it was for educational purposes only! It is currently being used as my personal Tasks tracker",
+        "demo": {
+            "images": [],
+            "previews": [],
+            "live": "https://trail.prashant.me/",
+            "repository": "https://github.com/intern0t/Trail"
+        },
+        "used": ["ReactJS", "localStorage"],
+        "date": "May-Jun, 2018"
+    },
+    {
+        "title": "Oblique",
+        "description": "Project Oblique is a URL shortener that uses API Endpoints developed in NodeJS to shorten and store long URL. Project Oblique started out as a private project but decided to go open-source. Feel free to clone, modify, and use for personal use.",
+        "demo": {
+            "images": [],
+            "previews": ["https://i.imgur.com/NGARoVP.gif"],
+            "live": "https://o.prashant.me/",
+            "repository": "https://github.com/intern0t/Oblique"
+        },
+        "used": [
+            "HTML",
+            "(S)CSS",
+            "jQuery",
+            "NodeJS",
+            "LowDB",
+            "Random Words API"
+        ],
+        "date": "May-Aug, 2018"
+    },
+    {
+        "title": "Keykode",
+        "description": "KeyKode is tiny project which makes use of built-in Javascript libraries and in addition, Clipboard.JS to encode a URL using Base64 and creates a shareable link which is decoded clientside. Pros: All private, no server required, no metadata stored and all client-sided. Cons: It uses Base64.",
+        "demo": {
+            "images": [
+                "https://i.imgur.com/MZwACFl.png",
+                "https://i.imgur.com/Od9j4ZK.png",
+                "https://i.imgur.com/DoYyDsp.png",
+                "https://i.imgur.com/FUd3qDo.png"
+            ],
+            "previews": [],
+            "live": "https://keykode.prashant.me/",
+            "repository": "https://github.com/intern0t/keykode"
+        },
+        "used": [
+            "HTML",
+            "(S)CSS",
+            "jQuery",
+            "NodeJS",
+            "LowDB",
+            "Random Words API"
+        ],
+        "date": "Nov-Apr, 2017-2018"
+    },
+    {
+        "title": "Spotify's Now Playing in OBS",
+        "description": "Using OBS's built-in feature to read from file on file's content change event, this tool grabs and writes the currently playing song to display in OBS.",
+        "demo": {
+            "images": ["https://i.imgur.com/EWK7fxU.gif"],
+            "previews": ["https://i.imgur.com/EWK7fxU.gif"],
+            "live": "https://www.prashant.me/development/2017/10/23/creating-and-integrating-spotify-now-playing-to-open-broadcaster-software.html",
+            "repository": ""
+        },
+        "used": ["C# (.NET Framework 4.0)"],
+        "date": "Nov-Apr, 2017-2018"
+    },
+    {
+        "title": "Pymgur",
+        "description": "Screenshot and upload to Imgur script, written in Python which utilizes xClip to handle clipboard and optipng to natively optimize the screenshot taken to reduce file size before upload.",
+        "demo": {
+            "images": [],
+            "previews": ["https://i.imgur.com/QVjNSbi.gif"],
+            "live": "https://www.prashant.me/project/Pymgur",
+            "repository": ""
+        },
+        "used": ["Python", "Optipng", "Imgur API"],
+        "date": "Nov-Apr, 2017-2018"
+    },
+    {
+        "title": "FileSec",
+        "description": "FileSec is a AES 256 Encryption utility software written in C# to encrypt and decrypt any files with a user provided key. Demo of C# version, Python version for Linux.",
+        "demo": {
+            "images": ["https://i.imgur.com/ECrDhnN.png"],
+            "previews": ["https://i.imgur.com/MUPVc3Y.gif"],
+            "live": "https://www.prashant.me/development/2017/06/03/encrypting-files-in-linux-machine-using-openssl.html",
+            "repository": ""
+        },
+        "used": ["C#", "AES 128", "AES 256", "Python", "OpenSSL"],
+        "date": "Nov-Apr, 2017-2018"
+    },
+    {
+        "title": "Image Upload (CDN)",
+        "description": "Makes use of PHP and Python to take and upload screenshots to your cloud storage of your choice. Developed to mainly focus on Linux platforms. Blog post written to demonstrate how and what of this project.",
+        "demo": {
+            "images": [],
+            "previews": [],
+            "live": "https://github.com/intern0t/Image-Hosting",
+            "repository": "https://github.com/intern0t/Image-Hosting"
+        },
+        "used": ["Python", "PHP"],
+        "date": "Nov-Apr, 2017-2018"
+    }
+]
