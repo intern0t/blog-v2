@@ -272,6 +272,7 @@ body {
 								line-height: 20px;
 								border-radius: 3px;
 								color: var(--foregroundCodeColor);
+								word-break: break-word;
 							}
 
 							img {
@@ -382,6 +383,12 @@ body {
 					&-tags {
 						@include Flex(row);
 						justify-content: flex-start;
+						@include breakpoint(xs) {
+							justify-content: center;
+						}
+						@include breakpoint(sm) {
+							justify-content: center;
+						}
 						align-items: center;
 						align-content: center;
 						flex-wrap: wrap;
@@ -391,6 +398,13 @@ body {
 
 						i {
 							margin-right: 10px;
+
+							@include breakpoint(xs) {
+								display: none;
+							}
+							@include breakpoint(sm) {
+								display: none;
+							}
 						}
 
 						code {
