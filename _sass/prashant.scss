@@ -386,9 +386,6 @@ body {
 						@include breakpoint(xs) {
 							justify-content: center;
 						}
-						@include breakpoint(sm) {
-							justify-content: center;
-						}
 						align-items: center;
 						align-content: center;
 						flex-wrap: wrap;
@@ -400,9 +397,6 @@ body {
 							margin-right: 10px;
 
 							@include breakpoint(xs) {
-								display: none;
-							}
-							@include breakpoint(sm) {
 								display: none;
 							}
 						}

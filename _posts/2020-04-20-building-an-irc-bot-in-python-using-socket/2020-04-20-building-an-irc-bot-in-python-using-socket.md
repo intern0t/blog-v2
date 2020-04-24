@@ -135,5 +135,4 @@ That is basically it, for basic IRC bot interaction and message handling. There 
 
 Here is my bot in action. :tada:
 
-[![IRC bot in action!]({{ site.ph }}){:data-src="https://i.imgur.com/E0CWXtw.png" .lazy}](https://i.imgur.com/E0CWXtw.png){:data-rel="lightcase"}
-
+{% include lightcase.html name="E0CWXtw.png" alt="IRC bot in action!" local="true" %}

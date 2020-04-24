@@ -5,7 +5,6 @@ author: Prashant Shrestha
 date: 2018-10-26 9:54:14 -400
 categories: server
 tags: traffic network server management route vpn openvpn encryption privacy
-poster: https://i.imgur.com/fbMxEd0.jpg
 ---
 
 I always thought about setting up and using my VPN server was complicated, not that I use VPN that often but it can be put to great use for several things. The process of setting up an OpenVPN server in Windows is pretty straightforward but can't quite guarantee the setup to go smoothly and without any headache.
@@ -25,37 +24,37 @@ Setting up SoftEther is pretty simple as well however it gets confusing sometime
 
 * Run **SoftEther VPN Server Manager** and set up a new setting if nothing exists already. Secure your settings with a strong password if your server is shared among others.
 
-[![SoftEther VPN Server Manager]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/VF2RHn8.png" .lazy style="--image: url('/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/VF2RHn8.png');" }](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/VF2RHn8.png){:data-rel="lightcase"}
+{% include lightcase.html name="VF2RHn8.png" alt="SoftEther VPN Server Manager" local="true" %}
 
-[![Edit Server Settings]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/KSF9Jd6.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/KSF9Jd6.png){:data-rel="lightcase"}
+{% include lightcase.html name="KSF9Jd6.png" alt="Edit Server Settings" local="true" %}
 
 * Press **Connect** and if no Virtual Hub exists, **Create a Virtual Hub**. Try and enter as strong password as possible.
 
-[![Create a Virtual Hub]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/QI62BoW.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/QI62BoW.png){:data-rel="lightcase"}
+{% include lightcase.html name="QI62BoW.png" alt="Create a Virtual Hub" local="true" %}
 
-[![New Hub]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/lDm093t.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/lDm093t.png){:data-rel="lightcase"}
+{% include lightcase.html name="lDm093t.png" alt="New Hub" local="true" %}
 
 * Once you have created and set up a *Virtual Hub*, click **Manage Virtual Hub** button.
 
-[![Manage Virtual Hub]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/eKvtq2T.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/eKvtq2T.png){:data-rel="lightcase"}
+{% include lightcase.html name="eKvtq2T.png" alt="Manage Virtual Hub" local="true" %}
 
 * Create a new User with strong password (this username and password) can be used to authenticate to our server via. our OpenVPN client. **Password Authentication** is recommended.
 
-[![New User]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/pQkMky4.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/pQkMky4.png){:data-rel="lightcase"}
+{% include lightcase.html name="pQkMky4.png" alt="New User" local="true" %}
 
 * Once done with adding a new user, close the **Create New User** window and launch **Virtual NAT[^1] and Virtual DHCP Server (SecureNAT)** window from **Management of Virtual Hub** window. Enable SecureNAT.
 
 >This was the most important feature SoftEther provided in my situtation because I had almost no access to manage NAT in my Windows server.
 
-[![Enable SecureNAT]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/IokGtwt.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/IokGtwt.png){:data-rel="lightcase"}
+{% include lightcase.html name="IokGtwt.png" alt="Enable SecureNAT" local="true" %}
 
 * Head back to Manage Server window > `OpenVPN / MS-SSTP Setting` and enable OpenVPN server. Feel free to generate sample configuration file for your OpenVPN clients from the same window to avoid returning.
 
-[![OpenVPN]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/dTzPpzH.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/dTzPpzH.png){:data-rel="lightcase"}
+{% include lightcase.html name="dTzPpzH.png" alt="OpenVPN" local="true" %}
 
 * I used SoftEther's `Dynamic DNS Setting` to enable dynamic DNS[^2] function, free of charge. This is completely optional!
 
-[![Dynamic DNS]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/0Ah0xfi.png" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/0Ah0xfi.png){:data-rel="lightcase"}
+{% include lightcase.html name="0Ah0xfi.png" alt="Dynamic DNS" local="true" %}
 
 * That should be it for the VPN set up part.
 
@@ -88,7 +87,7 @@ Connecting to our OpenVPN server is quite simple, you can use an OpenVPN client 
 sudo openvpn --config client.ovpn
 {% endhighlight %}
 
-[![OpenVPN Terminal]({{ site.ph }}){:data-src="/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/CDxrryj.gif" .lazy}](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/CDxrryj.gif){:data-rel="lightcase"}
+{% include lightcase.html name="CDxrryj.gif" alt="OpenVPN Usage from Terminal" local="true" %}
 
 Good Luck & stay safe!
 

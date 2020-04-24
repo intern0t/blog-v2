@@ -70,7 +70,7 @@ Upload: 3.97 Mbit/s
 Share results: http://www.speedtest.net/result/9318023497.png
 ```
 
-[![IRC bot in action!]({{ site.ph }}){:data-src="http://www.speedtest.net/result/9318023497.png" .lazy}](http://www.speedtest.net/result/9318023497.png){:data-rel="lightcase"}
+{% include lightcase.html name="http://www.speedtest.net/result/9318023497.png" alt="Faulty Speedtest Package" %}
 
 That was unexpected, considering the upload speed is way too low, I decided to give the source a visit. If we look at the Github [repository](https://github.com/sivel/speedtest-cli). we can notice a shorter and more quicker way to install and run the script. Use `wget` or `curl` method to get the script, give it the permission to execute using `chmod +x speedtest-cli` parameter.
 
@@ -83,7 +83,7 @@ Upload: 115.51 Mbit/s
 Share results: http://www.speedtest.net/result/9318056559.png
 ```
 
-[![IRC bot in action!]({{ site.ph }}){:data-src="http://www.speedtest.net/result/9318056559.png" .lazy}](http://www.speedtest.net/result/9318056559.png){:data-rel="lightcase"}
+{% include lightcase.html name="http://www.speedtest.net/result/9318056559.png" alt="Speedtest script from the source." %}
 
 I remove the pre-packaged `speedtest-cli` from my server and kept the standalone script version. We can create a symbolic link for the script we downloaded from the `speedtest-cli` repository.
 

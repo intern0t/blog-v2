@@ -1,0 +1,9 @@
+{% capture imagePath %}{{ include.name }}{% endcapture %}
+{% if include.local %}{% capture imagePath %}/{{ page.categories }}/{{ page.date | date: "%Y/%m/%d" }}/{{ include.name }}{% endcapture %}{% endif %}
+<a markdown="1" href="{{ imagePath }}" data-rel="lightcase"
+    ><img
+        src="{{ site.ph }}"
+        alt="{{ include.alt }}"
+        data-src="{{ imagePath }}"
+        class="lazy fade"
+/></a>
