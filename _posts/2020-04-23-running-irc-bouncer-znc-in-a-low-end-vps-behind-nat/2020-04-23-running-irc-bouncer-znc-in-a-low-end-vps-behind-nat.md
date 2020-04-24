@@ -58,6 +58,6 @@ If we are connecting to the bouncer for the first time, the server will require 
 
 Here's screenshot of my [Quassel IRC](https://quassel-irc.org/) as IRC client. 
 
-[![IRC bot in action!]({{ site.ph }}){:data-src="https://i.imgur.com/2iIHTWb.png" .lazy}](https://i.imgur.com/2iIHTWb.png){:data-rel="lightcase"}
+{% include lightcase.html name="quassel-irc.png" alt="Quassel IRC" local="true" %}
 
 That's about it, we can simply disconnect the client and go about our way but the server will stay connected to the IRC network(s) and continue to keep buffers for us. The amount of lines of buffers our server keeps, depends on the settings we can change in web GUI. I set mine to 100 per channel because of the lack of memory in my server but it can be increased accordingly. :tada: 

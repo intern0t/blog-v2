@@ -11,7 +11,7 @@ I noticed an increase in pages inside my Jekyll website’s root directory. It a
 
 This is what my old Jekyll blog repository looked like, the repository's files and directories layout.
 
-[![Old Blog Structure]({{ site.ph }}){:data-src="https://i.imgur.com/hEXZwws.png" .lazy}](https://i.imgur.com/hEXZwws.png){:data-rel="lightcase"}
+{% include lightcase.html name="hEXZwws.png" alt="Old Blog Structure" local="true" %}
 
 As we can notice **6** `.md` files _(pages)_ in our project's root directory. The more pages you require, the more files you create in your root directory, hence, the search for a perfect solution to keep our project organized.
 
@@ -19,7 +19,7 @@ As we can notice **6** `.md` files _(pages)_ in our project's root directory. Th
 
 The solution to organizing the pages in our Jekyll blog's file structure is to **create a new directory**, I preferred `_pages` because it relates to the other directories such as `_posts`, `_layouts`, `_includes`, etc. It does not necessarily need to be named `_pages`, it can be anything, I mean, anything!
 
-[![I lika do da cha-cha!]({{ site.ph }}){:data-src="https://media.giphy.com/media/mtUWuZaK8H9yU/giphy.gif" .lazy}](https://media.giphy.com/media/mtUWuZaK8H9yU/giphy.gif){:data-rel="lightcase"}
+{% include lightcase.html name="https://media.giphy.com/media/mtUWuZaK8H9yU/giphy.gif" alt="I lika do da cha-cha!" %}
 
 Move all `*.md` files in your root directory to `_pages` or the newly created pages directory except for the `index.md` because that is our access point _(in a way)_.
 
