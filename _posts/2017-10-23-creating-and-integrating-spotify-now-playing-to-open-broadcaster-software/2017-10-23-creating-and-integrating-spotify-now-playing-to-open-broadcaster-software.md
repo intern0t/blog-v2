@@ -16,11 +16,11 @@ I **agreed** to help him and gave it a bit of thought about how I should approac
 
 I later realized that almost every media players I've used until today have updated title bar on media's play event however for Spotify, it isn't visible.
 
-[![](https://i.imgur.com/EM1JxRI.png)](https://i.imgur.com/EM1JxRI.png){: data-rel="lightcase"}
+{% include lightcase.html name="EM1JxRI.png" alt="" local="true" %}
 
 After no luck with retrieving the track from the Spotify's title bar, I decided to deep a little deeper by checking my Task Manager, even then, multiple instances.
 
-[![](https://i.imgur.com/rZ0ePMh.png)](https://i.imgur.com/rZ0ePMh.png){: data-rel="lightcase"}
+{% include lightcase.html name="rZ0ePMh.png" alt="" local="true" %}
 
 Considering those Spotify instances have varying `Process ID`, not all of them possesses the current playing track information.
 
@@ -145,15 +145,15 @@ T.Enabled = true;
 
 I am not trying to just get the track's title but to display it on OBS, make it seem/act like as if one of the OBS's source is hooked to Spotify itself. For this very purpose, I fiddled around a bit with OBS myself; it's all fun and games. OBS allows adding Text (GDI+/FreeType 2) as a source, exactly what I needed and what I used as it seemed to be a lot more convenient for my purpose.
 
-[![](https://i.imgur.com/rVotUBY.png)](https://i.imgur.com/rVotUBY.png){: data-rel="lightcase"}
+{% include lightcase.html name="rVotUBY.png" alt="" local="true" %}
 
 Give our source a proper title so we can differentiate between our Sources.
 
-[![](https://i.imgur.com/I7RKKVH.png)](https://i.imgur.com/I7RKKVH.png){: data-rel="lightcase"}
+{% include lightcase.html name="I7RKKVH.png" alt="" local="true" %}
 
 Editing our recently added Text (GDI+) source, two things to look for. `Read from file` option and `Use Custom Text Extents`. You can modify or setup the `Use Custom Text Extents`, according to your needs and setup.
 
-[![](https://i.imgur.com/JduT60c.png)](https://i.imgur.com/JduT60c.png){: data-rel="lightcase"}
+{% include lightcase.html name="JduT60c.png" alt="" local="true" %}
 
 At this point, we find the path to our `SpotifyNowPlaying` file created and updated by `UpdateSong()` function which will by default created in the executable's path.
 
@@ -163,11 +163,11 @@ This is it, an easy yet clean way to add Spotify's currently playing track title
 
 Those are some of the screenies I took after various feature addition and modifications, nothing advanced. The one on the left with bland logo means the Spotify process was not found whereas the right means Spotify process was found.
 
-[![](https://i.imgur.com/VcD7WGU.png)](https://i.imgur.com/VcD7WGU.png){: data-rel="lightcase"}
-[![](https://i.imgur.com/GyAyQDO.png)](https://i.imgur.com/GyAyQDO.png){: data-rel="lightcase"}
+{% include lightcase.html name="VcD7WGU.png" alt="" class="left" %}
+{% include lightcase.html name="GyAyQDO.png" alt="" class="left" %}
 
-Here's a [demo](https://i.imgur.com/EWK7fxU.gif){: data-rel="lightcase"} of the tool in action.
+Here's a [demo](/{{ page.categories }}/{{ page.date | date: "%Y/%m/%d" }}/EWK7fxU.gif){:data-rel="lightcase"} of the tool in action.
 
-[![](https://i.imgur.com/EWK7fxU.gif)](https://i.imgur.com/EWK7fxU.gif){: data-rel="lightcase"}
+{% include lightcase.html name="EWK7fxU.gif" alt="" local="true" %}
 
 Good luck & Stay creative!

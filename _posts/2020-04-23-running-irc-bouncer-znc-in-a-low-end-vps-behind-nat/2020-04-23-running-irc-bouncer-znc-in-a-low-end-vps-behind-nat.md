@@ -4,7 +4,8 @@ title: Running IRC Bouncer (ZNC) in a low end VPS behind NAT.
 author: Prashant Shrestha
 date: 2020-04-23 11:52:14 -100
 categories: linux
-tags: server vps nat znc irc unix connection 
+tags: server vps nat znc irc unix connection
+words: 995
 ---
 
 As an avid [Internet Relay Chat (IRC)]() user, I have heard of IRC bouncers from so many users, mentioned by even more aggressive and dedicated IRC users than me. I decided to learn about it, check to see if it is important to me, and if it is, set one up for myself. IRC bouncer or IRC network bouncer are basically other names for [Bounced Network Connection (BNC)](https://en.wikipedia.org/wiki/BNC_(software)). In simple words, BNC relays the traffic from IRC to all the connected clients. BNC stays connected to the IRC network whether the client is connected to the BNC or not, therefore, making it a relay or a proxy. Out of many softwares that implements this relay feature, I chose to go with [ZNC](https://wiki.znc.in/ZNC) as it is very popular and easy to use.

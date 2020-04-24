@@ -25,8 +25,17 @@ layout: default
                 itemprop="author"
                 itemscope
                 itemtype="http://schema.org/Person"
-                ><span class="p-author h-card" itemprop="name"
+                ><span class="p-author" itemprop="name"
                     >{{ page.author }}</span
+                ></span
+            >
+            {%- endif -%}
+            {%- if page.words -%} •
+            <span
+                itemprop="readtime"
+                itemscope
+                ><span itemprop="time"
+                    >{{ page.words | divided_by: 200 | append: " minutes" | prepend: "~"}}</span
                 ></span
             >
             {%- endif -%}
