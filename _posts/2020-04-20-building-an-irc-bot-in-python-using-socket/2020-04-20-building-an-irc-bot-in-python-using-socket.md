@@ -1,17 +1,12 @@
 ---
 
 layout: post
-
 title: "Building an IRC bot in Python using Socket."
-
 author: Prashant Shrestha
-
 date: 2020-04-20 16:54:14 -400
-
 categories: development
-
 tags: irc bot network freenode socket python
-
+words: 1263
 ---
 
 I never thought building an IRC bot was as simple a task until **Coronavirus** outbreak caused university lock-down and various Coronavirus related IRC channels at Freenode had extreme increase in traffic. Although I was familiar with [Sockets](https://en.wikipedia.org/wiki/Network_socket) as I have built an encrypted chat application using Socket with JavaScript and [ReactJS](https://reactjs.org/). For simplicity, I decided to build this specific IRC bot using Python. Considering this is a personal project,  I wanted my IRC bot to be able to accomplish various yet simple tasks.

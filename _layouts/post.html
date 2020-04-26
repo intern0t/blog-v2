@@ -29,20 +29,20 @@ layout: default
                     >{{ page.author }}</span
                 ></span
             >
-            {%- endif -%}
-            {%- if page.words -%} •
-            <span
-                itemprop="readtime"
-                itemscope
+            {%- endif -%} {%- if page.words -%} •
+            <span itemprop="readtime" itemscope
                 ><span itemprop="time"
-                    >{{ page.words | divided_by: 200 | append: " minutes" | prepend: "~"}}</span
+                    >{{ page.words | divided_by: 200.00 | round: 2 | append: " minutes" |
+                    prepend: "~" }}</span
                 ></span
             >
             {%- endif -%}
         </p>
         <!-- Print all tags that the posts were tagged with -->
         <section class="post-tags">
-            {%- if page.tags -%}<i class="fas fa-tags"></i> {%- for tag in page.tags -%}{{ tag | prepend: '`' | append: '`' | markdownify }}{%- endfor -%}{%- endif -%}
+            {%- if page.tags -%}<i class="fas fa-tags"></i> {%- for tag in
+            page.tags -%}{{ tag | prepend: '`' | append: '`' | markdownify }}{%-
+            endfor -%}{%- endif -%}
         </section>
     </header>
 
@@ -51,15 +51,12 @@ layout: default
         <div class="post-content-poster">
             <img src="{{ page.poster }}" alt="{{ page.title }}" />
         </div>
-        {%- endif -%}
-        {{ content }}
+        {%- endif -%} {{ content }}
     </div>
 
     <!-- Next and Previous posts. -->
-    {%- include post_neighbours.html -%}
-
-    {%- if site.disqus.shortname -%} {%- include disqus_comments.html -%} {%-
-    endif -%}
+    {%- include post_neighbours.html -%} {%- if site.disqus.shortname -%} {%-
+    include disqus_comments.html -%} {%- endif -%}
 
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
