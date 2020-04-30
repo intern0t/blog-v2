@@ -123,4 +123,14 @@ $(document).ready(function() {
 			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
 		);
 	});
+
+	/* Change font size
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	$('.site-font-size > .increase').on('click', function(e) {
+
+	});
+
+	$('.site-font-size > .decrease').on('click', function(e) {
+		
+	});
 });

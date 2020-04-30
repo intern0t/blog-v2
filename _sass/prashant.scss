@@ -14,8 +14,10 @@ $gradient_: 90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%, #3498db 3
 	#ecf0f1 92%, #95a5a6 92%;
 $size_: 100% 3px;
 $globalWidth: 720px;
+$globalFontSize: 18px;
 
 :root {
+	--fontSize: 18px;
 	--backgroundColor: white;
 	--foregroundColor: rgba(0, 0, 0, 0.7);
 	--linkColor: #116fd8;
@@ -37,6 +39,7 @@ $globalWidth: 720px;
 }
 
 [data-theme="dark"] {
+	--fontSize: 18px;
 	--backgroundColor: black;
 	--foregroundColor: rgba(255, 255, 255, 0.9);
 	--linkColor: #3498db;
@@ -63,7 +66,7 @@ $globalWidth: 720px;
 
 body {
 	font-family: $Roboto;
-	font-size: 18px;
+	font-size: var(--fontSize);
 	font-weight: 400;
 	letter-spacing: 0px;
 	background-image: -webkit-linear-gradient($gradient_);
@@ -107,7 +110,7 @@ body {
 				margin: 90px 0;
 
 				.site-title {
-					font-size: 19px;
+					font-size: calc(var(--fontSize) + 2px);
 					line-height: 30px;
 					text-decoration: none;
 					font-family: $Playfair_Display;
@@ -122,7 +125,7 @@ body {
 		}
 
 		.home {
-			font-size: 14px;
+			font-size: calc(var(--fontSize) - 4px);
 
 			.post-list {
 				margin: 0;
@@ -137,7 +140,7 @@ body {
 					.post-meta {
 						min-width: 75px;
 						margin-right: 50px;
-						font-size: 10px;
+						font-size: calc(var(--fontSize) - 8px);
 						letter-spacing: .2px;
 						font-weight: 100;
 						font-family: $Roboto;
@@ -148,7 +151,7 @@ body {
 
 					.post-link {
 						flex: 1;
-						font-size: 13px;
+						font-size: calc(var(--fontSize) - 5px);
 						line-height: 16px;
 						font-weight: 400;
 						text-decoration: none;
@@ -185,7 +188,7 @@ body {
 
 						.post-title {
 							flex: 1;
-							font-size: 25px;
+							font-size: calc(var(--fontSize) + 7px);
 							line-height: 30px;
 							text-decoration: none;
 							font-family: $Playfair_Display;
@@ -195,7 +198,7 @@ body {
 
 						.post-meta {
 							flex: 1;
-							font-size: 12px;
+							font-size: calc(var(--fontSize) - 6px);
 							line-height: 14px;
 							text-decoration: none;
 							font-family: $Roboto;
@@ -212,7 +215,7 @@ body {
 					&-content {
 						flex: 1;
 						margin: 10px 0 30px 0;
-						font-size: 13px;
+						font-size: calc(var(--fontSize) - 5px);
 						line-height: 20px;
 						letter-spacing: .2px;
 						font-family: $Roboto;
@@ -238,42 +241,48 @@ body {
 						h4,
 						h5 {
 							flex: 1;
-							font-size: 25px;
-							line-height: 30px;
 							letter-spacing: .4px;
 							text-decoration: none;
 							font-family: $Playfair_Display;
 							color: var(--foregroundColor);
 							margin: 20px 0;
 						}
+
+						--multiplier: 2px;
+
 						h5 {
-							font-size: $headingFontSize - 2;
+							font-size: calc(var(--fontSize) * (1));
+							line-height: calc(var(--fontSize) * (1));
 						}
 						h4 {
-							font-size: $headingFontSize + (2 * 1);
+							font-size: calc(var(--fontSize) + calc(var(--multiplier) * 0.5));
+							line-height: calc(var(--fontSize) + calc(var(--multiplier) * 0.5));
 						}
 						h3 {
-							font-size: $headingFontSize + (2 * 2);
+							font-size: calc(var(--fontSize) + calc(var(--multiplier) * 1.1));
+							line-height: calc(var(--fontSize) + calc(var(--multiplier) * 1.1));
 						}
 						h2 {
-							font-size: $headingFontSize + (2 * 3);
+							font-size: calc(var(--fontSize) +  calc(var(--multiplier) * 2));
+							line-height: calc(var(--fontSize) +  calc(var(--multiplier) * 2));
 						}
 						h1 {
-							font-size: $headingFontSize + (2 * 4);
+							font-size: calc(var(--fontSize) +  calc(var(--multiplier) * 2.1));
+							line-height: calc(var(--fontSize) +  calc(var(--multiplier) * 2.1));
 						}
 
 						p {
 							margin: 20px 0;
-							font-size: 13px;
-							line-height: 20px;
+							font-size: calc(var(--fontSize) - 5px);
+							line-height: calc(calc(var(--fontSize) - 5px) + 6.5px);
 
 							code {
 								background: var(--inlineCodeBackground);
 								border: 1px solid var(--inlineCodeBorder);
 								padding: 0 4px;
 								font-family: monospace;
-								font-size: 12px;
-								line-height: 20px;
+								font-size: calc(var(--fontSize) - 6px);
+								line-height: calc(calc(var(--fontSize) - 6px) + 7.5px);
 								border-radius: 3px;
 								color: var(--foregroundCodeColor);
 								word-break: break-word;
@@ -404,7 +413,7 @@ body {
 						align-content: center;
 						flex-wrap: wrap;
 						color: var(--fontColorRegular);
-						font-size: 13px;
+						font-size: calc(var(--fontSize) - 5px);
 						margin: 10px 0;
 
 						i {
@@ -418,7 +427,7 @@ body {
 						code {
 							margin-right: 10px;
 							letter-spacing: .7px;
-							font-size: 10px;
+							font-size: calc(var(--fontSize) - 7px);
 							text-transform: uppercase;
 						}
 					}
@@ -434,8 +443,8 @@ body {
 
 						a {
 							flex: 1;
-							font-size: 13px;
-							line-height: 20px;
+							font-size: calc(var(--fontSize) - 5px);
+							line-height: calc(calc(var(--fontSize) - 5px) + 6px);
 							letter-spacing: .1px;
 							text-decoration: none;
 						}
@@ -457,7 +466,7 @@ body {
 						text-decoration: none;
 						color: var(--fontColorRegular);
 						border-radius: 2px;
-						font-size: 13px;
+						font-size: calc(var(--fontSize) - 5px);
 						border: 1px solid none;
 						transition: border .3s ease-in-out;
 
@@ -623,6 +632,7 @@ code {
 			line-height: 20px;
 			padding: 0 !important;
 			color: var(--codeColor);
+			margin: 20px 0;
 		}
 	}
 }
