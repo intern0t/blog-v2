@@ -5,6 +5,7 @@ author: Prashant Shrestha
 date: 2020-04-21 16:54:14 -400
 categories: linux
 tags: speedtest cli network speed test ubuntu
+words: 607
 ---
 
 I recently purchased a compact tower server to run at home for various personal projects of mine and I decided to test the network card and its throughput. I had installed headless [Ubuntu 18.04.4 LTS](https://releases.ubuntu.com/18.04.4/) therefore, I had no access to web version of [Speedtest](). The first thing anyone would do is to check if there's any packages available in official and accessible repository and luckily there is one called `speedtest-cli`.

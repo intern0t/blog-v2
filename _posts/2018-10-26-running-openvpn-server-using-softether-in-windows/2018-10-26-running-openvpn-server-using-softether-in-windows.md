@@ -5,6 +5,7 @@ author: Prashant Shrestha
 date: 2018-10-26 9:54:14 -400
 categories: server
 tags: traffic network server management route vpn openvpn encryption privacy
+words: 902
 ---
 
 I always thought about setting up and using my VPN server was complicated, not that I use VPN that often but it can be put to great use for several things. The process of setting up an OpenVPN server in Windows is pretty straightforward but can't quite guarantee the setup to go smoothly and without any headache.

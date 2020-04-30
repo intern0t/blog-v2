@@ -202,6 +202,10 @@ body {
 							color: var(--fontColorImportant);
 							margin: 10px 0;
 							letter-spacing: .2px;
+
+							* {
+								margin-right: 2px;
+							}
 						}
 					}
 
@@ -312,6 +316,16 @@ body {
 							}
 							i {
 								font-style: italic;
+							}
+
+							&:first-child > a[data-rel="lightcase"],
+							&:last-child > a[data-rel="lightcase"] {
+								& {
+									@include Flex(row);
+									justify-content: space-evenly;
+									align-items: center;
+									align-content: center;
+								}
 							}
 						}
 

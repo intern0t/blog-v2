@@ -6,6 +6,7 @@ date: 2018-06-12 11:39:14 -400
 categories: development
 tags: javascript json search build file clientside jquery
 poster: https://i.imgur.com/mOtENKW.png
+words: 1160
 ---
 
 > Check what was [updated](#updated). - *Wed Aug  8 20:36:45 EDT 2018*
@@ -81,7 +82,7 @@ $(".gcse-trigger").click(function (e) {
         .append("<h5 class='totalSearchResults'>Found " + 
         filteredData.length + " results for " + 
         searchKey + ".</h5>");
-
+    
         $.each(filteredData, (key, value) => {
             var initialFormatting = '<div class="row result">' +
                 '<div class="u-full-width">' +

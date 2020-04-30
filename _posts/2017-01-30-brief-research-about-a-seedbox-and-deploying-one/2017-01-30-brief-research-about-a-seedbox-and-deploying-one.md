@@ -5,16 +5,14 @@ author: Prashant Shrestha
 date:   2017-01-30 06:32:23 -400
 categories: server
 tags: setup server seedbox torrent private bittorrent client
+poster: https://i.imgur.com/k28EhRc.jpg
+words: 2735
 ---
 
 > A seedbox is a remote server hosted in a high-bandwidth data center used for the safely uploading and downloading of digital files. These speeds range from 100Mbps (8MB/s) to 10Gbps (1250MB/s). Persons with access to a seedbox can download these files to their personal computers anonymously. (Source: [Wikipedia](https://en.wikipedia.org/wiki/Seedbox"))
 > 
 Basically, in clear and understandable words, Seedbox is a server used for **Peer-to-Peer (P2P) transfers** with the use of [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent") protocol. Seedbox, what it is and how powerful it is, is determined by the hardware it runs on, how secure (anonymous) it is and how **deaf** that hosting company is.
-
 <!--excerpt-->
-<div class="poster" markdown="1">
-[![Image](https://i.imgur.com/k28EhRc.jpg)](https://i.imgur.com/k28EhRc.jpg "Server"){:data-rel="lightcase"}
-</div>
 
 Seedbox is just a server with a certain purpose and protocol, seed the files you have stored in your server which is also known as pirating in the eyes of law makers and well, **pirates**!
 
@@ -28,7 +26,7 @@ Seeders and Peers, each does their part and it shall be played, if not, you aren
 
 I found this image which explains better than my words from [Wikimedia](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/BitTorrent_network.svg/2000px-BitTorrent_network.svg.png). The uploader shares his files with couple seeders or just one and when more peers joins the network requesting for the same files, there will be two seeders. Once the 3<sup>rd</sup> person downloads the files completely, he becomes a seeder as well and the chain goes on. More the seeders, faster the download, in a sense and you can feel the difference between less seeded torrents and rich seeded torrents.
 
-[![Image](https://i.imgur.com/tAVUzzQ.png)](https://i.imgur.com/tAVUzzQ.png "Ugh"){:data-rel="lightcase"}
+{% include lightcase.html name="tAVUzzQ.png" alt="Ughh" local="true" %}
 
 As I mentioned before, Seedbox is just a complete system set up in a way to seed the files you already downloaded before, nothing more and nothing less. The difference between your regular machine and a Seedbox is the hardware specifications such as RAM, Storage, Processors and the internet. You can definitely call a Raspberry PI with an Operating System and a BitTorrent client a full fledged Seedbox but the network speed and the system's uptime factors it out of the list, in most cases!
 
@@ -171,7 +169,7 @@ Your deluge's configuration files are located at `/var/lib/deluge/.config/deluge
 
 I had an output like this.
 
-[![Image](https://i.imgur.com/vcz2yFX.png)](https://i.imgur.com/vcz2yFX.png "Deluge Web UI"){:data-rel="lightcase"}
+{% include lightcase.html name="vcz2yFX.png" alt="Deluge Web UI" local="true" %}
 
 #### Securing my Seedbox.
 
@@ -221,7 +219,7 @@ service deluge-daemon start
 
 > Go to the Deluge-WebUI at `:8112` and go to the Preferences > Interface and apply the password of your choice.
 
-[![Image](https://i.imgur.com/rKOUNMj.png)](https://i.imgur.com/rKOUNMj.png "Deluge Web UI Preferences"){:data-rel="lightcase"}
+{% include lightcase.html name="rKOUNMj.png" alt="Deluge Web UI Preferences" local="true" %}
 
 What we did was generate a different salt which will be encrypted again by Deluge and used to salt our password during the login.
 
@@ -267,7 +265,7 @@ sudo yum install vsftpd
 
 Now, accessing the files through FTP is just a tip of the iceberg, securing it, another problem but we shall get there momentarily. Your vsftpd config files are located at `/etc/vsftpd/`
 
-[![Image](https://i.imgur.com/m7HmdTW.png)](https://i.imgur.com/m7HmdTW.png "ls -la /etc/vsftpd"){:data-rel="lightcase"}
+{% include lightcase.html name="m7HmdTW.png" alt="ls -la /etc/vsftpd" local="true" %}
 
 I made couple changes to the `vsftpd.conf` file as to restrict access to everyone except one user `seedbox`. Depending on your necessities, do make changes to your configuration file. As for me, to only allow access to the user `seedbox`, my config settings are as follows.
 
@@ -331,13 +329,13 @@ service vsftpd restart service deluge-daemon start
 
 If you are a streamer and wish to use FTP over SSL/TLS, I am still researching on it as I tried to stream a video file in my iPad and had SSL enabled for `vsftpd`, I wasn't even able to list the directories properly. I can access the files via. Filezilla while SSL/TLS was enabled but not from the web or no direct connections, weird but what the hell right?Make this change in your Filezilla in order to effectively use FTP over SSL/TLS.
 
-[![Image](https://i.imgur.com/sFU9V4G.png)](https://i.imgur.com/sFU9V4G.png "(Security) Explicit FTP over TLS"){:data-rel="lightcase"}
+{% include lightcase.html name="sFU9V4G.png" alt="(Security) Explicit FTP over TLS" local="true" %}
 
 Another awesome stuff that I wanted to share for Remote Connections through your mobile devices, as an Android fan, download [Transdrone](https://play.google.com/store/apps/details?id=org.transdroid.lite"). It is a nifty little tool which has availability for various BitTorrent platform. First of all, you need to allow remote connections to your `deluge-web/daemon`.
 
 Go to your Deluge's WebUI > Preferences > Daemon > Check **Allow Remote Connections**.
 
-[![Image](https://i.imgur.com/9qkYiAh.png)](https://i.imgur.com/9qkYiAh.png "Deluge UI Preference > Daemon (Remote Connection)"){:data-rel="lightcase"}
+{% include lightcase.html name="9qkYiAh.png" alt="Deluge UI Preference > Daemon (Remote Connection)" local="true" %}
 
 In Transdrone, head over to Settings > Add new server > Add normal, custom server and follow the settings provided below.
 
@@ -357,8 +355,8 @@ Deluge-daemon port : 58846
 Deluge-WebUI port : 8112
 {% endhighlight %}
 
-[![Image](https://i.imgur.com/pDDvg9c.jpeg){:width="45%"}](https://i.imgur.com/pDDvg9c.jpeg "Transdrone Download I."){:data-rel="lightcase:transdrone"}
-[![Image](https://i.imgur.com/J0d7iH5.jpeg){:width="45%"}](https://i.imgur.com/J0d7iH5.jpeg "Transdrone Download II."){:data-rel="lightcase:transdrone"}
+{% include lightcase.html name="pDDvg9c.png" alt="" local="true" %}
+{% include lightcase.html name="J0d7iH5.png" alt="" local="true" %}
 
 Once again before, I publish this article.
 

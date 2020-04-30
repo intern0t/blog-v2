@@ -17,7 +17,7 @@ I am quite glad, I had short but complicated experience with [Ghost](https://gho
 
 I decided to integrate [Lightcase](http://cornel.bopp-art.com/lightcase/) to my theme because it was very simple and easy to use, I could create my own but maybe in the future!
 
-[![Image](https://i.imgur.com/lv193nK.png)](https://i.imgur.com/lv193nK.png "Markdown Blog Post Example"){:data-rel="lightcase"}
+{% include lightcase.html name="lv193nK.png" alt="" local="true" %}
 
 Let's check the `code`, `pre`, `highlighter`, and `color-schemes` layouts. Let me throw in a starting code of my theme's `SASS` file. The color scheme for `_highlight.scss` is using `rougify style github`. Works great and looks great!
 
@@ -36,8 +36,8 @@ $quoteBorderColor: #dfe2e5;
 
 Responsiveness looks OK for now, I suppose! Will add more features if I do not get too lazy.
 
-[![Image](https://i.imgur.com/XBbKf6W.png){:width="353px"}](https://i.imgur.com/XBbKf6W.png "Responsive Theme Developed for Jekyll"){:data-rel="lightcase:themedevps"}
-[![Image](https://i.imgur.com/rjv6Fvb.png){:width="353px"}](https://i.imgur.com/rjv6Fvb.png "Smartphone & Tablet screen demo"){:data-rel="lightcase:themedevps"}
-[![Image](https://i.imgur.com/a8OyTp6.png)](https://i.imgur.com/a8OyTp6.png "Jekyll Theme &copy; 2017, Prashant Shrestha."){:data-rel="lightcase"}
+{% include lightcase.html name="XBbKf6W.png" alt="" local="true" %}
+{% include lightcase.html name="rjv6Fvb.png" alt="" local="true" %}
+{% include lightcase.html name="a8OyTp6.png" alt="" local="true" %}
 
 I achieved what I wanted in a blog - simple, minimal, professional yet light. The theme is still under development therefore you might reach `127.0.0.1` quite often while surfing around!
