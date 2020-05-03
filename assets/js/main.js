@@ -13,9 +13,24 @@ $(document).ready(function() {
 
 	/* Theming - Light & Dark
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-	const currentTheme = localStorage.getItem('theme') || 'light';
+	let currentTheme = localStorage.getItem('theme');
 	// Set current theme if the theme data exists in LS.
 	if (currentTheme) {
+		document.documentElement.setAttribute('data-theme', currentTheme);
+		// Change lightbulb icon.
+		$('.site-theme-toggle .fa-lightbulb')
+			.removeClass('fas')
+			.removeClass('far')
+			.addClass(currentTheme === 'light' ? 'far' : 'fas');
+		// Change lightbulb's trigger title accordingly.
+		$('.site-theme-toggle .fa-lightbulb').prop(
+			'title',
+			currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
+		);
+	}else{
+		// If no values are set, just set dark as default.
+		currentTheme = "dark";
+		localStorage.setItem("theme", currentTheme);
 		document.documentElement.setAttribute('data-theme', currentTheme);
 		// Change lightbulb icon.
 		$('.site-theme-toggle .fa-lightbulb')

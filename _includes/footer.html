@@ -4,9 +4,6 @@
             Copyright &copy; <a href="/about">{{ site.title | escape }}</a>
         </div>
         <div class="wrapper-social">
-            {%- if site.social.email -%}
-            <a href="{{ site.social.email | prepend: 'mail:' }}"><i class="fas fa-envelope"></i></a>
-            {%- endif -%}
             {%- if site.social.twitter -%}
             <a href="{{ site.social.twitter | prepend: 'https://twitter.com/' }}"><i class="fab fa-twitter"></i></a>
             {%- endif -%}

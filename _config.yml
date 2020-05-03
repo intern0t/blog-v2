@@ -30,7 +30,7 @@ social:
   uptime: https://uptime.prashant.me
 
 # Site data
-ph: /assets/images/placeholder.png
+ph: /assets/images/Ripple-1s-68px.gif
 
 # Including the pages directory.
 include: ['_pages']
