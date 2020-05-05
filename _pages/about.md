@@ -19,4 +19,4 @@ I am a full-time University Student, majoring in Computer Science and Computer E
 
 #### Attribution(s)
 
-View credits and attributions at [`/attribution`](/attribution) page.
+View credits and attributions at [Attribution](/attribution) page.

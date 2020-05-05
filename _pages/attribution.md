@@ -15,3 +15,4 @@ The purpose of this page is to provide and attribute all the developers, compani
 1. [Lightcase](https://cornel.bopp-art.com/lightcase/) for awesome image zoom in-out view.
 1. [Lozad.js](https://github.com/ApoorvSaxena/lozad.js) for helping lazy load images.
 1. [Updown](https://updown.io/) for being a great [uptime tracker](https://uptime.prashant.me) with notification system.
+1. [Loading.io](https://loading.io/) for the animated loading icons with [Free License](https://loading.io/license/#free-license).
