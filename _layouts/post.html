@@ -20,7 +20,7 @@ layout: default
                 {%- assign date_format = site.minima.date_format | default: "%b
                 %-d, %Y" -%} {{ page.date | date: date_format }}
             </time>
-            {%- if page.author -%} •
+            <!-- {%- if page.author -%} •
             <span
                 itemprop="author"
                 itemscope
@@ -36,14 +36,14 @@ layout: default
                     prepend: "~" }}</span
                 ></span
             >
-            {%- endif -%}
+            {%- endif -%} -->
         </p>
         <!-- Print all tags that the posts were tagged with -->
-        <section class="post-tags">
+        <!-- <section class="post-tags">
             {%- if page.tags -%}<i class="fas fa-tags"></i> {%- for tag in
             page.tags -%}{{ tag | prepend: '`' | append: '`' | markdownify }}{%-
             endfor -%}{%- endif -%}
-        </section>
+        </section> -->
     </header>
 
     <div class="post-content e-content" itemprop="articleBody">
