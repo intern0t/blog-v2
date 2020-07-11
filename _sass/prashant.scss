@@ -712,6 +712,7 @@ code {
     line-height: $globalLineHeight;
     border-radius: 3px;
     color: var(--foregroundCodeColor);
+    vertical-align: middle;
 }
 
 .highlight {
