@@ -2,17 +2,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {%- seo -%} <link rel="stylesheet" id="stylesheet" href="{{ "/assets/css/prashant.css" |
-    relative_url }}"> {%- feed_meta -%} {%- if jekyll.environment ==
-    'production' and site.google_analytics -%} {%- include google-analytics.html
-    -%} {%- endif -%}
+    {%- seo -%} <link rel="stylesheet" id="stylesheet" href="{{
+    "/assets/css/prashant.css" | relative_url }}"> {%- feed_meta -%} {%- if
+    jekyll.environment == 'production' and site.google_analytics -%} {%- include
+    google-analytics.html -%} {%- endif -%}
     <!-- Important Scripts -->
     <script
+        async
+        defer
         src="https://kit.fontawesome.com/3863182d64.js"
         crossorigin="anonymous"
     ></script>
     <!-- Lazy Load library -->
     <script
+        async
+        defer
         type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"
     ></script>
@@ -22,10 +26,25 @@
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     ></script>
     <!-- Lightcase CSS & JS -->
-    <script type="text/javascript" src="/assets/js/lightcase.js"></script>
+    <script
+        async
+        defer
+        type="text/javascript"
+        src="/assets/js/lightcase.js"
+    ></script>
     <link rel="stylesheet" type="text/css" href="/assets/css/lightcase.css" />
 
-     <!-- For IE 11, Chrome, Firefox, Safari, Opera -->
-     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
-     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+    <!-- For IE 11, Chrome, Firefox, Safari, Opera -->
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/assets/images/favicons/favicon-16x16.png"
+    />
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/assets/images/favicons/favicon-32x32.png"
+    />
 </head>
