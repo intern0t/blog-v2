@@ -114,11 +114,26 @@ body {
                 margin: 90px 0;
 
                 .site-title {
-                    font-size: calc(var(--fontSize) + 2px);
-                    line-height: $globalLineHeight;
+                    font-size: calc(var(--fontSize) + 6px);
+                    line-height: 1.66;
                     text-decoration: none;
                     font-family: inherit;
                     color: var(--fontColorRegular);
+                    font-weight: bold;
+                    letter-spacing: 0.2px;
+
+                    &-caption {
+                        position: absolute;
+                        margin-left: -20px;
+                        font-size: 80px;
+                        font-weight: 900;
+                        opacity: 0.04;
+                        margin: -50px 0 0 -50px;
+                        color: var(--fontColorMeta);
+                        text-decoration: none;
+                        text-transform: none;
+                        z-index: 1;
+                    }
                 }
 
                 .site-theme-toggle {
@@ -138,7 +153,20 @@ body {
                     justify-content: space-between;
                     align-items: center;
                     flex-wrap: wrap;
-                    margin: 25px 0;
+                    margin: 40px 0;
+
+                    .post-caption {
+                        position: absolute;
+                        margin-left: -20px;
+                        font-size: 58px;
+                        font-weight: 1000;
+                        opacity: 0.03;
+                        margin: -10px 0 0 -30px;
+                        color: var(--fontColorMeta);
+                        text-decoration: none;
+                        text-transform: none;
+                        z-index: 1;
+                    }
 
                     .post-link {
                         flex: 1;
@@ -149,6 +177,7 @@ body {
                         font-family: $GoldenPass;
                         color: var(--fontColorHomeLink);
                         transition: color 0.3s ease-in-out;
+                        z-index: 9;
 
                         &:hover {
                             color: var(--linkColor);
@@ -204,6 +233,19 @@ body {
                             font-weight: 700;
                             line-height: 1.25;
                             font-size: 2.25rem;
+                            z-index: 9;
+
+                            .post-caption {
+                                position: absolute;
+                                font-size: 200px;
+                                font-weight: bold;
+                                opacity: 0.07;
+                                margin: -90px 0 0 -70px;
+                                color: var(--fontColorImportant);
+                                text-decoration: none;
+                                text-transform: none;
+                                z-index: 1;
+                            }
                         }
 
                         .post-meta {
@@ -516,9 +558,10 @@ body {
                         text-decoration: none;
                         color: var(--fontColorRegular);
                         border-radius: 2px;
-                        font-size: var(--fontSize);
+                        font-size: calc(var(--fontSize) - 1px);
                         border: 1px solid transparent;
                         transition: border 0.3s ease-in-out;
+                        opacity: 0.8;
 
                         &:hover {
                             border: 1px solid var(--paginationBorder);

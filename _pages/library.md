@@ -28,6 +28,7 @@ permalink: /library/
     12. [Data Structures and Algorithms: Annotated Reference with Examples](https://www.goodreads.com/book/show/18308002-data-structures-and-algorithms) by _G. Barnett and L. D. Tongo_ <span class="fas fa-book" title="Finished Reading July 20th-Aug 07th, 2018 Summer."></span>
     13. [The Algorithm Design Manual](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202) by Steven S. Skiena
     14. [The Art of Readable Code](https://www.amazon.com/Art-Readable-Code-Practical-Techniques-ebook/dp/B0064CZ1XE) by Dustin Boswell & Trevor Foucher
+    15. [Logic and Language Models for Computer Science, 3rd Edition](https://www.amazon.com/Logic-Language-Models-Computer-Science-ebook/dp/B075T6J1VT) by *Dana Richards, Henry Hamburger*. <span class="fas fa-book" title="Finished Reading July 16th, 2020 Summer."></span>
 
 #### <span class="fas fa-layer-group"></span> **Programming**
 
