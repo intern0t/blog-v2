@@ -17,7 +17,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag", "~> 2.6"
   gem "jekyll-paginate-v2"
-  gem "jemoji"
+  gem "jemoji" # https://www.webfx.com/tools/emoji-cheat-sheet/
   gem 'jekyll-postfiles'
 end
 

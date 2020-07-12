@@ -21,21 +21,21 @@ $globalFontSize: 15px;
 
 :root {
     --fontSize: 15px;
-    --backgroundColor: white;
+    --backgroundColor: rgb(255, 255, 255);
     --foregroundColor: rgba(0, 0, 0, 0.7);
-    --linkColor: #116fd8;
-    --codeBackgroundColor: #1b1b1b;
+    --linkColor: rgb(17, 111, 216);
+    --codeBackgroundColor: rgb(27, 27, 27);
     --inlineCodeBackground: rgba(237, 113, 113, 0.18);
     --inlineCodeBorder: rgba(237, 113, 113, 0.5);
     --foregroundCodeColor: rgba(255, 44, 44, 1);
     --codeColor: rgba(255, 255, 255, 0.44);
     --fontColorHomeLink: rgba(0, 0, 0, 0.7);
-    --fontColorRegular: rgba(#2d3748, 0.6);
+    --fontColorRegular: rgba(0, 0, 0, 0.6);
     --fontColorImportant: rgba(0, 0, 0, 0.8);
     --fontColorMeta: rgb(0, 0, 0);
     --quoteBackgroundColor: rgba(17, 111, 216, 0.09);
-    --quoteBorderColor: #8080804d;
-    --borderColor: #9a9a9a54;
+    --quoteBorderColor: rgba(128, 128, 128, 0.302);
+    --borderColor: rgba(154, 154, 154, 0.329);
     --paginationBorder: var(--quoteBorderColor);
     --toTop: rgba(0, 0, 0, 0.2);
     --toggleColor: var(--fontColorHomeLink);
@@ -43,10 +43,10 @@ $globalFontSize: 15px;
 
 [data-theme='dark'] {
     --fontSize: 15px;
-    --backgroundColor: black;
+    --backgroundColor: rgb(0, 0, 0);
     --foregroundColor: rgba(255, 255, 255, 0.9);
-    --linkColor: #3498db;
-    --codeBackgroundColor: #1b1b1b;
+    --linkColor: rgb(52, 152, 219);
+    --codeBackgroundColor: rgb(27, 27, 27);
     --inlineCodeBackground: rgba(237, 113, 113, 0.18);
     --inlineCodeBorder: rgba(237, 113, 113, 0.5);
     --foregroundCodeColor: rgba(255, 44, 44, 0.55);
@@ -56,8 +56,8 @@ $globalFontSize: 15px;
     --fontColorImportant: rgba(246, 246, 246, 0.8);
     --fontColorMeta: rgb(255, 255, 255);
     --quoteBackgroundColor: rgba(255, 255, 255, 0.09);
-    --quoteBorderColor: #8080804d;
-    --borderColor: #9a9a9a54;
+    --quoteBorderColor: rgba(128, 128, 128, 0.302);
+    --borderColor: rgba(154, 154, 154, 0.329);
     --paginationBorder: rgba(255, 255, 255, 0.3);
     --toTop: rgba(255, 255, 255, 0.2);
     --toggleColor: var(--foregroundColor);
@@ -90,7 +90,7 @@ body {
     .container {
         width: $globalWidth;
         @include breakpoint(xs) {
-            width: 95%;
+            width: 80%;
         }
         @include breakpoint(sm) {
             width: $globalWidth;
@@ -100,7 +100,7 @@ body {
 
         .site-header {
             @include breakpoint(xs) {
-                width: 90%;
+                width: 100%;
                 justify-content: center;
                 text-align: center;
                 margin: 0 auto;
@@ -111,7 +111,7 @@ body {
                 justify-content: space-between;
                 align-items: center;
                 align-content: center;
-                margin: 90px 0;
+                margin: 90px 0 55px 0;
 
                 .site-title {
                     font-size: calc(var(--fontSize) + 6px);
@@ -121,6 +121,7 @@ body {
                     color: var(--fontColorRegular);
                     font-weight: bold;
                     letter-spacing: 0.2px;
+                    z-index: 999;
 
                     &-caption {
                         position: absolute;
@@ -133,6 +134,10 @@ body {
                         text-decoration: none;
                         text-transform: none;
                         z-index: 1;
+
+                        @include breakpoint(xs) {
+                            margin: -50px 0 0 -20px;
+                        }
                     }
                 }
 
@@ -245,6 +250,10 @@ body {
                                 text-decoration: none;
                                 text-transform: none;
                                 z-index: 1;
+
+                                @include breakpoint(xs) {
+                                    margin: -90px 0 0 -50px;
+                                }
                             }
                         }
 
@@ -344,20 +353,9 @@ body {
                             font-size: $globalFontSize;
                             line-height: $globalLineHeight;
 
-                            // &::first-letter {
-                            //     font-size: 4.5em;
-                            //     float: left;
-                            //     margin-top: 0.15em;
-                            //     padding: 0 10px;
-                            // }
-                            // &:first-child {
-
-                            // }
-
                             code {
                                 background: var(--inlineCodeBackground);
-                                // border: 1px solid var(--inlineCodeBorder);
-                                padding: 2px 4px;
+                                padding: 3px 6px;
                                 font-family: monospace;
                                 font-size: var(--fontSize);
                                 line-height: $globalLineHeight;
@@ -373,10 +371,10 @@ body {
                                 overflow: hidden;
                                 transition: box-shadow 0.3s ease-in-out;
 
-                                &:hover {
-                                    box-shadow: 0px 0px 5px 0.5px
-                                        var(--fontColorHomeLink);
-                                }
+                                // &:hover {
+                                //     box-shadow: 0px 0px 5px 0.5px
+                                //         var(--fontColorHomeLink);
+                                // }
                             }
 
                             img.emoji {
