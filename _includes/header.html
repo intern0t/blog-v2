@@ -3,7 +3,10 @@
 		{%- assign default_paths = site.pages | map: "path" -%}
 		{%- assign page_paths = site.header_pages | default: default_paths -%}
 		<a class="site-title" rel="author" href="{{ "/" | relative_url }}">
+			{% if page.layout contains 'post' %}
+			{% else %}
 			<span class="site-title-caption">PS</span>
+			{% endif %}
 			{{ site.title | escape }}</a>
 		<!-- Toggle theme -->
 		<a class="site-theme-toggle" id="site-theme-toggle" href="#" title="Toggle theme..">
