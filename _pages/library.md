@@ -67,6 +67,16 @@ permalink: /library/
     1. [Applied Statistics and Probability for Engineers 6E.](https://www.amazon.com/Applied-Statistics-Probability-Engineers-Montgomery/dp/1118539710) by Montgomery & Runger <span class="fas fa-book" title="Completed, Jan-May (STAT 344) Spring 2018"></span>
 -   Computer Science
     1. [Data Structures & Problem Solving Using Java - 4th Edition](https://www.amazon.com/Data-Structures-Problem-Solving-Using-dp-0321541405/dp/0321541405/ref=mt_paperback?_encoding=UTF8&me=&qid=) by Mark Allen Weiss. <span class="fas fa-book" title="Completed, May-Jun Summer 2019"></span>
+    2. Intro to Artificial Intelligence (CS 480)
+        - [Artificial Intelligence: Foundations of Computational Agents: 2nd Edition](https://artint.info/2e/html/ArtInt2e.html) by David L. Poole and Alan K. Mackworth. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+        - [Artificial Intelligence - A Modern Approach: Third Edition (Int. Edition)](https://www.amazon.com/Artificial-Intelligence-Approach-Stuart-Russell/dp/9332543518/ref=sr_1_4?dchild=1&keywords=Artificial+Intelligence+A+Modern+Approach+2nd+Edition&qid=1608939378&s=books&sr=1-4) by Stuart J. Russell and Peter Norvig. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
+    3. [The C Programming Language: 2nd Edition](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) by Kernighan/Ritchie. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+    4. Database Concepts (CS 450)
+        - [Fundamentals of Database Systems - 7th Edition](https://www.amazon.com/Fundamentals-Database-Systems-Ramez-Elmasri/dp/0133970779/ref=sr_1_1?dchild=1&keywords=Fundamentals+of+Database+Systems+-+7th+Edition&qid=1608939746&s=books&sr=1-1) by Ramez Elmasri & Shamkant Navathe. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+        - [ORACLE 10g Programming: A Primer](https://www.amazon.com/Oracle-10g-Programming-Rajshekhar-Sunderraman/dp/0321463048/ref=sr_1_1?dchild=1&keywords=ORACLE+10g+Programming%3A+A+Primer&qid=1608939826&s=books&sr=1-1) by Rajshekhar Sunderraman. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+        - [An Introduction to Database Systems (v. 1) 6th Edition]() by C. J. Date. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
+    5. [Computer Science Illuminated 7th Edition](https://www.amazon.com/Computer-Science-Illuminated-Nell-Dale/dp/1284155617/ref=sr_1_1?crid=1W4PH5NUG026P&dchild=1&keywords=computer+science+illuminated+7th+edition&qid=1608940148&s=books&sprefix=computer+science+illu%2Cstripbooks%2C182&sr=1-1) by Nell Dale & John Lewis. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+
 
 #### <span class="fas fa-layer-group"></span> **Competitive Programming**
 
