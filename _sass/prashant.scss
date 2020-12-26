@@ -15,12 +15,13 @@ $gradient_: 90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%,
     #f1c40f 59%, #e67e22 59%, #e67e22 63%, #e74c3c 63%, #e74c3c 82%, #ecf0f1 82%,
     #ecf0f1 92%, #95a5a6 92%;
 $size_: 100% 3px;
-$globalWidth: 650px;
-$globalLineHeight: 1.66;
+$globalWidth: 720px;
+$globalLineHeight: 1.77;
+$globalFontFamily: $GoldenPass;
 $globalFontSize: 15px;
 
 :root {
-    --fontSize: 15px;
+    --fontSize: 18px;
     --backgroundColor: rgb(255, 255, 255);
     --foregroundColor: rgba(0, 0, 0, 0.7);
     --linkColor: rgb(17, 111, 216);
@@ -32,7 +33,7 @@ $globalFontSize: 15px;
     --fontColorHomeLink: rgba(0, 0, 0, 0.7);
     --fontColorRegular: rgba(0, 0, 0, 0.6);
     --fontColorImportant: rgba(0, 0, 0, 0.8);
-    --fontColorMeta: rgb(0, 0, 0);
+    --fontColorMeta: rgb(0, 0, 0, 0.4);
     --quoteBackgroundColor: rgba(17, 111, 216, 0.09);
     --quoteBorderColor: rgba(128, 128, 128, 0.302);
     --borderColor: rgba(154, 154, 154, 0.329);
@@ -41,8 +42,8 @@ $globalFontSize: 15px;
     --toggleColor: var(--fontColorHomeLink);
 }
 
-[data-theme='dark'] {
-    --fontSize: 15px;
+[theme='dark'] {
+    --fontSize: 18px;
     --backgroundColor: rgb(0, 0, 0);
     --foregroundColor: rgba(255, 255, 255, 0.9);
     --linkColor: rgb(52, 152, 219);
@@ -51,7 +52,7 @@ $globalFontSize: 15px;
     --inlineCodeBorder: rgba(237, 113, 113, 0.5);
     --foregroundCodeColor: rgba(255, 44, 44, 0.55);
     --codeColor: rgba(255, 255, 255, 0.55);
-    --fontColorHomeLink: rgba(255, 255, 255, 0.5);
+    --fontColorHomeLink: rgba(255, 255, 255, 0.7);
     --fontColorRegular: rgba(255, 255, 255, 0.801);
     --fontColorImportant: rgba(246, 246, 246, 0.8);
     --fontColorMeta: rgb(255, 255, 255);
@@ -68,7 +69,7 @@ $globalFontSize: 15px;
 }
 
 body {
-    font-family: $GoldenPass;
+    font-family: $globalFontFamily;
     font-size: var(--fontSize);
     font-weight: 400;
     color: #2d3748;
@@ -90,7 +91,7 @@ body {
     .container {
         width: $globalWidth;
         @include breakpoint(xs) {
-            width: 80%;
+            width: 90%;
         }
         @include breakpoint(sm) {
             width: $globalWidth;
@@ -111,15 +112,15 @@ body {
                 justify-content: space-between;
                 align-items: center;
                 align-content: center;
-                margin: 90px 0 55px 0;
+                margin: 50px 0 55px 0;
 
                 .site-title {
                     font-size: calc(var(--fontSize) + 6px);
-                    line-height: 1.66;
+                    line-height: $globalLineHeight;
                     text-decoration: none;
-                    font-family: inherit;
+                    font-family: $GoldenPass;
                     color: var(--fontColorRegular);
-                    font-weight: bold;
+                    // font-weight: bold;
                     letter-spacing: 0.2px;
                     z-index: 999;
 
@@ -128,7 +129,7 @@ body {
                         margin-left: -20px;
                         font-size: 80px;
                         font-weight: 900;
-                        opacity: 0.04;
+                        opacity: 0.09;
                         margin: -50px 0 0 -50px;
                         color: var(--fontColorMeta);
                         text-decoration: none;
@@ -136,13 +137,52 @@ body {
                         z-index: 1;
 
                         @include breakpoint(xs) {
-                            margin: -50px 0 0 -20px;
+                            margin: -50px 0 0 -10px;
                         }
                     }
                 }
 
                 .site-theme-toggle {
                     color: var(--toggleColor);
+                }
+            }
+
+            .top-navigation {
+                width: 100%;
+                // border-top: 1px solid rgba(154, 154, 154, 0.329);
+                border-bottom: 1px dashed rgba(154, 154, 154, 0.329);
+                padding: 20px 0;
+
+                &-wrapper {
+                    @include Flex(row);
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    li {
+                        margin-right: 25px;
+
+                        a,
+                        a:visited {
+                            letter-spacing: 0.5px;
+                            font-size: calc(var(--fontSize) - 3px);
+                            color: var(--foregroundColor);
+                            padding: 7px 10px;
+                            @include borderRadius(3px);
+
+                            .fas,
+                            .far {
+                                margin-right: 5px;
+                            }
+                        }
+
+                        & > a:hover {
+                            background-color: var(--foregroundColor);
+                            color: var(--backgroundColor);
+                            text-decoration: none;
+                            text-transform: none;
+                            padding: 7px 10px;
+                        }
+                    }
                 }
             }
         }
@@ -152,13 +192,23 @@ body {
 
             .post-list {
                 margin: 0;
+                @include Flex(column);
+                justify-content: flex-start;
+                flex-wrap: wrap;
 
                 li {
-                    @include Flex(row);
-                    justify-content: space-between;
+                    @include breakpoint(xs) {
+                        @include Flex(column);
+                        justify-content: space-between;
+                        margin: 25px 0;
+                    }
+                    @include breakpoint(sm) {
+                        @include Flex(row);
+                        justify-content: space-between;
+                        margin: 25px 0;
+                    }
                     align-items: center;
                     flex-wrap: wrap;
-                    margin: 40px 0;
 
                     .post-caption {
                         position: absolute;
@@ -183,6 +233,8 @@ body {
                         color: var(--fontColorHomeLink);
                         transition: color 0.3s ease-in-out;
                         z-index: 9;
+                        order: 2;
+                        margin-left: 35px;
 
                         &:hover {
                             color: var(--linkColor);
@@ -190,16 +242,20 @@ body {
                     }
 
                     .post-meta {
-                        min-width: 85px;
-                        margin-right: 50px;
+                        @include breakpoint(xs) {
+                            margin: 2px 0 10px 5px;
+                        }
+                        @include breakpoint(sm) {
+                            margin: 2px 0 0 5px;
+                        }
                         font-size: calc(var(--fontSize) - 3px);
+                        color: var(--fontColorMeta);
                         letter-spacing: 0.2px;
-                        font-weight: 300;
+                        font-weight: 500;
                         font-family: $GoldenPass;
                         text-align: right;
-                        margin: 2px 0 0 50px;
-                        color: var(--fontColorMeta);
                         font-style: italic;
+                        order: 1;
                     }
                 }
             }
@@ -259,7 +315,7 @@ body {
 
                         .post-meta {
                             flex: 1;
-                            font-size: calc(var(--fontSize) - 6px);
+                            font-size: calc(var(--fontSize) - 4px);
                             line-height: $globalLineHeight;
                             text-decoration: none;
                             font-family: $GoldenPass;
@@ -282,10 +338,10 @@ body {
                     &-content {
                         flex: 1;
                         margin: 10px 0 30px 0;
-                        font-size: $globalFontSize;
+                        font-size: var(--fontSize);
                         line-height: $globalLineHeight;
                         letter-spacing: 0.2px;
-                        font-family: $GoldenPass;
+                        font-family: $globalFontFamily;
                         color: var(--fontColorRegular);
                         $headingFontSize: 14px;
 
@@ -348,16 +404,16 @@ body {
                         }
 
                         p {
-                            font-family: $GoldenPass;
+                            font-family: $globalFontFamily;
                             margin: 20px 0;
-                            font-size: $globalFontSize;
+                            font-size: var(--fontSize);
                             line-height: $globalLineHeight;
 
                             code {
                                 background: var(--inlineCodeBackground);
                                 padding: 3px 6px;
                                 font-family: monospace;
-                                font-size: var(--fontSize);
+                                font-size: calc(var(--fontSize) - 4px);
                                 line-height: $globalLineHeight;
                                 border-radius: 3px;
                                 color: var(--foregroundCodeColor);
@@ -440,10 +496,15 @@ body {
                         ol,
                         ul {
                             margin: 20px;
-                            padding: 0 20px;
+                            padding: 0 30px;
 
                             li {
                                 margin: 5px 20px 0 0;
+
+                                strong,
+                                b {
+                                    font-weight: bold;
+                                }
                             }
                         }
 
@@ -584,11 +645,11 @@ body {
                 align-items: center;
                 align-content: center;
                 flex-wrap: wrap;
-                font-size: calc(var(--fontSize) - 1px);
-                line-height: $globalLineHeight;
-                font-weight: 400;
                 text-decoration: none;
                 font-family: $GoldenPass;
+                font-size: calc(var(--fontSize) - 3px);
+                line-height: $globalLineHeight;
+                font-weight: 400;
                 color: var(--fontColorHomeLink);
 
                 div {
@@ -680,7 +741,7 @@ body {
 a,
 a:visited {
     color: var(--linkColor);
-    font-family: $GoldenPass;
+    font-family: $globalFontFamily;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     letter-spacing: 0;
@@ -706,7 +767,7 @@ code {
     // border: 1px solid var(--inlineCodeBorder);
     padding: 4px 6px;
     font-family: monospace;
-    font-size: var(--fontSize);
+    font-size: calc(var(--fontSize) - 3px);
     line-height: $globalLineHeight;
     border-radius: 3px;
     color: var(--foregroundCodeColor);
@@ -728,7 +789,7 @@ code {
             background-color: transparent !important;
             border: 1px solid transparent !important;
             font-family: monospace;
-            font-size: var(--fontSize);
+            font-size: calc(var(--fontSize) - 3px);
             line-height: $globalLineHeight;
             padding: 0 !important;
             color: var(--codeColor);

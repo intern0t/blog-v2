@@ -1,4 +1,17 @@
 <header class="site-header" role="banner">
+	<div class="top-navigation">
+		<ul class="top-navigation-wrapper">
+			<li>
+				<a href="/library"><i class="fas fa-book"></i>Library</a>
+			</li>
+			<li>
+				<a href="/projects"><i class="fas fa-project-diagram"></i>Projects</a>
+			</li>
+			<li>
+				<a href="/about"><i class="fas fa-user"></i>About</a>
+			</li>
+		</ul>
+	</div>
 	<div class="wrapper">
 		{%- assign default_paths = site.pages | map: "path" -%}
 		{%- assign page_paths = site.header_pages | default: default_paths -%}
