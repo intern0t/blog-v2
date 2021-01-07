@@ -23,43 +23,43 @@ First of all download the package manager from [Redir's Official download](http:
 
 Using wget, we can download the `.rpm` package ..
 
-{% highlight bash %}
+```bash
 wget http://pkgs.repoforge.org/redir/redir-2.2.1-1.1.*.*.*.rpm
-{% endhighlight %}
+```
 **Please do keep in mind, the asterisk (*) is replaced by your needs and your system infrastructure.**
 
 After the package arrives in your system, you may execute the `.rpm` file with ..
 
-{% highlight bash %}
+```bash
 rpm -i redir-2.2.1-1.1.*.*.*.rpm
-{% endhighlight %}
+```
 
 After installation of Redir in your system, you may add or execute the command to redirect the incoming packets from the local port to a remote port of your choice. For better security and to minimize the intrusion abuse, add an exception in [IPTables](http://ipset.netfilter.org/iptables.man.html) in your main-server to receive packets/traffic from the proxy server **only** so that any other raw connections to your main server will either be rejected or dropped. *(I personally like dropping the requests without any warning!)*
 
 In order to redirect the traffic from server A with an IP of **(1.1.1.1)** to B with an IP of **(2.2.2.2)** or vice-versa is to run this command through your terminal in either of the server depending on your need (incoming/outgoing).
 
-{% highlight bash %}
+```bash
 redir --laddr=1.1.1.1 --lport=80 --caddr=2.2.2.2 --cport=80
-{% endhighlight %}
+```
 
 After you add this, you might also want to add this code to the startup to launch this setting if in case anything happens to the server which requires a reboot. You can optimize the Redir's setting while typing the code, Redir takes the following options/parameters for its settings.
 
-{% highlight bash %}
+```bash
 nano /etc/rc.d/rc.local
-{% endhighlight %}
+```
 `rc.local` file holds a list of command to be executed after initial system reboot and after system programs are loaded.
 
-{% highlight bash %}
+```bash
 which redir
 # Finds the path to the service name - redir.
-{% endhighlight %}
+```
 Append the `rc.local` file with the full path and the bash script in the end.
 
-{% highlight bash %}
+```bash
 /path/to/redir/<scriptname>.sh
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 --lport
 Specifies port to listen for connections on (when not running from inetd)
 
@@ -110,11 +110,11 @@ Wait between 0 and 2 x n milliseconds before each "packet". A "packet" is a bloc
 
 --wait_in_out n
 Apply --max_bandwidth and --random_wait for input if n=1, output if n=2 and both if n=3.
-{% endhighlight %}
+```
 
 Now that we know how to setup a redirection, lets add an IPTables rule in our main server to accept the traffic from that specific IP Address and port.
 
-{% highlight bash %}
+```bash
 iptables -N ProxyRedirection 
 # The above code creates a new chain in our IPTables.
 
@@ -129,16 +129,16 @@ iptables -I INPUT -m tcp -p tcp --dport 80 -j ProxyRedirection
 
 service iptables save
 # Save and restart IPTables rules.
-{% endhighlight %}
+```
 
 I am not implying that you can only use port 80 redirection, it was just an example which you can make changes to your need and necessities. If you have a dedicated proxy redirection setup (in simple words, many proxy redirection setup), you might want to look into [Squid](http://www.squid-cache.org/) which could help you save lots of bandwidth.
 
 This very same method can be used to **deflect** a medium DDoS attacks, depending on your server provider's service. If you have a dedicated IP to null-route or filter traffic, it can very well be used as a Firewall, literally.
 
-{% highlight bash %}
+```bash
 [Traffic]->[S.P Firewall]->[Filtered IP]->[Proxy Server]->[Your Server]
 # S.P stands for Service Provider's.
-{% endhighlight %}
+```
 
 Very sad however, I have yet to find good yet cheap host which provides those features for someone with minimal budget like myself. I shall continue the search nonetheless.
 

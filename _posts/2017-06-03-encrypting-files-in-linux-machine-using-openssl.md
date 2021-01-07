@@ -16,9 +16,9 @@ The commands are pretty straightforward for `OpenSSL` which can also be reviewed
 
 First, let us create a file which holds secret text/string/data and what not.
 
-{% highlight bash %}
+```bash
 echo 'This is my secret string.' >> secret.txt
-{% endhighlight %}
+```
 
 Verify whether the `secret.txt` file was created and the string was successfully appended to our secret file. Once verified, run `openssl aes-256-cbc -e -in secret.txt -out secret.txt.enc` in your terminal where you created your `secret.txt` file.
 <!--excerpt-->
@@ -26,13 +26,13 @@ Once the encryption command using AES 256 CBC is executed and completed, you sho
 
 You can test their performance and completion timing yourself using `time` command in front of your main encryption/decryption commands.
 
-{% highlight bash %}
+```bash
 time openssl aes-128-cbc -e -in secret.txt -out secret.txt.enc -pass pass:prashantme
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 time openssl aes-256-cbc -e -in secret.txt -out secret.txt.enc -pass pass:prashantme
-{% endhighlight %}
+```
 
 [![Image](https://i.imgur.com/fSZXaYA.png)](https://i.imgur.com/fSZXaYA.png "Timing the command execution."){:data-rel="lightcase"}
 
@@ -42,7 +42,7 @@ Comparison AES-256-CBC vs. AES-128-CBC `0.001 second` and -`9 seconds` differe
 
 So yeah, yet another tiny Python script to make my life easier. I definitely have couple ideas running in my mind for this particular script, let us see what happens in the future. What this script does is simplifies this complex `openssl` command into short and sweet command. If we take above codes as an example, `openssl aes-256-cbc -e -in secret.txt -out secret.txt.enc -pass pass:prashantme` becomes `FileSec.py -e/-d secret.txt/secret.txt.enc prashantme`. Simple, isn't it?
 
-{% highlight python %}
+```python
 #!/usr/bin/python
 # Document : FileSec.py
 # Description : A simple script to bundle the lengthy OpenSSL command in Linux to encrypt files using OpenSSL AES 256 CBC encryption.
@@ -109,13 +109,13 @@ if(len(sys.argv) > 1):
     getPrompts(sys.argv[1])
 else:
     print("Please provide -e or -d (Encryption or Decryption) parameters.")
-{% endhighlight %}
+```
 
 You can create a Symlink for this file which allows the user to run `FileSec.py` from anywhere. First of all, allow the `.py` file execution permission using `sudo chmod +x FileSec.py`. Creating Symlink is very easy, head over to `/usr/local/bin` and type this command in your terminal.
 
-{% highlight bash %}
+```bash
 ln -s /Path/to/FileSec.py .
-{% endhighlight %}
+```
 
 Now you can call and encrypt your files from wherever you want.
 
@@ -123,10 +123,10 @@ Now you can call and encrypt your files from wherever you want.
 
 I tried my best to write this script to make my life/work easier, without all key file, cipher, IV keys and such. Instead, I had a mindset of how big of a file will I be encrypting, the consistency of encryption and how often will I be encrypting/decrypting my files. Using `FileSec.py` is as simple as I could write.
 
-{% highlight bash %}
+```bash
 FileSec.py -e secret.txt key
 FileSec.py -d secret.txt.enc key
-{% endhighlight %}
+```
 
 It uses 256 bits and `cbc` encryption by default which you can change if you prefer 128. I knowingly decided **not** to remove the original copy of the file, things could go south in an instant but this way, the user can check and verify and remove the original copy if necessary.
 

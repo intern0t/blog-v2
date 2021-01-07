@@ -32,7 +32,7 @@ First, let me list[^1] some of Jekyll's liquid template syntaxes that I used for
 
 I used these syntaxes to create and populate a JSON file named `posts.json` with our blog posts data.
 
-{% highlight liquid %}{% raw %}
+```liquid{% raw %}
 ---
 layout: null
 ---
@@ -49,7 +49,7 @@ layout: null
         {% endfor %}
     ]
 }
-{% endraw %}{% endhighlight %}
+{% endraw %}```
 
 Our `posts.json` file does not necessarily need `category` and `tags` JSON keys but I thought it would ease the search process if we can search the **categories** and **tags**! Also, we could extend this search feature by initializing and accessing various post properties[^2].
 
@@ -57,16 +57,16 @@ Our next process includes writing a search trigger which I already made a long t
 
 If we consider `data` to be the contents from our `posts.json`, our **search**/**filter** should be similar to the code below as I wanted the readers to be able to search my blog posts by their `title`, `tags` and `categories`.
 
-{% highlight javascript %}
+```javascript
 const filteredData = data.posts.filter(post =>
     post.title.toLowerCase().includes(searchKey.toLowerCase()) ||
     post.tags.join().toLowerCase().includes(searchKey.toLowerCase()) ||
     post.category.toLowerCase().includes(searchKey.toLowerCase()));
-{% endhighlight %}
+```
 
 The remaining task is to format the `filteredData` in an organized manner, depending on layout and style of your preference. Mine is a bit messy but works well with the framework and libraries I've used!
 
-{% highlight javascript %}
+```javascript
 /* Search trigger - using manual button click.
 ========================================================= */
 $(".gcse-trigger").click(function (e) {
@@ -101,7 +101,7 @@ $(".gcse-trigger").click(function (e) {
         });
     });
 });
-{% endhighlight %}
+```
 
 The outcome I decided to settle with, I am pretty satisfied with it.
 [![Search Demo]({{ site.ph }}){:data-src="https://i.imgur.com/9zMOUWA.png" .lazy}](https://i.imgur.com/9zMOUWA.png){:data-rel="lightcase"}
@@ -114,18 +114,18 @@ I wanted to search not only blog post's title, tags or categories but a bit of a
 
 .. but, for the meantime, I decided to add a certain amount of words in our `posts.json` file to quickly search the given `searchKey` in our excerpt. The `posts.json` is changed to the following. Those make up a properly formatted JSON entry for our search file.
 
-{% highlight json %}{% raw %}
+```json{% raw %}
 "title": "{{ post.title }}",
 "date": "{{ post.date }}",
 "category": "{{ post.categories }}",
 "link": "{{ post.url | replace:'index.html','' | absolute_url }}",
 "excerpt": "{{ post.content | markdownify | strip_html | truncatewords: 70 | escape }}",
 "tags": {{ post.tags | append: "" | join: ', ' }}
-{% endraw %}{% endhighlight %}
+{% endraw %}```
 
 Similarly, our search function has a bit of an addition.
 
-{% highlight javascript %}
+```javascript
 /* Search trigger - using manual button click.
 ========================================================= */
 
@@ -213,7 +213,7 @@ $(".gcse-trigger").click(function(e) {
         });
     });
 });
-{% endhighlight %}
+```
 
 That's about it; I'm trying to implement searching of words, without caring about its **case** - upper, lower or capitalized. I shall update the post once again!
 

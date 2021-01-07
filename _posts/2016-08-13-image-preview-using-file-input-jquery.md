@@ -19,14 +19,14 @@ We'll be using Javascript/jQuery for this as it handles client-side contents mor
 
 #### Simple Setup
 
-{% highlight html %}
+```html
 <label for="avatar-upload">Select your avatar!</label>
 <input type="file" id="avatar-upload"></pre>
-{% endhighlight %}
+```
 
 Then in order to handle the preview, all client-side, we use jQuery as such .. using `URL.readAsDataURL();`
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function () {
     $("#avatar-upload").change(function () {
         createPreview(this);
@@ -40,11 +40,11 @@ $(document).ready(function () {
         reader.readAsDataURL(imageSource.target.files[0]);
     }
 });
-{% endhighlight %}
+```
 
 Using `URL.createObjectURL();` is even more easier.
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function () {
     $("#avatar-upload").change(function () {
         createPreview(this);
@@ -53,7 +53,7 @@ $(document).ready(function () {
         $("#avatar-upload").attr("src", URL.createObjectURL(imageSource.target.files[0]));
     };
 });
-{% endhighlight %}
+```
 
 It is as easy as it comes with the raw coding, of course, there exists 3<sup>rd</sup> party libraries that you can use to make your life easier and get your work done faster but just in case, if you must know, this is one of **many** ways to accomplish Image preview without uploading.
 

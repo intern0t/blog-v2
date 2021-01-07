@@ -15,7 +15,7 @@ Fast forward; I started researching on [Last.fm's API Endpoints](https://www.las
 
 For the development purposes, I will be using HTML, (S)CSS, and jQuery/JavaScript. HTML is fairly simple; it is a layout of your choice and preference.
 
-{% highlight html %}
+```html
 <div class="nowplayingcard">
     <div class="nowplayingcontainer-inner">
         <img id="trackart" src="#">
@@ -25,13 +25,13 @@ For the development purposes, I will be using HTML, (S)CSS, and jQuery/JavaScrip
         </div>
     </div>
 </div>
-{% endhighlight %}
+```
 
 What we did here is to create a foundation of what data goes where and such. Nothing complicated!
 
 Our next step is to give our foundation a look, style if you will.
 
-{% highlight scss %}
+```scss
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 
 $globalFontSize: 13px;
@@ -132,7 +132,7 @@ body {
   }
 }
 
-{% endhighlight %}
+```
 
 Our final step is to make our widget functional, why?! .. because we are fiddling around with dynamic data, and not just any data, data that we pull from a different source. If we were to plan this, we could say, we need a loop to constantly check for data change.
 
@@ -144,7 +144,7 @@ The good thing is it has various customizable parameters, `limit`, `from`, `to`.
 
 Using JavaScript/jQuery, we have.
 
-{% highlight javascript %}
+```javascript
 /**
   Developed by Prashant Shrestha
   + https://prashant.me
@@ -206,7 +206,7 @@ var getSetLastFM = function() {
 getSetLastFM();
 // Start the countdown.
 setInterval(getSetLastFM, 10 * 1000);
-{% endhighlight %}
+```
 
 Simple enough, those hardcoded images hosted in Imgur are from [Icon8](https://icons8.com/), a great website for icons.
 

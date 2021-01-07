@@ -23,7 +23,7 @@ In order to achieve this, you should modify the default manifest file which the 
 
 Your `app.manifest` default layout should be like this
 
-{% highlight xml %}
+```xml
 <asmv1:assembly manifestversion="1.0"
 	xmlns="urn:schemas-microsoft-com:asm.v1"
 	xmlns:asmv1="urn:schemas-microsoft-com:asm.v1"
@@ -36,13 +36,13 @@ Your `app.manifest` default layout should be like this
 		</compatibility>
 	</assemblyidentity>
 </asmv1:assembly>
-{% endhighlight %}
+```
 
 Add the following line in your `app.manifest` file nested inside `<asmv1:assembly manifestversion="1.0">` and `</asmv1:assembly>`.
 
-{% highlight c# %}
+```cs
 <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
-{% endhighlight %}
+```
 
 That is all, save your project, compile and build your application and the difference you will see in the output file will be something like ..
 

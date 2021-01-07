@@ -20,7 +20,7 @@ Anyways, back to our context of importing files using ReactJS, it's quite simila
 
 While playing with `antd` [Upload](https://ant.design/components/upload/) component, it was clear enough until importing a file and initializing the `file` but never actually clearly mentioned about `originFileObj`. Let's take any of those components as an example and look through their sample code.
 
-{% highlight react %}
+```js
 const props = {
   name: 'file',
   multiple: true,
@@ -37,13 +37,13 @@ const props = {
     }
   },
 };
-{% endhighlight %}
+```
 
 I then started searching for answers about why `info.file` wasn't returning an actual file handle for me to read through with `FileReader()` but worked flawlessly as `info.file` was missing `originFileObj` property that actually is the actual file object handle. 
 
 We have two options to access our actual file object, we could use either `info.file.originFileObj` or `info.fileList[..].originFileObj`. Below is the code I used in my To-do tasks application.
 
-{% highlight react %}
+```js
 render(){
     const { visible, onCancel, onCreate, onImport } = this.props;
 
@@ -95,11 +95,11 @@ render(){
         </Modal>
     );
 }
-{% endhighlight %}
+```
 
 Exporting files as **JSON** is pretty easy as well after reading some documentations.
 
-{% highlight react %}
+```js
 /** Exporting a Tasks list. */
 exportTasks = () => {
     /**
@@ -126,7 +126,7 @@ exportTasks = () => {
         message.error("There are no tasks to export, please create a task first.");
     }
 };
-{% endhighlight %}
+```
 
 Pretty funny problem but as long as the solution is quite fun to find, we are good!
 

@@ -18,7 +18,7 @@ This theme toggle method utilizes CSS Variable `var()`, a tiny metadata in our `
 
 There are two color schemes I prepared, light and dark. Keep the stylesheet as modular as possible. I like the combination of minimalistic and professsional color schemes therefore mixture of light colors and dark colors is my go-to. The colors and variable names are completely relative, it does not follow any specific standards, it is simply a variable and the color of my choice.
 
-{% highlight scss %}
+```scss
 :root {
     --fontSize: 15px;
     --backgroundColor: rgb(255, 255, 255);
@@ -62,15 +62,15 @@ There are two color schemes I prepared, light and dark. Keep the stylesheet as m
     --toTop: rgba(255, 255, 255, 0.2);
     --toggleColor: var(--foregroundColor);
 }
-{% endhighlight %}
+```
 
 ### Using the theme in the front-matter.
 
 Using the theme in our front matter is easy, all we need to do is add a new attribute called `theme="light"` or `theme="dark"` in `<html>` tag. My Jekyll blog's `<html>` tag looks like this.
 
-{% highlight html %}
+```html
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}" theme="light">
-{% endhighlight %}
+```
 
 Mind you, there is no need to have `theme="light"` as we did not set-up any light theme variables to use therefore using the fallback to the root (by default).
 
@@ -78,7 +78,7 @@ Mind you, there is no need to have `theme="light"` as we did not set-up any ligh
 
 In order to toggle/change the theme between the light and dark, we need a button or an actionable component of sort. As someone who is bad at designing, I mean, bad.., I decided to simply use icons by [Font Awesome](https://fontawesome.com/) as my button. Two lightbulb icons seemed simple and perfect enough for me. <span class="fas fa-lightbulb"></span> <span class="far fa-lightbulb"></span>
 
-{% highlight html %}
+```html
 <!-- Toggle theme -->
 <a
     class="site-theme-toggle"
@@ -87,7 +87,7 @@ In order to toggle/change the theme between the light and dark, we need a button
     title="Toggle theme..">
 	<i class="fas fa-lightbulb"></i>
 </a>
-{% endhighlight %}
+```
 
 With a little bit of Javascript, those buttons should suffice. 
 
@@ -95,7 +95,7 @@ With a little bit of Javascript, those buttons should suffice.
 
 I decided to use the regular type of lighbulb to denote the lightbulb's `off` state whereas, the solid type of lightbulb denotes it's `on` state. So, lightbulb's `on` state means everything is light because the lightbulb is `on`, `off` state (regular type) means everything is dark because the lightbulb is `off`.
 
-{% highlight js %}
+```js
 /* Theming - Light & Dark
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 let currentTheme = localStorage.getItem('theme');
@@ -133,7 +133,7 @@ if (currentTheme) {
         'Enable dark mode.' : 'Enable light mode.'
 	);
 }
-{% endhighlight %}
+```
 
 I suppose, I could have simplified it further but for now, we will leave it at basic.
 

@@ -19,13 +19,13 @@ I did not use third party image hosting site in order to keep the ownership of t
 
 Let us start with the coding, open up your main file - normally `index.*` and add the code right below the `body` tag.
 
-{% highlight html %}
+```html
 <div class="preload"></div>
-{% endhighlight %}
+```
 
 Let us move on with the CSS part where we center the `*.gif` into a layer which will be shown during the page load process.
 
-{% highlight css %}
+```css
 .preload{
     position: fixed;
     left: 0px;
@@ -35,7 +35,7 @@ Let us move on with the CSS part where we center the `*.gif` into a layer which 
     z-index: 9999;
     background: url('../images/cube_preloader.gif') center no-repeat #34495E;
 }
-{% endhighlight %}
+```
 
 The `background: url()` can have different parameters than the one I provided above which depends on your directory structure/layout. Once done, compile or simply save the **CSS** file. I changed the overally background color to match the preloading `.gif` background color which is `#34495E`.
 
@@ -43,11 +43,11 @@ Final work is to trigger the event where we want the preloader to pop-up, in our
 
 Open up your jQuery file and add the code below `window.load` event.
 
-{% highlight javascript %}
+```javascript
 $(window).load(function(){
     $(".preload").fadeOut("slow");
 });
-{% endhighlight %}
+```
 
 That's it, of course you will require jQuery dependency in your project which you can find it [here](https://code.jquery.com/).
 

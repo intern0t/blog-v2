@@ -36,24 +36,24 @@ If you must know I am using ibVPN for my workstation which is decent, not the fa
 
 First of all install **OpenVPN**. Arch has it in their official repository therefore ..
 
-{% highlight bash %}
+```bash
 sudo pacman -S openvpn
 
 # For CentOS
 yum -y install openvpn easy-rsa
-{% endhighlight %}
+```
 
 Download configuration file from your VPN provider, some provide configurations packed in .zip/.rar/.tar/.gz/.tar.gz or you have to download them one by one. The OpenVPN configuration file ends with the extension `.ovpn`.
 
 Once you have the `.ovpn` files, copy it over to `/etc/openvpn` directory and enter the following command in your terminal to connect to the server.
 
-{% highlight bash %}
+```bash
 sudo openvpn --config <configuration_file_name.ovpn>
-{% endhighlight %}
+```
 
 For ease and speedy use, you can use wildcards to specify file names. I also prefer not to type in the username and passwords every time I try to connect to the VPN server. Instead, I specify which authentication file to use with the configuration I use the most. One of ibVPN's configuration file looks like this.
 
-{% highlight bash %}
+```bash
 remote us8.ibvpn.com 1194 udp
 remote <IP> 80 udp
 remote <IP> 443 udp
@@ -77,22 +77,22 @@ auth-retry nointeract
 reneg-sec 0
 up "/etc/openvpn/change_resolv_conf.sh up"
 down "/etc/openvpn/change_resolv_conf.sh down"
-{% endhighlight %}
+```
 
 See the `auth-user-pass` field is empty? I specified mine as `autho.txt` and created a new file in `/etc/openvpn` with my username and password for ibVPN. Make sure you append username and password in different line.
 
-{% highlight bash %}
+```bash
 nano /etc/openvpn/autho.txt
 
 # Username (Without #)
 # Password (Without #)
-{% endhighlight %}
+```
 
 Save the file and try connecting to the VPN server using the configuration file we just made changes to.
 
-{% highlight bash %}
+```bash
 sudo openvpn --config <configuration_file_name.ovpn>
-{% endhighlight %}
+```
 
 It will now no longer prompt for username and password, fast when you are in a rush.
 

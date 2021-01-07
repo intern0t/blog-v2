@@ -25,9 +25,9 @@ Move all `*.md` files in your root directory to `_pages` or the newly created pa
 
 Head over to `_config.yml` file and append the following code to instruct the Jekyll build to include all files in `_pages` or directory we recently created.
 
-{% highlight yml %}
+```yml
 include: ["_pages"]
-{% endhighlight %}
+```
 
 ... and that's it. Rebuild your blog, and everything should be running as excepted, and we now have a clean and organized Jekyll file structure.
 

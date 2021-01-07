@@ -16,16 +16,16 @@ Although Google's Custom Search Engine was already used before, I decided to sim
 
 
 
-{% highlight html %}
+```html
 <div class="row">
     <input class="u-full-width" type="text" placeholder="Please enter what you wish to search here." id="toSearch">
     <input class="button-primary" class="gcse-trigger" type="submit" value="Search">
 </div>
-{% endhighlight %}
+```
 
 The jQuery snippet to handle and trigger the search.
 
-{% highlight javascript %}
+```javascript
 var toSearch = "https://cse.google.com/cse/publicurl?cx=010738197107477130202:cnkjahloicw&q=";
 $(".gcse-trigger").click(function (e) {
     e.preventDefault();
@@ -102,7 +102,7 @@ $("input#toSearch").keydown(function (e) {
         $(".gcse-trigger").trigger('click');
     }
 });
-{% endhighlight %}
+```
 
 If we wish to merely view the returned result from the `GET` request we made using `Ajax`, we could add `console.log(result)` nested inside our `success: function(result){}`. A test query made for the search key, `server` returned a result as follows.
 
@@ -110,7 +110,7 @@ If we wish to merely view the returned result from the `GET` request we made usi
 
 The `result` container to hold each search results are designed to be as minimal and straightforward as I possibly could, SASS snippet I used is provided below.
 
-{% highlight scss %}
+```scss
 /* Search Result styling */
 .search-result-container{
 
@@ -143,7 +143,7 @@ The `result` container to hold each search results are designed to be as minimal
         }
     }
 }
-{% endhighlight %}
+```
 
 This is an example of what I did rather than what must be done, the code snippet, layouts, and stylings can be changed to one's preference. I went ahead and filtered the Google's Custom Search results to my liking as it included search results with the format of, `https://prashant.me/page/3/` which was not very useful. Therefore, I filtered such that only search results with existing blog posts in `link` key are displayed.
 

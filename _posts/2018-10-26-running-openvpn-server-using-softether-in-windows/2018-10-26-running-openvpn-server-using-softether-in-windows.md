@@ -75,18 +75,18 @@ Setting up SoftEther is pretty simple as well however it gets confusing sometime
 
 In the same directory where your `client.ovpn` resides, create another file `auth.txt` with the username and password you [set up](/assets/images/2018-10-26-running-openvpn-server-using-softether-in-windows/pQkMky4.png){:data-rel="lightcase"}. Your `auth.txt` content layout should have username in first line, password on the second, that's all.
 
-{% highlight bash %}
+```bash
 username
 password
-{% endhighlight %}
+```
 
 #### Connecting to our OpenVPN Server
 
 Connecting to our OpenVPN server is quite simple, you can use an OpenVPN client to import your `client.ovpn` or if you are a terminal preferring user like myself, a simple command like so can get the job done.
 
-{% highlight bash %}
+```bash
 sudo openvpn --config client.ovpn
-{% endhighlight %}
+```
 
 {% include lightcase.html name="CDxrryj.gif" alt="OpenVPN Usage from Terminal" local="true" %}
 

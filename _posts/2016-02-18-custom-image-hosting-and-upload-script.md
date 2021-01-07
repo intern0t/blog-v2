@@ -32,12 +32,12 @@ Open up your IDE and start with creating a PHP script which will take POST data 
 
 I beforehand wrote a `.htaccess` rule just to keep the URL clean.
 
-{% highlight htaccess %}
+```
 RewriteEngine On
 RewriteRule ^upload$ /upload.php [L,NS]
-{% endhighlight %}
+```
 
-{% highlight php %}
+```php
 <?php
 	/**
 		Document 		: CDN/upload.php
@@ -73,7 +73,7 @@ RewriteRule ^upload$ /upload.php [L,NS]
 
 	exit();
 ?>
-{% endhighlight %}
+```
 
 I prefer testing our my remote scripts before moving forward, I used a nifty yet handy tool, very essential to web developers named [Postman](https://www.getpostman.com). Amazing, what you can do with it.
 
@@ -97,7 +97,7 @@ If you already have `gnome-screenshot` installed, you can do `-h` or `--help` an
 
 A python script to handle three parameter flags `-a`, `-d` and `-w` is given below -
 
-{% highlight python %}
+```python
 #	Document 		: CDN/cdnupload.py
 #	Description		: An upload trigger for Linux systems.
 #	Date 			: 2016-03-04
@@ -136,22 +136,22 @@ auth	= { "securityKey" : "prashantmshrestha" }
 sendRequest(files, auth)
 
 call(["rm", "-rf", imageFilename])
-{% endhighlight %}
+```
 
 Now that we have Python script to take screenshot and trigger upload, we can simply run it with -
 
-{% highlight bash %}
+```bash
 python cdnupload.py -a # Take area screenshot & Upload
 python cdnupload.py -w # Take current window's screenshot & Upload
 python cdnupload.py -d # Take full desktop's screnshot & Upload
-{% endhighlight %}
+```
 
 **(2016-03-22) Edit:** Those were the easy parts, what we need now is the protection so that only the owners/certain domain can access the images hosted in our server. I used `.htaccess` in order to achieve it and lock it to only one domain, `prashant.me`. Add the following after the `.htaccess` commands provided above.
 
-{% highlight htaccess %}
+```
 #Lock To one domain.. 
 RewriteCond %{HTTP_HOST} ^prashant.me RewriteRule ^/(.*).png$ [FL] 
-{% endhighlight %}
+```
 
 This should do the trick, in order to check if it is working or not, just head over to some other domain and try embedding the image to the website. It isn't much but a lot of improvements and updates can be applied to this project, even though if you look at it as a small project.
 

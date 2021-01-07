@@ -14,7 +14,7 @@ I run my Plex server in a static local IP, `192.168.1.111:32400`, and I came acr
 <!--excerpt-->
 The slab of XML content is provided below, or you could head to your Plex URL and remove the `/web` parameter to check it out yourself.
 
-{% highlight xml %}
+```xml
 <MediaContainer ..>
     <Directory count="1" key="activities" title="activities" content="1"/>
     <Directory count="1" key="butler" title="butler" content="1"/>
@@ -39,27 +39,27 @@ The slab of XML content is provided below, or you could head to your Plex URL an
     <Directory count="1" key="updater" title="updater"/>
     <Directory count="1" key="video" title="video"/>
 </MediaContainer>
-{% endhighlight %}
+```
 
 I am unsure why Plex haven't implemented the **Export** option for a library of any sort yet but it could be that I am unaware of its existence. Out of all these `Directory` nodes, `library`, `servers`, and `statistics` piqued my interest therefore I started browsing through them and noticed `library` node consisted of three different sub-nodes, `sections`, `recentlyAdded`, `onDeck`. Out of these **3** nodes, `sections` node holds what we need.
 
-{% highlight xml %}
+```xml
 <MediaContainer ..>
 	<Directory key="sections" title="Library Sections"/>
 	<Directory key="recentlyAdded" title="Recently Added Content"/>
 	<Directory key="onDeck" title="On Deck Content"/>
 </MediaContainer>
-{% endhighlight %}
+```
 
 Browsing `sections` node gave me more nodes, basically contains an **identification** for my libraries, notice the attribute `id` in `Location` node.
 
-{% highlight xml %}
+```xml
 <MediaContainer ..>
 	<Directory ..>
 	<Location id="2" path="/home/plexserv/Multimedia/Movies"/>
 	</Directory>
 </MediaContainer>
-{% endhighlight %}
+```
 
 If we navigate to `192.168.1.111:32400/library/sections/2`, we are thrown with more slab of XML, sorting/categorized options by the looks of it. The title attribute in these nodes makes it clear that we need the `Directory` node with attribute `key="all"` is all we need to create a list of movies that we have in our library. Verify it by navigating to that directory/node, `192.168.1.111:32400/library/sections/2/all` and viola, there we have it, dumps and dumps of items we have in the library with `id` **2**.
 
@@ -67,7 +67,7 @@ Now we are left with a lots of XML entries, we could share this with our friends
 
 I made use of Python because it has a built-in module for XML parsing called `xml.etree.ElementTree` which is enough for us to parse our Plex Library's sections and create a formatted list for us to share with others. The script is quite short as we used a built-in module provided by Python, available in both `3.*` and `2.*` versions.
 
-{% highlight python %}
+```python
 import xml.etree.ElementTree as ET
 import urllib2
 
@@ -79,7 +79,7 @@ f = open('PlexList.txt', 'w')
 
 for child in root.iter('Video'):
     f.write(child.attrib['title'] + "\n")
-{% endhighlight %}
+```
 
 .. and there we have it, we used `urllib` module to get the `plexlist.xml` file from the provided URL, initialized and read through each `Video` node in our XML and retrieved our movie title and saved it to `PlexList.txt` for proper identification of files. I could definitely write and extend the crucial and informative contents that we wish to extract from our XML but for now, movie titles should do the job. 
 

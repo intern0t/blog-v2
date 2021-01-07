@@ -143,7 +143,26 @@ $(document).ready(function () {
             'title',
             currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
         )
-	});
-	
-	console.log("OK!");
+    })
+
+    /**
+     * Enabling highlight label.
+     */
+    addEventListener('load', function () {
+        var highlights = document.querySelectorAll('div[class^="language-"], figure[class="highlight"')
+        Array.prototype.forEach.call(highlights, (block) => {
+            var splitted = block.getAttribute('class').split(' ')
+            var filtered = splitted.filter(
+                (_sp) => _sp.indexOf('language-') > -1
+            )
+            let language = filtered[0].split('-')[1] || 'Unknown'
+
+            var languageLabel = document.createElement('div')
+            languageLabel.className = 'language-label language-' + language
+            languageLabel.innerHTML = language
+            block.appendChild(languageLabel)
+        })
+    })
+
+    console.log('OK!')
 })

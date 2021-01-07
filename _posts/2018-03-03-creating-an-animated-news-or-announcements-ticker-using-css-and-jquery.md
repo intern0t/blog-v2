@@ -15,7 +15,7 @@ I would like to clarify beforehand that the terminologies used, such as *"announ
 
 That being said, let us start by creating a layout using **HTML**, fairly simple one, a box with a title and a list of unordered list with our data.
 
-{% highlight html %}
+```html
 <div class="announcements-container">
   <div class="container-title">New Blog Posts</div>
   <ul class="announcements">
@@ -25,11 +25,11 @@ That being said, let us start by creating a layout using **HTML**, fairly simple
     <li><a href="https://prashant.me/development/2013/10/12/css-pseudo-class-manipulation-using-jquery.html" title="#">CSS Pseudo classes manipulation using jQuery. @2017-10-12T12:21:27+00:00.</a></li>
   </ul>
 </div>
-{% endhighlight %}
+```
 
 Now that we have our **layout**, let's add some styling to it. I used *(S)CSS* for this purpose, it is quite easy to convert it to regular CSS.
 
-{% highlight scss %}
+```scss
 /** Fonts **/
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|PT+Sans");
 
@@ -135,11 +135,11 @@ body {
     }
   }
 }
-{% endhighlight %}
+```
 
 That should give our layout a fairly simple yet clean styling. Now, time to make our ticker **functional**, the core code.
 
-{% highlight javascript %}
+```javascript
 /*
   News Ticker - Prashant Shrestha
   Date: 2018-03-03
@@ -175,7 +175,7 @@ $(function() {
     }
   );
 });
-{% endhighlight %}
+```
 
 The jQuery code might be a little confusing however I assure you, it is as simple as I could write. What we are doing is that we are tagging our list elements and keeping track of the next entry/data/list item in our unordered list and sending the currently active list item to the end of the list with a `slideDown({ .. })` animation and adding the first list item after the current one to the top using the `slideUp({ .. })` animation.
 
