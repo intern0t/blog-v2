@@ -53,9 +53,9 @@ It will be easier if you store your **to be merged** files inside the same direc
 
 Now head over to your command prompt and enter the follow line of command into it, copy paste works as well. Just don't forget to specify the name of the file.
 
-{% highlight bash %}
+```bash
 libz inject-dll -a <Your_File_Name>.exe -i *.dll -e *sql* --move
-{% endhighlight %}
+```
 
 [![Image](https://i.imgur.com/NDvpPb4.png)](https://i.imgur.com/NDvpPb4.png){:data-rel="lightcase"}
 

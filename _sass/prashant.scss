@@ -7,8 +7,8 @@
 
 @charset "utf-8";
 
-@import './_includes/reset', './_includes/fonts', './_includes/mixins',
-    './_includes/responsive';
+@import './_includes/reset', './_includes/colors', './_includes/fonts',
+    './_includes/mixins', './_includes/responsive';
 
 $gradient_: 90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%,
     #3498db 32%, #9b59b6 32%, #9b59b6 35%, #34495e 35%, #34495e 55%, #f1c40f 55%,
@@ -471,6 +471,8 @@ body {
 
                             &:first-child > a[data-rel='lightcase'],
                             &:last-child > a[data-rel='lightcase'] {
+                                margin: 20px 0;
+
                                 & {
                                     @include Flex(row);
                                     justify-content: space-evenly;
@@ -590,7 +592,7 @@ body {
 
                         a {
                             flex: 1;
-                            font-size: var(--fontSize);
+                            font-size: calc(var(--fontSize) - 2px);
                             line-height: $globalLineHeight;
                             letter-spacing: 0.1px;
                             text-decoration: none;
@@ -707,6 +709,11 @@ body {
                         }
                     }
                 }
+
+                .jekyll-logo {
+                    max-width: 20px;
+                    vertical-align: middle;
+                }
             }
         }
     }
@@ -774,12 +781,64 @@ code {
     vertical-align: middle;
 }
 
+div[class^='language-'],
+div[class^='highlighter-'] {
+    position: relative;
+    margin: 10px 0;
+
+    .language-label {
+        position: absolute;
+        top: -18px;
+        color: white;
+        right: 20px;
+        background: #1d1d1d;
+        padding: 3px 12px;
+        font-family: monospace;
+        font-size: 13px;
+        border-radius: 3px;
+        z-index: 9;
+        text-transform: uppercase;
+    }
+
+    /** Language labels */
+    .language {
+        &-cs {
+            background-color: $cs;
+        }
+        &-css {
+            background-color: $css;
+        }
+        &-scss {
+            background-color: $sass;
+        }
+        &-html {
+            background-color: $html;
+        }
+        &-js,
+        &-javascript {
+            background-color: $js;
+            color: rgb(0, 0, 0);
+        }
+        &-python {
+            background-color: $python_b;
+            color: $python_f;
+        }
+        &-ruby {
+            background-color: $ruby;
+        }
+    }
+}
+
 .highlight {
     font-family: monospace;
     font-size: var(--fontSize);
     background-color: var(--codeBackgroundColor);
     color: var(--backgroundColor);
     padding: 10px;
+    @include borderRadius(3px);
+    -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
 
     pre {
         overflow: auto;

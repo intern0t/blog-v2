@@ -33,15 +33,15 @@ Creating SymLink is a very easy task, all we need to know is where to store our 
 
 Before we create a SymLink, let us give proper permission to our Python script using
 
-{% highlight bash %}
+```bash
 sudo chmod +x Pymgur.py
-{% endhighlight %}
+```
 
 Let's say Pymgur's full path is `~/Documents/Scripts/Pymgur.py`, head over to `/usr/local/bin` and enter this code to create a proper SymLink to your file.
 
-{% highlight bash %}
+```bash
 sudo ln -s ~/Documents/Scripts/Pymgur.py
-{% endhighlight %}
+```
 
 That should do it, go to some random directory and try `Pymgur.py` should work, if you set everything up.
 
@@ -54,17 +54,17 @@ The following Python script does not create a configuration file needed so we ar
 
 ### Parameters and Arguments:
 
-{% highlight bash %}
+```bash
 Pymgur.py -a # Capture Area.
 Pymgur.py -d <seconds># Capture fullscreen with delay in seconds.
 Pymgur.py -w # Capture Active Window.
 Pymgur.py -w -d <seconds> # Capture Active window with delay in seconds.
 Pymgur.py -c # Upload image from Clipboard to Imgur (direct)
-{% endhighlight %}
+```
 
 ### pymgur.conf
 
-{% highlight json %}
+```json
 {
     "client" : "Developed by Prashant Shrestha (https://prashant.me)",
     "saveTo" : "/home/scarecr0w/Pictures/Screenshots",
@@ -74,11 +74,11 @@ Pymgur.py -c # Upload image from Clipboard to Imgur (direct)
     "access_token" : "",
     "refresh_token" : ""
 }
-{% endhighlight %}
+```
 
 ### Pymgur.py
 
-{% highlight python %}
+```python
 #!/usr/bin/python
 # Document : Pymgur.py
 # Description : Simple Image Screenshot tool for Linux, developed for Ubuntu.
@@ -264,7 +264,7 @@ if(os.path.exists(absoluteImagePath) and os.path.isfile(absoluteImagePath)):
     # Compress the PNG images to save bandwidth.
     os.system("optipng " + absoluteImagePath)
     pushToImgur(absoluteImagePath)
-{% endhighlight %}
+```
 
 
 [Access via. Repo.](https://bitbucket.org/intern0t/scripts/raw/36715594478ded52426240fdd035993f2f8d7b01/Pymgur.py)

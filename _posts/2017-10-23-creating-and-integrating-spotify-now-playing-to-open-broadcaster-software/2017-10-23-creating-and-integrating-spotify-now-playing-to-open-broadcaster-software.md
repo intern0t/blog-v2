@@ -34,13 +34,13 @@ The biggest hurdle with finding the right approach yet keeping the process simpl
 
 Spotify had multiple instances; I am sure they are helping the main instance with certain task. However, I needed to differentiate between each one and grab the right one. In order to do so, I made use of `GetProcessesByName()` function under `Process` class. The reason is that, for all the instances of Spotify, the process ID is re-assigned after opening Spotify client, it never stays the same or constant. If we fire up our [Task Manager](https://i.imgur.com/rZ0ePMh.png){: data-rel="lightcase"} and observe all the process IDs for those instances, it is pretty obvious that they aren't the same.
 
-{% highlight c# %}
+```cs
 Process[] spotifyProcesses = Process.GetProcessesByName("spotify");
-{% endhighlight %}
+```
 
 After initializing a collection of all Spotify processes, I looped through the `MainWindowTitle` property of each process and voila! Some returned a whitespace `string` and finally the title of a track currently being played. I created a function to do this, kept it clean and organized, in case if I have to make changes in the future. Also, I initialized a new variable to store our process ID for later use and avoid the mess of finding the right process again and again!
 
-{% highlight c# %}
+```cs
 private static int spotifyProcessID = 0;
 
 public void GetSpotifyProcesses()
@@ -59,7 +59,7 @@ public void GetSpotifyProcesses()
         }
     }
 }
-{% endhighlight %}
+```
 
 Now that I know that the variable `spotifyProcessID` holds either `0`, a failure to find the right process or the right process whose title did not have a whitespace, in simple words, a valid non-empty string. In addition, I called the `GetSpotifyProcesses()` function in my Window Form's `Load` event.
 
@@ -67,7 +67,7 @@ Now that I know that the variable `spotifyProcessID` holds either `0`, a failure
 
 This is the easiest process of all as I already have the title from `Process.MainWindowTitle` property but a little different as we are trying to avoid the loop through of finding the right Spotify process, the very reason I initialized and assigned `spotifyProcessID` which can now be directly accessed using our yet another built-in `Process` class' method, `GetProcessById()`. Keeping it organized, I created yet another function to get just the track title.
 
-{% highlight c# %}
+```cs
 private static String spotifyNowPlayingTrack = string.Empty;
 
 public string GetSpotifyTrack(int _procID)
@@ -78,13 +78,13 @@ public string GetSpotifyTrack(int _procID)
         "Currently not playing any songs!" : 
         "Spotify (Now Playing) : " + spotifyTrack;
 }
-{% endhighlight %}
+```
 
 #### Creating and Updating our source file.
 
 This is easily achieved using `WriteAllText()` method in a built-in `File` class. I created a separate function to create or update our file, considering the tool I am developing, this function shall be invoked in the certain interval if certain set conditions are met.
 
-{% highlight c# %}
+```cs
 public void UpdateSong()
 {
     try
@@ -113,33 +113,33 @@ public void UpdateSong()
         MessageBox.Show(ex.Message);
     }
 }
-{% endhighlight %}
+```
 
 #### Adding Interval for `UpdateSong()` method.
 
 I kept this process simple by using our Window Form's component called `Timer`, all I had to worry about is what function to call and in what interval to call. Initialized a new `Timer` variable and a separate one for an interval.
 
-{% highlight c# %}
+```cs
 private static System.Windows.Forms.Timer T = new System.Windows.Forms.Timer();
 private static int captureInterval = 2;
-{% endhighlight %}
+```
 
 Implementing the Timer's event using `T.Tick += T_Tick;` under `InitializeComponent();`. In this `Tick` event, we will fetch and update our file where the conditions to whether update the file is already set in our `UpdateSong()` function.
 
-{% highlight c# %}
+```cs
 private void T_Tick(object sender, EventArgs e)
 {
     new Thread(new ThreadStart(UpdateSong)).Start();
 }
-{% endhighlight %}
+```
 
 We can set the interval of our `Tick` event using `Interval` property of `Timer`. `Interval` property takes value in milliseconds, therefore, the `* 1000`.
 
-{% highlight c# %}
+```cs
 // Every 2 seconds, UpdateSong method is invoked in a new thread.
 T.Interval = captureInterval * 1000;
 T.Enabled = true;
-{% endhighlight %}
+```
 
 #### Adding Text Source to OBS.
 

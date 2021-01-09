@@ -19,9 +19,9 @@ Look at the image displayed below, taken from one of my test applications.
 
 If you are unable to view the image displayed or if you are reading this post from platforms with small screen then here's the output.
 
-{% highlight javascript %}
+```javascript
 XMLHttpRequest cannot load http://localhost:1337/track. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost' is therefore not allowed access.
-{% endhighlight %}
+```
 
 `:1337/track` is my NodeJS application and `:80/` is my simple HTML-CSS-Javascript website.
 
@@ -29,7 +29,7 @@ Fixing this problem is quite simple to be honest, as mentioned in the error, it 
 
 I'll be using [**Express**](http://expressjs.com/) to handle the requests and responses and my client side sending a POST data to our specified API end-point `:1337/track` to calculate and reply with a response.
 
-{% highlight javascript %}
+```javascript
 app.use('/track', function (req, res, next) {
     console.log(req.body.poop);
     res.header("Access-Control-Allow-Origin", "*");
@@ -41,13 +41,13 @@ app.route('/track')
     .post(function (req, res) {
         res.json("We received your request - sending response -> " + req.body.poop)
     });
-{% endhighlight %}
+```
 
 As you can see, we added a middle-ware to add `Control Origin` header to our response which will make our lives easier. In any case, if you ever want to make your API private and allow access from only one origin you can replace `res.header("Access-Control-Allow-Origin", "*");` with `res.header("Access-Control-Allow-Origin", "https://prashant.me");` or domain name of your choice!
 
 Let us now create an event to request data from our API end-point using jQuery.
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function () {
 $.ajax({
     url : "http://localhost:1337/track",
@@ -63,7 +63,7 @@ $.ajax({
     }
 });
 });
-{% endhighlight %}
+```
 
 We are simply creating a HTTP request from one origin to another.
 

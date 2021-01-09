@@ -21,7 +21,7 @@ I decided to integrate [Lightcase](http://cornel.bopp-art.com/lightcase/) to my 
 
 Let's check the `code`, `pre`, `highlighter`, and `color-schemes` layouts. Let me throw in a starting code of my theme's `SASS` file. The color scheme for `_highlight.scss` is using `rougify style github`. Works great and looks great!
 
-{% highlight scss %}
+```scss
 /* Global Variables */
 $globalFontFamily: "Open Sans", arial, sans-serif;
 $globalFontSize: 1.5em;
@@ -32,7 +32,7 @@ $navyBlue: #006AC8;
 $breakerColor: #F1F1F1;
 $quoteTextColor: #6a737d;
 $quoteBorderColor: #dfe2e5;
-{% endhighlight %}
+```
 
 Responsiveness looks OK for now, I suppose! Will add more features if I do not get too lazy.
 

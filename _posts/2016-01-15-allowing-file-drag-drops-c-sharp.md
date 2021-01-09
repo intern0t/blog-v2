@@ -19,15 +19,15 @@ Depending on your form component, **choose** the component you wish to enable Dr
 
 Open your code window and in the Form constructur below `InitializeComponent();` add this below it.
 
-{% highlight c# %}
+```cs
 this.AllowDrop = true;
 this.DragEnter += Main_DragEnter;
 this.DragDrop += Main_DragDrop;
-{% endhighlight %}
+```
 
 Add these methods below the constructor or ..
 
-{% highlight c# %}
+```cs
 private void Main_DragDrop(object sender, DragEventArgs e) {
     string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
     foreach(string file in files) {
@@ -42,7 +42,7 @@ private void Main_DragEnter(object sender, DragEventArgs e) {
         e.Effect = DragDropEffects.None; 
     }
 }
-{% endhighlight %}
+```
 
 [![Image](https://i.imgur.com/nawTc1Z.png)](https://i.imgur.com/nawTc1Z.png "Fetched Filepath using drag and drop."){:data-rel="lightcase"}
 

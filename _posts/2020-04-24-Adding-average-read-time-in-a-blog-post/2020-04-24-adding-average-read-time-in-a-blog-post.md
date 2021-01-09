@@ -28,11 +28,7 @@ This command returns the number of words in a file, plain and simple.
 
 We could use JavaScript to calculate the number of words in a container, split it by words using Regex.
 
-```javascript
-let post = document.getElementsById("post").innerText;
-const wordsCount = post.match(/\S+/g).length;
-const formattedWordsCount = "~" + (wordsCount / 200).toFixed(2) + " minutes";
-```
+{% include lightcase.html name="blog-average-read-time-javascript.png" alt="Javascript" local="true" %}
 
 I did not want to go the dynamic calculation route. I utilized `divided_by` liquid syntax to calculate the estimated time. For example, let's say I manually add the words count to my post meta-data as such `words: 250`. We can access that meta-data using `post.words` and get the average read time by dividing the words count by average reader's words-read-per-minute which is [**200-300**](https://en.wikipedia.org/wiki/Speed_reading#Types_of_reading_-_Mental.2C_Auditory_.26_Visual).
 

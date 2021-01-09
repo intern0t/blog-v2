@@ -22,12 +22,12 @@ We need two things to achieve or implement this scroll progress in our website.
  2. A hook to manage our document's `scroll` event.
 
 Let's start out by creating an empty `div` container in our page, preferably right below the `<body>` tag.
-{% highlight html %}
+```html
 <div class="progress"></div>
-{% endhighlight %}
+```
 
 Now, let's give it a bit of a style, `box-shadow` and a preferred `background-color` should keep it simple and attractive. Considering my blog consists of dark `foreground` colors, I chose to go with `#000000` *(Hex Black)*.
-{% highlight scss  %}
+```scss
 .progress {
     width: 0;
     height: 3px;
@@ -41,11 +41,11 @@ Now, let's give it a bit of a style, `box-shadow` and a preferred `background-co
     -moz-box-shadow: -1px 2px 2px -1px #000000;
     z-index: 99;
 }
-{% endhighlight %}
+```
 
 Now that we are done creating a styled progressbar for our website, we should add functionality on it by hooking into our document's `scroll` event. Considering I used jQuery, I decided to add my code in jQuery as well.
 
-{% highlight javascript  %}
+```js
 $(document).scroll(function(e) {
     var dimensions = {
         'scrollTop': $(window).scrollTop(),
@@ -57,7 +57,7 @@ $(document).scroll(function(e) {
     var pageScrolledPercentage = (dimensions.scrollTop / (dimensions.documentHeight - dimensions.windowHeight)) * 100;
     $('.progress').css('width', pageScrolledPercentage + '%');
 });
-{% endhighlight %}
+```
 
 .. and that should give us a nice progressbar for our website which sets the progress to our currently scrolled percentage.
 

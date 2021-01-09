@@ -17,15 +17,15 @@ Demo from [JSFiddle](https://jsfiddle.net/intern0t/fp85voue/4/) is provided belo
 
 In your regular HTML file, normally body or header.
 
-{% highlight html %}
+```html
 <body>
   <h1>Prashant Says hello! - <a href="https://www.prashant.me/development/2016/01/03/rainbow-border-with-linear-gradient-in-s-css.html">prashant.me</a></h1>
 </body>
-{% endhighlight %}
+```
 
 I use SCSS pre-processor therefore here's the code which can easily be converted to regular CSS.
 
-{% highlight sass %}
+```scss
 $gradient_ : 90deg, #1abc9c 15%, #2ecc71 15%, #2ecc71 12%, #3498db 12%, #3498db 32%, #9b59b6 32%, #9b59b6 35%, #34495e 35%, #34495e 55%, #f1c40f 55%, #f1c40f 59%, #e67e22 59%, #e67e22 63%, #e74c3c 63%, #e74c3c 82%, #ecf0f1 82%, #ecf0f1 92%, #95a5a6 92%;
 
 $size_  : 100% 7px;
@@ -51,7 +51,7 @@ body{
         margin: 20px 0 0 0;
     }
 }
-{% endhighlight %}
+```
 
 You can change the color combinations in `$gradient_` and the height of the rainbow border with the `$size_` variable.
 

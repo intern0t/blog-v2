@@ -19,19 +19,19 @@ So using one of my disposable CentOS server, I started a personal campaign to in
 
 I started by updating my servers, mind you, I had **5** simultaneous terminals open in my personal computer. Considering all my servers use CentOS, it was quite easy for me.
 
-{% highlight bash %}
+```bash
 yum -y update
-{% endhighlight %}
+```
 
 If you get any errors, execute `yum clean all` command in your terminal. After updating my system, I installed `pam-devel` which is more like a permission set for Linux which manages **authentication policies**.
 
-{% highlight bash %}
+```bash
 yum -y install pam-devel
-{% endhighlight %}
+```
 
 Considering we will be managing and limiting our SSH access, I ensured `ntpd` is up and active which handles the [TOTP](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) security ([Time-based One-time Password](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm)).
 
-{% highlight bash %}
+```bash
 # Check if the service is already installed! Normally it is NOT!
 service ntpd status
 
@@ -43,54 +43,54 @@ chkconfig ntpd on
 
 # Install NTP.
 yum -y install ntp
-{% endhighlight %}
+```
 
 [NTP](http://en.wikipedia.org/wiki/Network_Time_Protocol) and [NTPD](http://en.wikipedia.org/wiki/Ntpd) are two different things although have similar agenda. **D** in the end of **NTPD** stands for **daemon** which means it's a background process which handles the actual [NTP](http://en.wikipedia.org/wiki/Network_Time_Protocol).
 
 After following the above commands, let us head towards some compile and conquer steps.
 
-{% highlight bash %}
+```bash
 cd /opt
 wget https://google-authenticator.googlecode.com/files/libpam-google-authenticator-1.0-source.tar.bz2
 bunzip2 libpam-google-authenticator-1.0-source.tar.bz2
 tar -xvzf libpam-google-authenticator-1.0-source.tar
 cd libpam-google-authenticator-1.0
-{% endhighlight %}
+```
 
 After changing your directory to the extracted google-authentication directory, you should now compile and create install using ..
 
-{% highlight bash %}
+```bash
 make
 make install
-{% endhighlight %}
+```
 
 Now, go back to `~ root directory` using `cd ~` and run `google-authenticator` by running the command line ..
 
-{% highlight bash %}
+```bash
 google-authenticator
-{% endhighlight %}
+```
 
 Read and input your choices when it asks for **(y/N)** options, there are around 3-4 questions, I input **yes** on all of them. After the **first** *yes* input, google-authenticator provided me with vital information such as **secret key**, **validation codes** and **emergency scratch codes**. Copy them in a notepad or make a hard copy of it or whatever. The secret key and the emergency scratch codes are the most important ones, if you ask me!
 
 Append the line below at the **top** of the file `/etc/pam.d/sshd`. The orders matter. Use `nano` or `vim` editor.
 
-{% highlight bash %}
+```bash
 auth       required     pam_google_authenticator.so
-{% endhighlight %}
+```
 
 As we are authenticating the SSH access, edit `/etc/ssh/sshd_config` and change your options to
 
-{% highlight bash %}
+```bash
 PasswordAuthentication yes
 ChallengeResponseAuthentication yes
 UsePAM yes
-{% endhighlight %}
+```
 
 Restart `ssh` using 
 
-{% highlight bash %}
+```bash
 service sshd restart
-{% endhighlight %}
+```
 
 Now that we are all set, **do not** logout from the SSH yet. Open your smartphone, download Google Authenticator application from your application store ([iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8) or [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en)). I use android therefore, [play store](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en) for me. Now you can logout but don't forget to keep your phone **ready**!
 

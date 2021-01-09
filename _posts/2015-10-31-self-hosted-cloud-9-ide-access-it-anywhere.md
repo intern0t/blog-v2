@@ -49,17 +49,17 @@ I therefore decided to use Cloud9 IDE (Open Source) as my private IDE in CentOS 
 #### Preparing for the Cloud9 Installation.
 
 * wget 
-{% highlight bash %}
+```bash
 yum install wget
-{% endhighlight %}
+```
 
 * XZ-Library
-{% highlight bash %}
+```bash
 yum install xz-libs
-{% endhighlight %}
+```
 * Python 2.7.+ and included in your environment variable `PATH`.
 
-{% highlight bash %}
+```bash
 # Keep it clean.
 cd ~ && mkdir Downloads && cd Downloads
 
@@ -86,48 +86,48 @@ make altinstall
 
 # Add to $PATH variable.
 export PATH="/usr/local/bin:$PATH"
-{% endhighlight %}
+```
 
 * Github
-{% highlight bash %}
+```bash
 yum install git
-{% endhighlight %}
+```
 
 * Forever (Alternative to Screen)
-{% highlight bash %}
+```bash
 yum install forever
-{% endhighlight %}
+```
 
 * Clone the source
-{% highlight bash %}
+```bash
 cd ~
 git clone git://github.com/c9/core.git c9sdk
-{% endhighlight %}
+```
 
 #### Installation should be simple & easy as.
 
-{% highlight bash %}
+```bash
 cd c9sdk && scripts/install-sdk.sh
-{% endhighlight %}
+```
 
 If the process of your installation was clean and simple, you should be able to see the output in the end with a confirmation of the server setup and the URL with trailing port number where the IDE can be accessed.
 
 Port number is not that important if you are trying to keep your IDE private. The default port it is using right now for me is `:8181` therefore I added a new iptables rule to allow traffic to come to port `:8181` without any disturbance.
 
-{% highlight bash %}
+```bash
 # sudo iptables -A INPUT -p tcp --dport <YOUR_PORT> -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 8181 -j ACCEPT
-{% endhighlight %}
+```
 
 You can simply run your cloud IDE via.
 
-{% highlight bash %}
+```bash
 # If no port specified.
 forever start server.js -a username:password
 
 # If port specified.
 forever start server.js -p <PORT_NUMBER> -a username:password
-{% endhighlight %}
+```
 
 The `username:password` is for the IDE access, looks like a `.htpasswd` setup.
 
@@ -135,7 +135,7 @@ I did not bother configuring the reverse proxy port with my domain or a subdomai
 
 **C9/Core Github** has provided with the launch parameters for our ease.
 
-{% highlight bash %}
+```bash
 --settings       Settings file to use
 --help           Show command line options.
 -t               Start in test mode
@@ -150,14 +150,14 @@ I did not bother configuring the reverse proxy port with my domain or a subdomai
 --auth           Basic Auth username:password
 --collab         Whether to enable collab.
 --no-cache       Don't use the cached version of CSS
-{% endhighlight %}
+```
 
 #### Thing I learned -
 
 If you ran the server regularly with no special parameters, I suggest you to create a directory inside `./core` with the name `Workspaces` and launch the server again with the following command to have a better and clean directory to work in.
 
-{% highlight bash %}
+```bash
 forever start server.js -w Workspaces -a <Username>:<Password> :
-{% endhighlight %}
+```
 
 Enjoy & Happy Coding!

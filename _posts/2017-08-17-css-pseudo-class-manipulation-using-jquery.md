@@ -17,29 +17,29 @@ One way to get around this is by creating a class, applying the Pseudo class to 
 
 Let us take this piece of CSS code for example. If we try and use jQuery to manipulate the pseudo-class `:hover`, we will not be able to.
 
-{% highlight css %}
+```css
 .element{
     color: red;
 }
 .element:hover{
     color: blue;
 }
-{% endhighlight %}
+```
 
 Now by creating a class, we will be able to alter the state of our element.
 
-{% highlight css %}
+```css
 .element{
     color: red;
 }
 .element.onHover:hover{
     color: blue;
 }
-{% endhighlight %}
+```
 
 Using jQuery, we can simply toggle or add the class to our element accordingly.
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function(){
     $('.element').toggleClass('onHover');
     // or
@@ -47,4 +47,4 @@ $(document).ready(function(){
     // To Remove -
     $('.element').removeClass('onHover');
 });
-{% endhighlight %}
+```

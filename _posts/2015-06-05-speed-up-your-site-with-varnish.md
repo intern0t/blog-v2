@@ -21,20 +21,20 @@ I've [Ghost](https://ghost.org/) [**installed**](http://www.nepirates.com/succes
 
 There are the confirmations I made using Varnish cache in various situations.
 
-{% highlight bash %}
+```bash
 Varnish + Cloudflare                [Tested & Works]
 DDoS Proxy + Cloudflare             [Tested & Works]
 DDoS Proxy + Cloudflare + Varnish   [Tested & Works]
 Apache + Varnish                    [Tested & Works]
 Apache + Cloudflare + Varnish       [Tested & Works * for me!]
-{% endhighlight %}
+```
 
 Lets start off by firing our terminal and adding Varnish cache to our server's packet manager and installing Varnish.
 
-{% highlight bash %}
+```bash
 rpm --nosignature -i https://repo.varnish-cache.org/redhat/varnish-4.0.el6.rpm
 yum install varnish
-{% endhighlight %}
+```
 
 For me, before I installed Varnish, it was `Apache to Ghost` with reverse proxy from port `80` to Ghost's port `2368`.
 
@@ -50,30 +50,30 @@ Now that our server is using port `82` to listen to web traffic, you need to cha
 
 You need to change `VARNISH_LISTEN_PORT` using any text editor you prefer, I used `nano` therefore
 
-{% highlight bash %}
+```bash
 nano /etc/sysconfig/varnish
-{% endhighlight %}
-{% highlight php %}
+```
+```php
 # # Default address and port to bind to
 # # Blank address means all IPv4 and IPv6 interfaces, otherwise specify
 # # a host name, an IPv4 dotted quad, or an IPv6 address in brackets.
 # VARNISH_LISTEN_ADDRESS=
 VARNISH_LISTEN_PORT=80
-{% endhighlight %}
+```
 
 In the same file, you have the option to set whether you want Varnish to store the cache in the server **RAM** or in your **disk**. If you want to store the cache in your **disk**, change `VARNISH_STORAGE` to `file` **and/or** `malloc` to store the cache in your RAM. You need to make sure that you have an **adequate** amount of RAM.
 
-{% highlight bash %}
+```bash
 # Store the cache in your disk!
 # # Backend storage specification
 VARNISH_STORAGE="file,/var/lib/varnish/varnish_storage.bin,${VARNISH_STORAGE_SIZE}"
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 # Store the cache in your RAM!
 # # Backend storage specification
 VARNISH_STORAGE="malloc,${VARNISH_STORAGE_SIZE}"
-{% endhighlight %}
+```
 
 The disk storage of cache is superb if you have a SSD. I run on 512 MB RAM for the server that I am using to host this blog and many other websites, the RAM isn't adequate at all therefore, using disk cache for my server is working perfectly! I've **5 GB** of SSD available for this server so I set Varnish cache size allocation to **1 GB**.
 

@@ -13,7 +13,7 @@ When I first launched my [Ghost](https://ghost.org/) [blog](http://www.nepirates
 
 I used jQuery for this task as I have yet to explore the `PHP` usage in this blogging platform. This is the way I did it.
 
-{% highlight javascript %}
+```javascript
 // Handle all URLs - Prashant M. Shrestha - Needs more customization!
 var yourDomain = "prashant.me";
 
@@ -26,16 +26,16 @@ $("section.post-content a[href^='http://'], a[href^='https://']").click(function
         $(this).attr("target", "");
     }
 });
-{% endhighlight %}
+```
 I tested it and it worked great, I liked it, hope my readers like it too. It is a very simple **newbie** jQuery snippet as I am **not** that* good with jQuery yet. Simple `if-else` statements could easily get the work done! This can be done via. ternary conditional operator `(condition) ? <true> : <false>;` as well, one line code but keeping it simple, the way I like it!
 
 For those who **do not** know where to add this code, you can append it inside any `.js` file inside the `document.ready` function which can be found under `./public_html/content/themes/<theme-name>/assets/js/` I use the default [Casper](http://www.allghostthemes.com/casper/) theme so that's where you can find it if you are using the Ghost's **[default theme](http://www.allghostthemes.com/casper/)**.
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function () {
     /* here */
 });
-{% endhighlight %}
+```
 
 In order to keep my codes clean and to separate my codes and others, I created my own `.js` file and cramp my **messy** codes in there, it works! Here's the preview of my `js` directory. I created a `.js` file named `jLoader.js`.
 

@@ -58,15 +58,15 @@ When done setting up the Plex server and the hard drive, mount the hard drive. F
 
 For Linux `sudo mount /dev/s{b/c/d{0-9}} <Mount path>`  Once you know what node it is, you know what to write instead of `/dev/s{b/c{0-9}}`. Mount path can be wherever you want, I created a personal mount path at `~/Multimedia` therefore for me it would be
 
-{% highlight bash %}
+```bash
 sudo mount /dev/s{b/c/d{0-9}} ~/Multimedia
-{% endhighlight %}
+```
 
 Once you are done with setting up the media storage and installing the Plex server, run the Plex server using
 
-{% highlight bash %}
+```bash
 sudo service plexmediaserver start
-{% endhighlight %}
+```
 
 Now that our Plex server is up and running, let us now setup our actual Plex settings by going to `192.168.1.{Local Address}:32400/`. Sign up and Login using your Plex credentials and head over to **Settings > Web Tab > Player** and click **Show Advanced button**. 
 

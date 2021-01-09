@@ -15,18 +15,18 @@ We have probably seen the **Verified** tag in commits at least once in Github re
 
 Before generating a new GPG key, it is imperative for a person to check if he/she already has an existing GPG key. They can do so by executing the following command in their terminal.
 
-{% highlight bash %}
+```bash
 gpg --list-secret-keys --keyid-format LONG
-{% endhighlight %}
+```
 
 #### Generate a new GPG key
 
 Considering generating a new GPG key is pretty straightforward, we need to know that Github accepts GPG key of size `4096` bits. Another thing to take into consideration is the GPG's **version**, `gpg --version`. At the time of this writing, my versions of required libraries and modules were as follows.
 
-{% highlight plain %}
+```
 gpg (GnuPG) 2.2.4
 libgcrypt 1.8.1
-{% endhighlight %}
+```
 
 1. Execute `gpg --full-generate-key` in your terminal.
 2. Select default (1), `RSA and RSA (default)`.
@@ -40,14 +40,14 @@ libgcrypt 1.8.1
 
 You should see an output similar to this.
 
-{% highlight plain %}
+```
 /home/scarecr0w/.gnupg/pubring.kbx
 ----------------------------------
 sec   rsa4096/47E29D1BEAA33061 2018-10-28 [SC] [expires: 2020-10-27]
       1B77D86D64255B179FD5DDE747E29D1BEAA33061
 uid   [ultimate] Prashant Shrestha (Anonymous Github Email GPG) <intern0t@users.noreply.github.com>
 ssb   rsa4096/598E4AA9F1C7AE98 2018-10-28 [E] [expires: 2020-10-27]
-{% endhighlight %}
+```
 
 Take note of the 3rd line, `rsa4096/47E29D1BEAA33061` where `47E29D1BEAA33061` is our public GPG key ID.
 
@@ -55,9 +55,9 @@ Take note of the 3rd line, `rsa4096/47E29D1BEAA33061` where `47E29D1BEAA33061` i
 
 Once we have our GPG key ID, we now need to generate a private key that is accepted by Github to verify our GPG key ID which can be done so by the command below.
 
-{% highlight bash %}
+```bash
 gpg --armor --export 47E29D1BEAA33061
-{% endhighlight %}
+```
 
 Once it is done generating the private key, copy everything, including `-----BEGIN PGP PUBLIC KEY BLOCK-----` and `-----END PGP PUBLIC KEY BLOCK-----` and head over to Github's Personal Settings > [`SSH and GPG keys`](https://github.com/settings/keys) and add the block in there.
 
@@ -65,17 +65,17 @@ Once it is done generating the private key, copy everything, including `-----BEG
 
 Creating signed commits requires a bit of a set up in the cloned repository directory. Head to the directory and let `git` know that we are going to be signing our commits using the following command.
 
-{% highlight bash %}
+```bash
 git config --global user.signingkey 47E29D1BEAA33061
-{% endhighlight %}
+```
 
 ..or simply `git config user.signingkey 47E29D1BEAA33061` without `--global` parameter for repository specific GPG key.
 
 To test, make some changes in your local copy of your repository and commit your changes using the `-S` flag.
 
-{% highlight bash %}
+```bash
 git commit -S -am "Yay, signed message test."
-{% endhighlight %}
+```
 
 If everything went well, your signed and verified commit in Github should look similar to this.
 

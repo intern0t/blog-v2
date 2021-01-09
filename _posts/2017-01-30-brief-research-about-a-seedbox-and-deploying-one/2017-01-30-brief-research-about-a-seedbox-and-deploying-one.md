@@ -82,60 +82,60 @@ I wish to let my readers know that there are plenty of services out there which 
 
 Let us start with the preparation, I used **[CentOS](https://www.centos.org/")** for the operating system of my choice as I am a little experienced with it and it takes very less hard disk space because I used CentOS minimal x64 bit. Minimal is a no GUI system, full CLI, I was looking to save and **allocate** as much memory and disk space for the torrents rather than just the operating system. Deluge's repository is not available in CentOS by default therefore, let us reference it from Linux-Tech.
 
-{% highlight bash %}
+```bash
 nano /etc/yum.repos.d/linuxtech.repo
-{% endhighlight %}
+```
 
 Append `linuxtech.repo` file with the content provided below.
 
-{% highlight bash %}
+```bash
 [linuxtech]
 name=LinuxTECH 
 baseurl=http://pkgrepo.linuxtech.net/el6/release/ 
 enabled=1 
 gpgcheck=1 
 gpgkey=http://pkgrepo.linuxtech.net/el6/release/RPM-GPG-KEY-LinuxTECH.NET
-{% endhighlight %}
+```
 
 Let us prepare our machine for its transformation.
 
-{% highlight bash %}
+```bash
 sudo yum update -y
-{% endhighlight %}
+```
 
 Install [Deluge]("http://deluge-torrent.org/").
 
-{% highlight bash %}
+```bash
 yum install deluge-daemon deluge-web deluge-common deluge-images 
-{% endhighlight %}
+```
 
 For the **security** purposes, lets create a new user which has the access to Deluge.
 
-{% highlight bash %}
+```bash
 useradd --system --home /var/lib/deluge deluge 
-{% endhighlight %}
+```
 
 Before we do anything, let us **stop** our deluge service, if there's any running by default after installation.
 
-{% highlight bash %}
+```bash
 service deluge-daemon stop 
-{% endhighlight %}
+```
 
 A small edit in our `deluge-daemon` to start the `deluge-web` with the daemon, edit the file `/etc/init.d/deluge-daemon` and find the following.
 
-{% highlight bash %}
+```bash
 daemon --user deluge "$prog2 --ui web >/dev/null 2>&1 &"
-{% endhighlight %}
+```
 
 Comment it with `#` and append a newline and add the following.
 
-{% highlight bash %}
+```bash
 daemon --user deluge "$prog2 >/dev/null 2>&1 &"
-{% endhighlight %}
+```
 
 Which will **probably** result in something like this..
 
-{% highlight bash %}
+```bash
 start() { 
     echo -n $"Starting deluged service: " daemon --user deluge "$prog $OPTIONS" 
     RETVAL=$? 
@@ -147,25 +147,25 @@ start() {
     echo [ $RETVAL -eq 0 ] && touch $lockfile2 
     return $RETVAL 
 }
-{% endhighlight %}
+```
 
 That's it, didn't require much hard work until this point, I suppose?Let us fire up our Deluge.
 
-{% highlight bash %}
+```bash
 service deluge-daemon start
-{% endhighlight %}
+```
 
 Add `deluge-daemon` to run after reboot, for automation.
 
-{% highlight bash %}
+```bash
 chkconfig deluge-daemon on
-{% endhighlight %}
+```
 
 Your deluge's configuration files are located at `/var/lib/deluge/.config/deluge` by default which you can edit and make changes according to your needs.You can access your `deluge-web` from the port `8112` by default. If you wish to check, try it with your remote IP in your browser `http://<servers_ip>:8112`. You can edit it from the `web.conf` configuration file located at `/var/lib/deluge/.config/deluge/web.conf`.
 
-{% highlight bash %}
+```bash
 "port": 8112 # Change it to whatever you want!
-{% endhighlight %}
+```
 
 I had an output like this.
 
@@ -175,47 +175,47 @@ I had an output like this.
 
 I went a little further and tried to secure my machine as to limit the access of my Seedbox to the files I downloaded by creating a new user with different **home** directory. I enforced a password to my Deluge-WebUI and Two-Factor Authentication to my server which in result had 3 layers of security in total.Before making changes to our configs, stop the deluge-daemon.
 
-{% highlight bash %}
+```bash
 service deluge-daemon stop
-{% endhighlight %}
+```
 
 You can set your `deluge-daemon` and `deluge-web` password via. `web.conf` file, once again located at `/var/lib/deluge/.config/deluge`. Edit it with your favorite editor, I use `nano`.
 
-{% highlight bash %}
+```bash
 nano /var/lib/deluge/.config/deluge/web.conf # Or lets make it easier for later. 
 cd /var/lib/deluge/.config/deluge/ && nano web.conf 
-{% endhighlight %}
+```
 
 Find `"pwd_salt": "` and open notepad in your local machine. Append three newlines with three words of your choice. For me, it was ..
 
-{% highlight none %}
+```
 seedbox noninfectious knowledge 
-{% endhighlight %}
+```
 
 Now head over to [MD5Decrypt]("http://md5decrypt.net/en/") site and encrypt all three words, separately.
 
-{% highlight bash %}
+```bash
 seedbox : b92f5d4735c2739a20ad59ecc627202b
 noninfectious : 2cbbafef24ba50694281688da0b9bcc5
 knowledge : a542e9b744bedcfd874129ab0f98c4ff
-{% endhighlight %}
+```
 
 Concatenate all 3 hashes.
 
-{% highlight bash %}
+```bash
 b92f5d4735c2739a20ad59ecc627202b2cbbafef24ba50694281688da0b9bcc5a542e9b744bedcfd874129ab0f98c4ff 
 # MD5 the concatenated string
 482199df91c666fd898c12aee7979693
 # Add 8 random characters of your choice
 482199df91c666fd898c12aee7979693seedbox1
 # 40 in Length
-{% endhighlight %}
+```
 
 Head back to `web.conf` and replace the `psw_salt` value with the final hash we generated, `482199df91c666fd898c12aee7979693seedbox1`.Start the deluge-daemon.
 
-{% highlight bash %}
+```bash
 service deluge-daemon start
-{% endhighlight %}
+```
 
 > Go to the Deluge-WebUI at `:8112` and go to the Preferences > Interface and apply the password of your choice.
 
@@ -233,25 +233,25 @@ Head over to my old blog [**post**]("/two-factor-authentication-to-your-server-w
 
 Let's create a new user who has the access to our torrent directories.
 
-{% highlight bash %}
+```bash
 useradd -d /home/Seedbox seedbox
 # Password protect it
 passwd seedbox # Type in the password you desire for the user seedbox. seedboxtest
 # Lets not allow them to SSH to the server
 usermod -s /sbin/nologin seedbox
-{% endhighlight %}
+```
 
 I like organizing my files and directories therefore I created a good directory structure to store the torrent files, processing files and processed files.
 
-{% highlight bash %}
+```bash
 mkdir /home/Seedbox/{Torrents,Processed,Processing}
-{% endhighlight %}
+```
 
 If you wish to restrict the user even more, it can be done so as to allow the restriction to **Processed** directory.
 
-{% highlight bash %}
+```bash
 usermod -m -d /home/Seedbox/Processed seedbox
-{% endhighlight %}
+```
 
 That's about it for Jailing the user to a certain directory in order to refrain him from deviating from his action. We can't have adventurous people with access roaming around now, do we?
 
@@ -259,9 +259,9 @@ That's about it for Jailing the user to a certain directory in order to refrain 
 
 If your Seedbox is locally accessible, I don't see any problems with sharing the files between you and your Seedbox but if you have a remote Seedbox, hosted out of nowhere then I am pretty sure you would want to access the files in the future. That's when VSFTPD comes into play.VSFTPD is a FTP service for CentOS and other Linux distros.If you have your `deluge-daemon` running, I suggest you to stop it, not required but still.
 
-{% highlight bash %}
+```bash
 sudo yum install vsftpd
-{% endhighlight %}
+```
 
 Now, accessing the files through FTP is just a tip of the iceberg, securing it, another problem but we shall get there momentarily. Your vsftpd config files are located at `/etc/vsftpd/`
 
@@ -269,7 +269,7 @@ Now, accessing the files through FTP is just a tip of the iceberg, securing it, 
 
 I made couple changes to the `vsftpd.conf` file as to restrict access to everyone except one user `seedbox`. Depending on your necessities, do make changes to your configuration file. As for me, to only allow access to the user `seedbox`, my config settings are as follows.
 
-{% highlight bash %}
+```bash
 # Allow anonymous FTP? (Beware - allowed by default if you comment this out)
 anonymous_enable=NO
 
@@ -290,17 +290,17 @@ max_login_fails=1
 pam_service_name=vsftpd
 userlist_enable=NO
 tcp_wrappers=YES
-{% endhighlight %}
+```
 
 Now, let us add our user to our FTP group.
 
-{% highlight bash %}
+```bash
 useradd -G vsftpd seedbox
-{% endhighlight %}
+```
 
 You can definitely secure your FTP protocol using SSL/TLS handshakes which I am too lazy to write as this blog post is already too long therefore, I'll just post the configuration for it and procrastinate on explanations.
 
-{% highlight bash %}
+```bash
 # Using FTP over SSL/TLS 
 rsa_cert_file=/etc/ssl/seedbox.pem 
 rsa_private_key_file=/etc/ssl/seedbox.pem 
@@ -311,21 +311,21 @@ force_local_logins_ssl=YES
 ssl_tlsv1=YES ssl_sslv2=YES 
 ssl_sslv3=YES require_ssl_reuse=NO 
 ssl_ciphers=HIGH 
-{% endhighlight %}
+```
 
 If you do wish to use FTP over SSL/TLS, head over to `/etc/ssl/` or make a directory for it if it doesn't exist.
 
-{% highlight bash %}
+```bash
 mkdir /etc/ssl/
 # In order to generate single file certificate
 openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout /etc/ssl/seedbox.pem -out /etc/ssl/seedbox.pem
-{% endhighlight %}
+```
 
 Restart your `vsftpd` and start your `deluge-daemon`
 
-{% highlight bash %}
+```bash
 service vsftpd restart service deluge-daemon start 
-{% endhighlight %}
+```
 
 If you are a streamer and wish to use FTP over SSL/TLS, I am still researching on it as I tried to stream a video file in my iPad and had SSL enabled for `vsftpd`, I wasn't even able to list the directories properly. I can access the files via. Filezilla while SSL/TLS was enabled but not from the web or no direct connections, weird but what the hell right?Make this change in your Filezilla in order to effectively use FTP over SSL/TLS.
 
@@ -339,21 +339,21 @@ Go to your Deluge's WebUI > Preferences > Daemon > Check **Allow Remote Connecti
 
 In Transdrone, head over to Settings > Add new server > Add normal, custom server and follow the settings provided below.
 
-{% highlight bash %}
+```bash
 Name : My Seedbox(Whatever you want)
 Server type : Deluge 1.2+
 IP or host name : Seedbox's remote IP
 Username : seedbox (if you followed this tutorial!)
 Password : seedboxtest (if you followed this tutorial!)
 Deluge web password : Click the link below
-{% endhighlight %}
+```
 
 Everything stays default unless you wish changed it.
 
-{% highlight bash %}
+```bash
 Deluge-daemon port : 58846
 Deluge-WebUI port : 8112
-{% endhighlight %}
+```
 
 {% include lightcase.html name="pDDvg9c.png" alt="" local="true" %}
 {% include lightcase.html name="J0d7iH5.png" alt="" local="true" %}

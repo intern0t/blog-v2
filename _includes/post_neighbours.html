@@ -4,8 +4,9 @@
     <a
         href="{{ page.previous.url }}"
         title="{{ page.previous.title }}"
-        style="text-align: left;"
-        ><i class="fas fa-angle-left"></i> Previous Post</a
+        style="text-align: left"
+        >{{page.previous.title}} <br />
+        {{ page.next.date | date: "%d %b, %Y" }}</a
     >
     {% endif %}
     <!-- Next Post -->
@@ -13,8 +14,9 @@
     <a
         href="{{ page.next.url }}"
         title="{{ page.next.title }}"
-        style="text-align: right;"
-        >Next Post <i class="fas fa-angle-right"></i
-    ></a>
+        style="text-align: right"
+        >{{page.next.title}} <br />
+        {{ page.next.date | date: "%d %b, %Y" }}</a
+    >
     {% endif %}
 </section>

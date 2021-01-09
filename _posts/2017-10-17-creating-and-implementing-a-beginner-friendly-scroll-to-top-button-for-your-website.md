@@ -13,7 +13,7 @@ This scrolling feature seems to have quite an impact on the web surfers as there
 <!--excerpt-->
 Let us start with designing the button itself, a trigger in simple words. A component initialization first and then [SASS](http://sass-lang.com)/CSS to design the button.
 
-{% highlight html %}
+```html
 <!-- Scroll to TOP!
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <a class="toTop" href="#top" title="Scroll to Top!">
@@ -22,13 +22,13 @@ Let us start with designing the button itself, a trigger in simple words. A comp
         <!-- Thank you icomoon.io for awesome icons! -->
     </span>
 </a>
-{% endhighlight %}
+```
 
 Don't mind the comments, makes it easier for us later in the future if any changes are required. Moving onto SASS/CSS portion.
 
 #### SASS
 
-{% highlight scss %}
+```scss
 .toTop{
     width: 50px;
     height: 30px;
@@ -55,24 +55,24 @@ Don't mind the comments, makes it easier for us later in the future if any chang
         text-align: center;
     }
 }
-{% endhighlight %}
+```
 
 A little [mixin](http://sass-lang.com/guide#topic-6) to handle our `border-radius` in various browsers.
 
-{% highlight scss %}
+```scss
 @mixin border-left-radius(3px) {
     -webkit-border-bottom-left-radius: $radius;
     -webkit-border-top-left-radius: $radius;
     border-bottom-left-radius: $radius;
     border-top-left-radius: $radius;
 }
-{% endhighlight %}
+```
 
 #### CSS
 
 This plain CSS is for those who are not familiar with SASS Preprocessor.
 
-{% highlight css %}
+```css
 .toTop{
     width: 50px;
     height: 30px;
@@ -100,7 +100,7 @@ This plain CSS is for those who are not familiar with SASS Preprocessor.
 .toTop span{
     text-align: center;
 }
-{% endhighlight %}
+```
 
 Customize and serve your website locally to check and see whether the design is favorable, once you are done customizing the button, we move onto the Javascript section.
 
@@ -110,7 +110,7 @@ In order to meet my simplicity purposes, I decided to use built-in [method](http
 
 >**Description**: Get the current vertical position of the scroll bar for the first element in the set of matched elements or set the vertical position of the scroll bar for every matched element.
 
-{% highlight javascript %}
+```javascript
 $(document).ready(function(){
     $(window).scroll(() => {
         if($(this).scrollTop()){
@@ -126,11 +126,11 @@ $(document).ready(function(){
         return false;
     });
 });
-{% endhighlight %}
+```
 
 You can also customize after how many pixels of hidden view do you want the button to be visible by adding `> HIDDEN_PIXELS` in the window's `.scroll()` event.
 
-{% highlight javascript %}
+```javascript
 var HIDDEN_PIXELS = 50;
 
 $(window).scroll(() => {
@@ -140,7 +140,7 @@ $(window).scroll(() => {
         $(".toTop").fadeOut();
     }
 });
-{% endhighlight %}
+```
 
 We used Javascript's `animate()` function to give our scrolling a smooth effect.
 
