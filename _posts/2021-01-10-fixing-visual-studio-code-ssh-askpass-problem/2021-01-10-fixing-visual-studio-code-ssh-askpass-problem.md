@@ -30,3 +30,6 @@ community/x11-ssh-askpass 1.2.4.1-7
 
 Considering I am currently using X-server, assuming the lightweightness and simplicity, I decided to go with `x11-ssh-askpass` which works great and fixes the error after restarting Visual Studio Code instance.
 
+{% include lightcase.html name="x11-askpass.png" alt="X11 Askpass, works great!" local="true" %}
+
+:smirk:
