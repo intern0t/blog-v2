@@ -6,7 +6,9 @@
         title="{{ page.previous.title }}"
         style="text-align: left"
         >{{page.previous.title}} <br />
-        {{ page.next.date | date: "%d %b, %Y" }}</a
+        <span class="post-neighbours-date" style="text-align: left"
+            >{{ page.previous.date | date: "%d %b, %Y" }}</span
+        ></a
     >
     {% endif %}
     <!-- Next Post -->
@@ -16,7 +18,9 @@
         title="{{ page.next.title }}"
         style="text-align: right"
         >{{page.next.title}} <br />
-        {{ page.next.date | date: "%d %b, %Y" }}</a
+        <span class="post-neighbours-date" style="text-align: right"
+            >{{ page.next.date | date: "%d %b, %Y" }}</span
+        ></a
     >
     {% endif %}
 </section>
