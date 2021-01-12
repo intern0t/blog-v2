@@ -30,14 +30,15 @@ layout: default
                     >{{ page.author }}</span
                 ></span
             >
-            {%- endif -%} {%- if page.words -%} •
+            {%- endif -%} -->
+            {%- if page.words -%}
             <span itemprop="readtime" itemscope
                 ><span itemprop="time"
                     >{{ page.words | divided_by: 200.00 | round: 2 | append: " minutes" |
                     prepend: "~" }}</span
                 ></span
             >
-            {%- endif -%} -->
+            {%- endif -%}
         </p>
         <!-- Print all tags that the posts were tagged with -->
         <!-- <section class="post-tags">
@@ -56,7 +57,12 @@ layout: default
     </div>
 
     <!-- Next and Previous posts. -->
-    {%- include post_neighbours.html -%} {%- if site.disqus.shortname -%} {%-
+    {%- if page.layout == "post" -%}
+    {%- include post_neighbours.html -%} 
+    {%- endif -%}
+
+    <!-- Disqus Integration -->
+    {%- if site.disqus.shortname -%} {%-
     include disqus_comments.html -%} {%- endif -%}
 
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

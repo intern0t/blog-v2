@@ -1,5 +1,17 @@
 [
     {
+        "title": "Stored-In",
+        "description": "Stored-In/StoredIn is a personal pastebin built with NodeJS and functions with bare-minimal API structured to receive, store, and respond with plain-text data.",
+        "demo": {
+            "images": [],
+            "previews": [],
+            "live": "https://storedin.me/",
+            "repository": "https://github.com/intern0t/storedin"
+        },
+        "used": ["NodeJS", "Javascript"],
+        "date": "Aug, 2020"
+    },
+    {
         "title": "SVG Weather Icons Library",
         "description": "A React component library for SVG weather icons. View icons @ https://intern0t.github.io/react-weather-icons/.",
         "demo": {
