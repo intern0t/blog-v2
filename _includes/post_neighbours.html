@@ -1,22 +1,29 @@
 <section class="post-neighbours">
-    <!-- Previous Post -->
-    {% if page.previous.url %}
-    <a
-        href="{{ page.previous.url }}"
-        title="{{ page.previous.title }}"
-        style="text-align: left"
-        >{{page.previous.title}} <br />
-        {{ page.next.date | date: "%d %b, %Y" }}</a
-    >
-    {% endif %}
-    <!-- Next Post -->
-    {% if page.next.url %}
-    <a
-        href="{{ page.next.url }}"
-        title="{{ page.next.title }}"
-        style="text-align: right"
-        >{{page.next.title}} <br />
-        {{ page.next.date | date: "%d %b, %Y" }}</a
-    >
-    {% endif %}
+    <span class="post-neighbours-read-more"><i class="far fa-file-alt"></i>Read More</span>
+    <div class="inner-wrapper">
+        <!-- Previous Post -->
+        {% if page.previous.url %}
+        <a
+            href="{{ page.previous.url }}"
+            title="{{ page.previous.title }}"
+            style="text-align: left"
+            >{{page.previous.title}} <br />
+            <span class="post-neighbours-date" style="text-align: left"
+                >{{ page.previous.date | date: "%d %b, %Y" }}</span
+            ></a
+        >
+        {% endif %}
+        <!-- Next Post -->
+        {% if page.next.url %}
+        <a
+            href="{{ page.next.url }}"
+            title="{{ page.next.title }}"
+            style="text-align: right"
+            >{{page.next.title}} <br />
+            <span class="post-neighbours-date" style="text-align: right"
+                >{{ page.next.date | date: "%d %b, %Y" }}</span
+            ></a
+        >
+        {% endif %}
+    </div>
 </section>
