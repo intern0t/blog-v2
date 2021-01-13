@@ -29,7 +29,7 @@ $(document).ready(function () {
         )
     } else {
         // If no values are set, just set dark as default.
-        currentTheme = 'dark'
+        currentTheme = 'light'
         localStorage.setItem('theme', currentTheme)
         document.documentElement.setAttribute('theme', currentTheme)
         // Change lightbulb icon.
@@ -118,13 +118,14 @@ $(document).ready(function () {
             currentTheme &&
             (currentTheme == 'dark' || currentTheme == 'light')
         ) {
-            if (currentTheme == 'dark') {
-                document.documentElement.setAttribute('theme', 'light')
-                localStorage.setItem('theme', 'light')
-            } else {
-                document.documentElement.setAttribute('theme', 'dark')
-                localStorage.setItem('theme', 'dark')
-            }
+            document.documentElement.setAttribute(
+                'theme',
+                currentTheme == 'dark' ? 'light' : 'dark'
+            )
+            localStorage.setItem(
+                'theme',
+                currentTheme == 'dark' ? 'light' : 'dark'
+            )
         } else {
             // Other value for our theme = !dark, !light. Set to default light.
             document.documentElement.setAttribute('theme', 'light')
@@ -149,7 +150,9 @@ $(document).ready(function () {
      * Enabling highlight label.
      */
     addEventListener('load', function () {
-        var highlights = document.querySelectorAll('div[class^="language-"], figure[class="highlight"')
+        var highlights = document.querySelectorAll(
+            'div[class^="language-"], figure[class="highlight"'
+        )
         Array.prototype.forEach.call(highlights, (block) => {
             var splitted = block.getAttribute('class').split(' ')
             var filtered = splitted.filter(
