@@ -551,6 +551,41 @@ body {
                                 }
                             }
                         }
+
+                        // Search Page styling
+                        .search {
+                            @include Flex(column);
+
+                            &-input {
+                                width: 100%;
+                                padding: 10px;
+                                @include Flex(column);
+                                margin: 0 0 20px 0;
+
+                                &-wrapper {
+                                    @include Flex(row);
+                                    align-items: center;
+                                    align-content: center;
+                                    justify-content: flex-end;
+                                    margin: 10px 0 0 0;
+
+                                    button {
+                                        margin-left: 10px;
+                                    }
+                                }
+                            }
+
+                            &-output {
+                                @include Flex(column);
+                                align-content: center;
+                                align-items: flex-start;
+                                justify-content: flex-start;
+
+                                a {
+                                    line-height: 53px;
+                                }
+                            }
+                        }
                     }
 
                     // Tags

@@ -3,8 +3,8 @@ layout: post
 title: "Enabling full screen video in Firefox to float the window in i3wm." 
 author: Prashant Shrestha 
 date: 2021-01-09 15:18:14 -400 
-categories: i3wm
-tags: firefox browser i3 i3wm float style config pip pip-mode
+categories: linux
+tags: firefox browser i3 i3wm float style config pip pip-mode linux
 words: 292
 ---
 
