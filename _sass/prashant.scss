@@ -161,6 +161,11 @@ body {
                     li {
                         margin-right: 25px;
 
+                        @include breakpoint(xs) {
+                            flex: 1;
+                            margin: 0;
+                        }
+
                         a,
                         a:visited {
                             letter-spacing: 0.5px;
@@ -169,9 +174,20 @@ body {
                             padding: 7px 10px;
                             @include borderRadius(3px);
 
+                            @include breakpoint(xs) {
+                                @include Flex(column);
+                                align-content: center;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
                             .fas,
                             .far {
                                 margin-right: 5px;
+
+                                @include breakpoint(xs) {
+                                    margin-bottom: 10px;
+                                }
                             }
                         }
 
