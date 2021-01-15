@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // What a pain, might move to vanilla JS.
-    $.ajaxSetup({cache:false});
+    $.ajaxSetup({ cache: false })
 
     /* Images Lazy Load.
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -57,7 +57,7 @@ $(document).ready(function () {
 	https://css-tricks.com/snippets/jquery/smooth-scrolling/
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
     // Select all links with hashes
-    $('a[href*="#"]')
+    $('a[href^="#"]')
         // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
@@ -173,40 +173,66 @@ $(document).ready(function () {
     /**
      * Custom search page functions
      */
-    $(".clear").on('click', (e) => {
-        $(".search-input-text").val("");
-        $(".search-input-text").focus();
-        e.preventDefault();
-        return false;
-    });
+    $('button.clear').on('click', (e) => {
+        $('.search-input-text').val('')
+        $('.search-input-text').focus()
+        e.preventDefault()
+        return false
+    })
 
-    $(".search").on('click', (e) => {
-        let searchKey = $("input.search-input-text").val();
+    $('button.search').on('click', (e) => {
+        let searchKey = $('input.search-input-text').val()
 
         // Search key should have the criteria of length >= 3.
-        if(searchKey.length >= 3){
-            $.getJSON("search.json", function(data){
+        if (searchKey.length >= 3) {
+            $.getJSON('search.json', function (data) {
                 let searchResultsWithKey = data.filter((items) => {
-                    return items.title.toLowerCase().indexOf(searchKey.toLowerCase()) > 0
-                });
+                    return (
+                        items.title
+                            .toLowerCase()
+                            .indexOf(searchKey.toLowerCase()) > 0
+                    )
+                })
 
                 // Found the results.
-                if(searchResultsWithKey.length > 0){
-                    $(".search-output").empty().append(`<h5>Found ${searchResultsWithKey.length} results.`)
-                    searchResultsWithKey.map(results => {
-                        $(".search-output").append(
-                            '<a href="' + results.url + '">' + results.title + "</a>"
-                        );
+                if (searchResultsWithKey.length > 0) {
+                    $('.search-output')
+                        .empty()
+                        .append(
+                            `<h5>Found ${searchResultsWithKey.length} results.`
+                        )
+                    searchResultsWithKey.map((results) => {
+                        $('.search-output').append(
+                            '<a href="' +
+                                results.url +
+                                '">' +
+                                results.title +
+                                '</a>'
+                        )
                     })
-                }else{
-                    $(".search-output").empty().append("<h4>No blog posts found!</h4>")
+                } else {
+                    $('.search-output')
+                        .empty()
+                        .append('<h4>No blog posts found!</h4>')
                 }
-            });
+            })
         }
-        e.preventDefault();
-        return false;
-    });
+        e.preventDefault()
+        return false
+    })
 
+    $('input.search-input-text').keypress(function (e) {
+        if (e.which == 13) {
+            // Enter key
+            $('button.search').click()
+        }
+    })
+    $('input.search-input-text').keyup(function (e) {
+        if (e.which == 27) {
+            // Escape key
+            $('button.clear').click()
+        }
+    })
 
     console.log('OK!')
 })
