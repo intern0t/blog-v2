@@ -1,4 +1,9 @@
-$(document).ready(function () {
+/**
+ * Copyright (c) Prashant Shrestha
+ * Developer: Prashant Shrestha (www.prashant.me)
+ */
+
+$(window).on('load', function () {
     // What a pain, might move to vanilla JS.
     $.ajaxSetup({ cache: false })
 
@@ -46,12 +51,6 @@ $(document).ready(function () {
             currentTheme == 'light' ? 'Enable dark mode.' : 'Enable light mode.'
         )
     }
-
-    /* Image Lightbox Initialization
-	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-    $("a[data-rel^='lightcase']").lightcase({
-        maxWidth: '100%',
-    })
 
     /* Smooth Scroll to anchor.
 	https://css-tricks.com/snippets/jquery/smooth-scrolling/
@@ -234,5 +233,11 @@ $(document).ready(function () {
         }
     })
 
-    console.log('OK!')
+    /* Image Lightbox Initialization
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    $("a[data-rel^='lightcase']").lightcase({
+        maxWidth: '100%',
+    })
+
+    console.log('Loaded!')
 })
