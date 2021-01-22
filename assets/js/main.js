@@ -8,7 +8,7 @@ $(window).on('load', function () {
     $.ajaxSetup({ cache: false })
 
     /* Images Lazy Load.
-	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
     const observer = lozad('.lazy', {
         loaded: (el) => {
             el.src = el.dataset.src
@@ -151,10 +151,10 @@ $(window).on('load', function () {
     /**
      * Enabling highlight label.
      */
-    addEventListener('load', function () {
-        var highlights = document.querySelectorAll(
-            'div[class^="language-"], figure[class="highlight"'
-        )
+    var highlights = document.querySelectorAll(
+        'div[class^="language-"], figure[class="highlight"'
+    )
+    if (highlights.length > 0) {
         Array.prototype.forEach.call(highlights, (block) => {
             var splitted = block.getAttribute('class').split(' ')
             var filtered = splitted.filter(
@@ -167,71 +167,73 @@ $(window).on('load', function () {
             languageLabel.innerHTML = language
             block.appendChild(languageLabel)
         })
-    })
+    }
 
     /**
      * Custom search page functions
      */
-    $('button.clear').on('click', (e) => {
-        $('.search-input-text').val('')
-        $('.search-input-text').focus()
-        e.preventDefault()
-        return false
-    })
+    if (/search/.test(window.location.href)) {
+        $('button.clear').on('click', (e) => {
+            $('.search-input-text').val('')
+            $('.search-input-text').focus()
+            e.preventDefault()
+            return false
+        })
 
-    $('button.search').on('click', (e) => {
-        let searchKey = $('input.search-input-text').val()
+        $('button.search').on('click', (e) => {
+            let searchKey = $('input.search-input-text').val()
 
-        // Search key should have the criteria of length >= 3.
-        if (searchKey.length >= 3) {
-            $.getJSON('search.json', function (data) {
-                let searchResultsWithKey = data.filter((items) => {
-                    return (
-                        items.title
-                            .toLowerCase()
-                            .indexOf(searchKey.toLowerCase()) > 0
-                    )
-                })
-
-                // Found the results.
-                if (searchResultsWithKey.length > 0) {
-                    $('.search-output')
-                        .empty()
-                        .append(
-                            `<h5>Found ${searchResultsWithKey.length} results.`
-                        )
-                    searchResultsWithKey.map((results) => {
-                        $('.search-output').append(
-                            '<a href="' +
-                                results.url +
-                                '">' +
-                                results.title +
-                                '</a>'
+            // Search key should have the criteria of length >= 3.
+            if (searchKey.length >= 3) {
+                $.getJSON('search.json', function (data) {
+                    let searchResultsWithKey = data.filter((items) => {
+                        return (
+                            items.title
+                                .toLowerCase()
+                                .indexOf(searchKey.toLowerCase()) > 0
                         )
                     })
-                } else {
-                    $('.search-output')
-                        .empty()
-                        .append('<h4>No blog posts found!</h4>')
-                }
-            })
-        }
-        e.preventDefault()
-        return false
-    })
 
-    $('input.search-input-text').keypress(function (e) {
-        if (e.which == 13) {
-            // Enter key
-            $('button.search').click()
-        }
-    })
-    $('input.search-input-text').keyup(function (e) {
-        if (e.which == 27) {
-            // Escape key
-            $('button.clear').click()
-        }
-    })
+                    // Found the results.
+                    if (searchResultsWithKey.length > 0) {
+                        $('.search-output')
+                            .empty()
+                            .append(
+                                `<h5>Found ${searchResultsWithKey.length} results.`
+                            )
+                        searchResultsWithKey.map((results) => {
+                            $('.search-output').append(
+                                '<a href="' +
+                                    results.url +
+                                    '">' +
+                                    results.title +
+                                    '</a>'
+                            )
+                        })
+                    } else {
+                        $('.search-output')
+                            .empty()
+                            .append('<h4>No blog posts found!</h4>')
+                    }
+                })
+            }
+            e.preventDefault()
+            return false
+        })
+
+        $('input.search-input-text').keypress(function (e) {
+            if (e.which == 13) {
+                // Enter key
+                $('button.search').click()
+            }
+        })
+        $('input.search-input-text').keyup(function (e) {
+            if (e.which == 27) {
+                // Escape key
+                $('button.clear').click()
+            }
+        })
+    }
 
     /* Image Lightbox Initialization
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
