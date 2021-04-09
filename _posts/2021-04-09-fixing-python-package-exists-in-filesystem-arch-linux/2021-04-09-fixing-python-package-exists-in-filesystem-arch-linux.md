@@ -5,7 +5,7 @@ author: Prashant Shrestha
 date:   2021-04-09 12:03:23 -400
 categories: linux
 tags: linux pacman yay update arch build filesystem python pip package
-words: 2735
+words: 576
 ---
 
 While trying to update an existing built-from-source package, I ran into many warnings and eventually errors. I use `yay` to build and install packages from source when prebuilt packages are unavailable to install through `pacman`.
