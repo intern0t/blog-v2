@@ -2,7 +2,8 @@
 layout: post
 title: "Creating an animated News/Announcements ticker using CSS and jQuery."
 author: Prashant Shrestha 
-date: 2018-03-03 12:57:27 -500 
+date: 2018-03-03 12:57:27 -500
+permalink: /news-ticker/
 categories: development
 tags: jquery scss news announcements ticker animated web html codepen
 ---
