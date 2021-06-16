@@ -7,7 +7,35 @@ permalink: /library/
 <div markdown="1">
 > What I have enlisted and compiled here are the libraries and references that I have used and found useful for my future references. Every content listed on this **particular** page is **not** owned by me and are linked directly to the source and will be constantly updated.
 
-#### <i class="fas fa-layer-group"></i> **Computer Science, [Practices](/cs-practice/)**
+#### <span class="fas fa-layer-group"></span> **Academics**
+
+-   Mathematics
+	1. [Applied Statistics and Probability for Engineers 6E.](https://www.amazon.com/Applied-Statistics-Probability-Engineers-Montgomery/dp/1118539710) by Montgomery & Runger <span class="fas fa-book" title="Completed, Jan-May (STAT 344) Spring 2018"></span>
+-   Computer Science
+	1. [Data Structures & Problem Solving Using Java - 4th Edition](https://www.amazon.com/Data-Structures-Problem-Solving-Using-dp-0321541405/dp/0321541405/ref=mt_paperback?_encoding=UTF8&me=&qid=) by Mark Allen Weiss. <span class="fas fa-book" title="Completed, May-Jun Summer 2019"></span>
+	2. Intro to Artificial Intelligence (CS 480)
+		- [Artificial Intelligence: Foundations of Computational Agents: 2nd Edition](https://artint.info/2e/html/ArtInt2e.html) by David L. Poole and Alan K. Mackworth. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+		- [Artificial Intelligence - A Modern Approach: Third Edition (Int. Edition)](https://www.amazon.com/Artificial-Intelligence-Approach-Stuart-Russell/dp/9332543518/ref=sr_1_4?dchild=1&keywords=Artificial+Intelligence+A+Modern+Approach+2nd+Edition&qid=1608939378&s=books&sr=1-4) by Stuart J. Russell and Peter Norvig. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
+	3. [The C Programming Language: 2nd Edition](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) by Kernighan/Ritchie. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+	4. Database Concepts (CS 450)
+		- [Fundamentals of Database Systems - 7th Edition](https://www.amazon.com/Fundamentals-Database-Systems-Ramez-Elmasri/dp/0133970779/ref=sr_1_1?dchild=1&keywords=Fundamentals+of+Database+Systems+-+7th+Edition&qid=1608939746&s=books&sr=1-1) by Ramez Elmasri & Shamkant Navathe. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+		- [ORACLE 10g Programming: A Primer](https://www.amazon.com/Oracle-10g-Programming-Rajshekhar-Sunderraman/dp/0321463048/ref=sr_1_1?dchild=1&keywords=ORACLE+10g+Programming%3A+A+Primer&qid=1608939826&s=books&sr=1-1) by Rajshekhar Sunderraman. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+		- [An Introduction to Database Systems (v. 1) 6th Edition]() by C. J. Date. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
+	5. [Computer Science Illuminated 7th Edition](https://www.amazon.com/Computer-Science-Illuminated-Nell-Dale/dp/1284155617/ref=sr_1_1?crid=1W4PH5NUG026P&dchild=1&keywords=computer+science+illuminated+7th+edition&qid=1608940148&s=books&sprefix=computer+science+illu%2Cstripbooks%2C182&sr=1-1) by Nell Dale & John Lewis. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
+	6. Analysis of Algorithms (CS 483)
+        - [Introduction to the Design and Analysis of Algorithms - 3rd Edition](https://www.amazon.com/Introduction-Design-Analysis-Algorithms-3rd/dp/0132316811) by Anany Levitin. <span class="fas fa-book" title="Completed, - Jan-May Spring 2021"></span>
+        - [Introduction to Algorithms - 3rd Edition](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844) by Thomas H. Cormen. **Self-study**, *Not in Curriculum* <span class="fas fa-book-open" title="Currently Reading - Jan-* Spring 2021"></span>
+	7. Computer Systems and Programming (CS 367)
+       - [Computer Systems: A Programmer's Perspective - 3rd Edition (US Edition)](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X) by Randal Bryant (Author), David O'Hallaron (Author).<span class="fas fa-book" title="Completed - Jan-May Spring 2021"></span>
+       - [Computer Systems: A Programmer's Perspective, 3 Edition Paperback – January 1, 2016](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3-dp-9332573905/dp/9332573905/ref=mt_other?_encoding=UTF8&me=&qid=) by David R. O'Hallaron Randal E. Bryant (Author). **Self-study**, *Not in Curriculum* <span class="fas fa-book" title="Completed - Jan-May Spring 2021"></span>
+	8. Mobile Application Development (CS 477)
+		- [Android App Development - 1st Edition](https://www.amazon.com/Android-App-Development-Herv%C3%A9-Franceschi/dp/1284092127) by Hervé J. Franceschi. <span class="fas fa-book-open" title="Currently Reading - Jun-Dec, Summer-Fall 2021"></span>
+- Software Engineering
+  1. Web Development (SWE 432)
+	- [Prioritizing Web Usability - 1st Edition](https://www.amazon.com/exec/obidos/ASIN/0321350316/useitcomusablein/ref=nosim) by Jakob Nielsen & Hoa Loranger. <span class="fas fa-book" title="Completed - Jan-May Spring 2021"></span>
+	- [Programming the World Wide Web - 8th Edition](https://www.amazon.com/Programming-World-Wide-Web-8th-dp-0133775984/dp/0133775984/ref=dp_ob_title_bk) by Robert Sebesta. <span class="fas fa-book" title="Completed - Jan-May Spring 2021"></span>
+
+#### <i class="fas fa-layer-group"></i> **Computer Science (Supplemental Readings)**
 
 -   General
 	1. [The Philosophy of Computer Science](https://plato.stanford.edu/entries/computer-science)
@@ -61,31 +89,6 @@ permalink: /library/
 		- Multiple series available from the author.
 -   Application Development
 	1. [React Native in Action](https://www.manning.com/books/react-native-in-action) by Nader Dabit. <span class="fas fa-book" title="Completed, October 11, 2019"></span>
-
-#### <span class="fas fa-layer-group"></span> **Academics**
-
--   Mathematics
-	1. [Applied Statistics and Probability for Engineers 6E.](https://www.amazon.com/Applied-Statistics-Probability-Engineers-Montgomery/dp/1118539710) by Montgomery & Runger <span class="fas fa-book" title="Completed, Jan-May (STAT 344) Spring 2018"></span>
--   Computer Science
-	1. [Data Structures & Problem Solving Using Java - 4th Edition](https://www.amazon.com/Data-Structures-Problem-Solving-Using-dp-0321541405/dp/0321541405/ref=mt_paperback?_encoding=UTF8&me=&qid=) by Mark Allen Weiss. <span class="fas fa-book" title="Completed, May-Jun Summer 2019"></span>
-	2. Intro to Artificial Intelligence (CS 480)
-		- [Artificial Intelligence: Foundations of Computational Agents: 2nd Edition](https://artint.info/2e/html/ArtInt2e.html) by David L. Poole and Alan K. Mackworth. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
-		- [Artificial Intelligence - A Modern Approach: Third Edition (Int. Edition)](https://www.amazon.com/Artificial-Intelligence-Approach-Stuart-Russell/dp/9332543518/ref=sr_1_4?dchild=1&keywords=Artificial+Intelligence+A+Modern+Approach+2nd+Edition&qid=1608939378&s=books&sr=1-4) by Stuart J. Russell and Peter Norvig. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
-	3. [The C Programming Language: 2nd Edition](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628) by Kernighan/Ritchie. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
-	4. Database Concepts (CS 450)
-		- [Fundamentals of Database Systems - 7th Edition](https://www.amazon.com/Fundamentals-Database-Systems-Ramez-Elmasri/dp/0133970779/ref=sr_1_1?dchild=1&keywords=Fundamentals+of+Database+Systems+-+7th+Edition&qid=1608939746&s=books&sr=1-1) by Ramez Elmasri & Shamkant Navathe. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
-		- [ORACLE 10g Programming: A Primer](https://www.amazon.com/Oracle-10g-Programming-Rajshekhar-Sunderraman/dp/0321463048/ref=sr_1_1?dchild=1&keywords=ORACLE+10g+Programming%3A+A+Primer&qid=1608939826&s=books&sr=1-1) by Rajshekhar Sunderraman. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
-		- [An Introduction to Database Systems (v. 1) 6th Edition]() by C. J. Date. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span> - *Not in curriculum!*
-	5. [Computer Science Illuminated 7th Edition](https://www.amazon.com/Computer-Science-Illuminated-Nell-Dale/dp/1284155617/ref=sr_1_1?crid=1W4PH5NUG026P&dchild=1&keywords=computer+science+illuminated+7th+edition&qid=1608940148&s=books&sprefix=computer+science+illu%2Cstripbooks%2C182&sr=1-1) by Nell Dale & John Lewis. <span class="fas fa-book" title="Completed, Aug-Dec Fall 2020"></span>
-	6. Analysis of Algorithms (CS 483)
-        - [Introduction to the Design and Analysis of Algorithms - 3rd Edition](https://www.amazon.com/Introduction-Design-Analysis-Algorithms-3rd/dp/0132316811) by Anany Levitin. <span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
-        - [Introduction to Algorithms - 3rd Edition](https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844) by Thomas H. Cormen. **Self-study**, *Not in Curriculum* <span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
-	7. Computer Systems and Programming (CS 367)
-       - [Computer Systems: A Programmer's Perspective - 3rd Edition (US Edition)](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X) by Randal Bryant (Author), David O'Hallaron (Author).<span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
-       - [Computer Systems: A Programmer's Perspective, 3 Edition Paperback – January 1, 2016](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3-dp-9332573905/dp/9332573905/ref=mt_other?_encoding=UTF8&me=&qid=) by David R. O'Hallaron Randal E. Bryant (Author). **Self-study**, *Not in Curriculum* <span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
-- Software Engineering
-	1. [Prioritizing Web Usability - 1st Edition](https://www.amazon.com/exec/obidos/ASIN/0321350316/useitcomusablein/ref=nosim) by Jakob Nielsen & Hoa Loranger. <span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
-	2. [Programming the World Wide Web - 8th Edition](https://www.amazon.com/Programming-World-Wide-Web-8th-dp-0133775984/dp/0133775984/ref=dp_ob_title_bk) by Robert Sebesta. <span class="fas fa-book-open" title="Currently Reading - Jan-May Spring 2021"></span>
 
 #### <span class="fas fa-layer-group"></span> **Competitive Programming**
 
