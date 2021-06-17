@@ -190,7 +190,7 @@ $(window).on('load', function () {
                         return (
                             items.title
                                 .toLowerCase()
-                                .indexOf(searchKey.toLowerCase()) > 0
+                                .indexOf(searchKey.toLowerCase()) > -1
                         )
                     })
 
