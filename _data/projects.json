@@ -5,7 +5,7 @@
         "demo": {
             "images": [],
             "previews": [],
-            "live": "https://paste.prashant.me/",
+            "live": "https://storedin.herokuapp.com/",
             "repository": "https://github.com/intern0t/storedin"
         },
         "used": ["NodeJS", "Javascript"],
