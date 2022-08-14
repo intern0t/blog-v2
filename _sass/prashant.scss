@@ -642,9 +642,10 @@ body {
                         position: relative;
 
                         &-read-more {
+                            width: 75px;
                             position: absolute;
                             top: -11px;
-                            margin-left: 47%;
+                            margin-left: calc(50% - calc(75px / 2));
                             background-color: var(--fontColorRegular);
                             padding: 5px 8px;
                             color: var(--backgroundColor);
