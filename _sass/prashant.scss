@@ -40,6 +40,7 @@ $globalFontSize: 15px;
     --paginationBorder: var(--quoteBorderColor);
     --toTop: rgba(0, 0, 0, 0.2);
     --toggleColor: var(--fontColorHomeLink);
+    --highlight-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
 }
 
 [theme='dark'] {
@@ -62,6 +63,7 @@ $globalFontSize: 15px;
     --paginationBorder: rgba(255, 255, 255, 0.3);
     --toTop: rgba(255, 255, 255, 0.2);
     --toggleColor: var(--foregroundColor);
+    --highlight-box-shadow: none;
 }
 
 * {
@@ -217,27 +219,15 @@ body {
                         @include Flex(column);
                         justify-content: space-between;
                         margin: 25px 0;
+                        align-items: flex-start;
                     }
                     @include breakpoint(sm) {
                         @include Flex(row);
                         justify-content: space-between;
                         margin: 25px 0;
+                        align-items: baseline;
                     }
-                    align-items: center;
                     flex-wrap: wrap;
-
-                    .post-caption {
-                        position: absolute;
-                        margin-left: -20px;
-                        font-size: 58px;
-                        font-weight: 1000;
-                        opacity: 0.03;
-                        margin: -10px 0 0 -30px;
-                        color: var(--fontColorMeta);
-                        text-decoration: none;
-                        text-transform: none;
-                        z-index: 1;
-                    }
 
                     .post-link {
                         flex: 1;
@@ -251,6 +241,24 @@ body {
                         z-index: 9;
                         order: 2;
                         margin-left: 35px;
+                        position: relative;
+
+                        @include breakpoint(xs) {
+                            margin-left: 0;
+                        }
+
+                        .post-caption {
+                            position: absolute;
+                            margin-left: -20px;
+                            font-size: 58px;
+                            font-weight: 1000;
+                            opacity: 0.09;
+                            margin: -35px 0 0 -13px;
+                            color: var(--fontColorMeta);
+                            text-decoration: none;
+                            text-transform: none;
+                            z-index: 1;
+                        }
 
                         &:hover {
                             color: var(--linkColor);
@@ -259,7 +267,7 @@ body {
 
                     .post-meta {
                         @include breakpoint(xs) {
-                            margin: 2px 0 10px 5px;
+                            margin: 0 0 10px 0;
                         }
                         @include breakpoint(sm) {
                             margin: 2px 0 0 5px;
@@ -928,9 +936,9 @@ div[class^='highlighter-'] {
     color: var(--backgroundColor);
     padding: 10px;
     @include borderRadius(3px);
-    -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: var(--highlight-box-shadow);
+    -moz-box-shadow: var(--highlight-box-shadow);
+    box-shadow: var(--highlight-box-shadow);
 
     pre {
         overflow: auto;
@@ -946,6 +954,10 @@ div[class^='highlighter-'] {
             color: var(--codeColor);
             margin: 20px 0;
             word-wrap: break-word;
+        }
+
+        table {
+            background: none !important;
         }
     }
 }
