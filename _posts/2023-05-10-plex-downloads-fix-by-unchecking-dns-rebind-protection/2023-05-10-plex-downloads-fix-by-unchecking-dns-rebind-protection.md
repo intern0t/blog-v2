@@ -16,4 +16,4 @@ Adding an entry in my current router was not possible, however, adding an except
 
 {% include lightcase.html name="dns-rebind-protection-router-screenshot.png" alt="DNS Rebind Protection Router Screenshot" local="true" %}
 
-:party_popper:
+:smiley:
