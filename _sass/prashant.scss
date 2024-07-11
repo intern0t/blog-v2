@@ -41,6 +41,8 @@ $globalFontSize: 15px;
     --toTop: rgba(0, 0, 0, 0.2);
     --toggleColor: var(--fontColorHomeLink);
     --highlight-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.75);
+    --tag-background: rgb(76 86 154);
+    --tag-foreground: var(--backgroundColor);
 }
 
 [theme='dark'] {
@@ -64,6 +66,8 @@ $globalFontSize: 15px;
     --toTop: rgba(255, 255, 255, 0.2);
     --toggleColor: var(--foregroundColor);
     --highlight-box-shadow: none;
+    --tag-background: rgb(76 86 154);
+    --tag-foreground: var(--backgroundColor);
 }
 
 * {
@@ -359,6 +363,21 @@ body {
                                 //     var(--fontColorImportant);
                             }
                         }
+
+                        &-post-tags {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            &-tag {
+                                width: auto;
+                                margin: 0 5px;
+                                border-radius: 3px;
+                                padding: 5px 8px;
+                                background-color: var(--linkColor);
+                                color: var(--tag-foreground);
+                                font-size: calc(var(--fontSize) - 5px);
+                            }
+                        }
                     }
 
                     &-content {
@@ -470,6 +489,10 @@ body {
                                 text-decoration: none;
 
                                 &:first-child > img {
+                                    @include box-shadow(
+                                        var(--highlight-box-shadow)
+                                    );
+
                                     & {
                                         @include Flex(row);
                                         justify-content: center;

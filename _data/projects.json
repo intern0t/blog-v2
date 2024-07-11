@@ -1,5 +1,17 @@
 [
     {
+        "title": "Zero your Red Dot Sight (RDS)",
+        "description": "Simple online calculator to assist you with zero-ing your Red Dot Sight.",
+        "demo": {
+            "images": [],
+            "previews": [],
+            "live": "https://0rds.prashant.me/",
+            "repository": "https://github.com/intern0t/scope-calculator"
+        },
+        "used": ["ReactJS", "BlueprintJS"],
+        "date": "Feb, 2024"
+    },
+    {
         "title": "Soaring URLs (sURL)",
         "description": "sURL is a replication of URL shortening services focusing in constant time read operation using Key-value (NoSQL) data storage with SQLiteDict and developed using Python and Flask. For consistency and correctness purposes, sURL uses MD5 hashing to generate unique ID for the URLs.",
         "demo": {

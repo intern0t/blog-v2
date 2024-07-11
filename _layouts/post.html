@@ -41,11 +41,14 @@ layout: default
             {%- endif -%}
         </p>
         <!-- Print all tags that the posts were tagged with -->
-        <!-- <section class="post-tags">
-            {%- if page.tags -%}<i class="fas fa-tags"></i> {%- for tag in
-            page.tags -%}{{ tag | prepend: '`' | append: '`' | markdownify }}{%-
-            endfor -%}{%- endif -%}
-        </section> -->
+        
+        {%- if page.tags -%}
+        <section class="post-header-post-tags"> 
+            {%- for tag in page.tags -%}
+                <pre class="post-header-post-tags-tag"><i class="fas fa-tags"></i> {{ tag | upcase }}</pre>
+            {%- endfor -%}
+        </section>
+        {%- endif -%}
     </header>
 
     <div class="post-content e-content" itemprop="articleBody">
