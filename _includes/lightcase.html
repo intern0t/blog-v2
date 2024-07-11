@@ -1,9 +1,15 @@
-{% capture imagePath %}{{ include.name }}{% endcapture %}
-{% if include.local %}{% capture imagePath %}/{{ page.categories }}/{{ page.date | date: "%Y/%m/%d" }}/{{ include.name }}{% endcapture %}{% endif %}
-<a markdown="1" href="{{ imagePath }}" data-rel="lightcase"
+{% capture imagePath %}{{ include.name }}{% endcapture %} {% if include.local
+%}{% capture imagePath %}/{{ page.categories }}/{{ page.date | date: "%Y/%m/%d"
+}}/{{ include.name }}{% endcapture %}{% endif %}
+<a
+    markdown="1"
+    href="{{ imagePath }}"
+    data-rel="lightcase"
+    title="{{ include.alt }}"
     ><img
         src="{{ site.ph }}"
         alt="{{ include.alt }}"
         data-src="{{ imagePath }}"
         class="lazy fade"
+        title="{{ include.alt }}"
 /></a>

@@ -35,3 +35,9 @@
 @mixin borderRadius($radii) {
     border-radius: $radii;
 }
+
+@mixin box-shadow($prop) {
+    -webkit-box-shadow: $prop;
+    -moz-box-shadow: $prop;
+    box-shadow: $prop;
+}

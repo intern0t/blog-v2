@@ -4,7 +4,7 @@ title: "HTTP Status Code in Springboot API Endpoint."
 author: Prashant Shrestha 
 date: 2023-01-01 19:40:14 -400 
 categories: development 
-tags: spring sprintboot, 
+tags: spring sprintboot
 ---
 
 In order to specify HTTP Status Code in Spring API Endpoint's response, there seem to exist multiple options and workarounds.
