@@ -370,12 +370,12 @@ body {
 
                             &-tag {
                                 width: auto;
-                                margin: 0 5px;
+                                margin: 2px 3px;
                                 border-radius: 3px;
-                                padding: 5px 8px;
+                                padding: 4px 4px;
                                 background-color: var(--linkColor);
                                 color: var(--tag-foreground);
-                                font-size: calc(var(--fontSize) - 5px);
+                                font-size: calc(var(--fontSize) - 7px);
                             }
                         }
                     }
