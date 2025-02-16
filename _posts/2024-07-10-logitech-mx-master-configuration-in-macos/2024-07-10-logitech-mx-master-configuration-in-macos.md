@@ -38,4 +38,6 @@ Once you run `mos`, it'll stay in the status bar. Open Preferences for `mos` and
 
 {% include lightcase.html name="mos-preferences.png" alt="mos-preferences" local="true" %}
 
+{% include lightcase.html name="mos-advance-tab.png" alt="mos-advance-tab" local="true" %}
+
 No system restart needed.
