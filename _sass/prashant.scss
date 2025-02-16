@@ -150,6 +150,19 @@ body {
 
                 .site-theme-toggle {
                     color: var(--toggleColor);
+                    transition: box-shadow 0.1s ease-in-out;
+                    position: relative;
+
+                    &:hover {
+                        @include box-shadow(
+                            0 0 40px 12px var(--foregroundColor)
+                        );
+                    }
+
+                    .glow {
+                        position: absolute;
+                        border: 1px solid red;
+                    }
                 }
             }
 
